@@ -4,8 +4,7 @@
     {
         public long ForumThreadId { get; set; }
         public Guid ForumThreadGuid { get; set; }
-        public string Title { get; set; } = default!;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string Title { get; set; } = default!;        
         public string AuthorId { get; set; } = default!;
         public AppUser Author { get; set; } = default!;
         public int CategoryId { get; set; }

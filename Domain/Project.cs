@@ -9,7 +9,7 @@
         public string? RepoUrl { get; set; }
         public string? DemoUrl { get; set; }
         public bool IsPublished { get; set; } = true;
-        public int ProfileId { get; set; }
+        public long UserProfileId { get; set; }
         public UserProfile Profile { get; set; } = default!;
         public ICollection<ProjectTech> Techs { get; set; } = new List<ProjectTech>();
     }

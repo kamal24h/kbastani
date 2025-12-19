@@ -6,8 +6,8 @@
         public Guid SkillGuid { get; set; }
         public string Name { get; set; } = default!;
         public int Level { get; set; }  // 1..100
-        public int ProfileId { get; set; }
-        public UserProfile Profile { get; set; } = default!;
+        public long UserProfileId { get; set; }
+        public UserProfile UserProfile { get; set; } = default!;
     }
 
 }

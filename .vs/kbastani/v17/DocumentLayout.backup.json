@@ -3,32 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\kbast\\source\\repos\\kbastani\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kbast\\source\\repos\\kbastani\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\kbastani\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|solutionrelative:kbastani\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\mapper\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\mapper\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\projecttech.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\projecttech.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\dataaccess\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\dataaccess\\contract\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\contract\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\forumpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\forumpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\forumcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\forumcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\contract\\iblogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\contract\\iblogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\blogposttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\blogposttag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\kbastani\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|solutionrelative:kbastani\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\domain\\forumthread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\forumthread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\kbastani\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|solutionrelative:kbastani\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\kbastani\\controllers\\adminblogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|kbastani\\WebApp.csproj|solutionrelative:kbastani\\controllers\\adminblogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +62,125 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tag.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Tag.cs",
+              "RelativeDocumentMoniker": "Domain\\Tag.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Tag.cs",
+              "RelativeToolTip": "Domain\\Tag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:11:05.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Skill.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Skill.cs",
+              "RelativeDocumentMoniker": "Domain\\Skill.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Skill.cs",
+              "RelativeToolTip": "Domain\\Skill.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:10:40.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProjectTech.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ProjectTech.cs",
+              "RelativeDocumentMoniker": "Domain\\ProjectTech.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ProjectTech.cs",
+              "RelativeToolTip": "Domain\\ProjectTech.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:10:30.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ForumCategory.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumCategory.cs",
+              "RelativeDocumentMoniker": "Domain\\ForumCategory.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumCategory.cs",
+              "RelativeToolTip": "Domain\\ForumCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:10:23.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Comment.cs",
+              "RelativeDocumentMoniker": "Domain\\Comment.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Comment.cs",
+              "RelativeToolTip": "Domain\\Comment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:10:09.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BlogPostTag.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\BlogPostTag.cs",
+              "RelativeDocumentMoniker": "Domain\\BlogPostTag.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\BlogPostTag.cs",
+              "RelativeToolTip": "Domain\\BlogPostTag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:09:59.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BlogPost.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\BlogPost.cs",
+              "RelativeDocumentMoniker": "Domain\\BlogPost.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\BlogPost.cs",
+              "RelativeToolTip": "Domain\\BlogPost.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:09:11.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Project.cs",
+              "RelativeDocumentMoniker": "Domain\\Project.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\Project.cs",
+              "RelativeToolTip": "Domain\\Project.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:08:51.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ForumPost.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumPost.cs",
+              "RelativeDocumentMoniker": "Domain\\ForumPost.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumPost.cs",
+              "RelativeToolTip": "Domain\\ForumPost.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:08:41.803Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -62,89 +203,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAQwE4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-12-19T10:08:32.481Z",
+              "DocumentIndex": 10,
+              "Title": "ForumThread.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumThread.cs",
+              "RelativeDocumentMoniker": "Domain\\ForumThread.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Domain\\ForumThread.cs",
+              "RelativeToolTip": "Domain\\ForumThread.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:08:16.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Program.cs",
-              "RelativeDocumentMoniker": "kbastani\\Program.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Program.cs",
-              "RelativeToolTip": "kbastani\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "ForumController.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\ForumController.cs",
+              "RelativeDocumentMoniker": "kbastani\\Controllers\\ForumController.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\ForumController.cs",
+              "RelativeToolTip": "kbastani\\Controllers\\ForumController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAIA3wCQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T12:24:49.773Z",
+              "WhenOpened": "2025-12-19T11:04:49.136Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MapperProfile.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Mapper\\MapperProfile.cs",
-              "RelativeDocumentMoniker": "Service\\Mapper\\MapperProfile.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Mapper\\MapperProfile.cs",
-              "RelativeToolTip": "Service\\Mapper\\MapperProfile.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAQwBoAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "kbastani\\Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "kbastani\\Controllers\\BlogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T12:22:15.672Z"
+              "WhenOpened": "2025-12-19T11:02:51.506Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "DataAccess\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\UnitOfWork.cs",
-              "RelativeToolTip": "DataAccess\\UnitOfWork.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwCsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "AdminBlogController.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\AdminBlogController.cs",
+              "RelativeDocumentMoniker": "kbastani\\Controllers\\AdminBlogController.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\kbastani\\Controllers\\AdminBlogController.cs",
+              "RelativeToolTip": "kbastani\\Controllers\\AdminBlogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T12:18:28.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\Contract\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Contract\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\Contract\\IUnitOfWork.cs",
-              "RelativeToolTip": "DataAccess\\Contract\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T12:17:55.86Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IBlogPostService.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Contract\\IBlogPostService.cs",
-              "RelativeDocumentMoniker": "Service\\Contract\\IBlogPostService.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Contract\\IBlogPostService.cs",
-              "RelativeToolTip": "Service\\Contract\\IBlogPostService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T12:17:27.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BlogPostService.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\BlogPostService.cs",
-              "RelativeDocumentMoniker": "Service\\BlogPostService.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\BlogPostService.cs",
-              "RelativeToolTip": "Service\\BlogPostService.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAuwJAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T11:53:29.17Z"
+              "WhenOpened": "2025-12-19T11:02:42.629Z",
+              "EditorCaption": ""
             }
           ]
         }

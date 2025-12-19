@@ -14,17 +14,23 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     //private readonly IHttpContextAccessor _httpContextAccessor;
 
     /* Define a DbSet for each entity of the application */
-    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<BlogCategory> BlogCategories { get; set; }
+    public DbSet<BlogPost> BlogPosts { get; set; }
+    public DbSet<BlogPostTag> BlogPostTags { get; set; }
+    public DbSet<Comment> Comments { get; set; }
+    public DbSet<ForumCategory> ForumCategories { get; set; }
+    public DbSet<ForumPost> ForumPosts { get; set; }
+    public DbSet<ForumThread> ForumThreads { get; set; }
+    public DbSet<Skill> Skills { get; set; }
+    public DbSet<Tag> Tags { get; set; }
     public DbSet<Project> Projects { get; set; }
     public DbSet<ProjectTech> ProjectTechs { get; set; }
-    public DbSet<BlogPost> BlogPosts { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-
         base.OnModelCreating(modelBuilder);
-
 
         // Customize ASP.NET Core Identity table names and relationships if needed
         modelBuilder.Entity<AppUser>(b =>
@@ -73,10 +79,6 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
                 Description = "Administrator Role"
             });
        
-
-
-
-
 
         //modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
         //{

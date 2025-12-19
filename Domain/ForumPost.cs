@@ -7,7 +7,7 @@
         public string Body { get; set; } = default!;
         public string AuthorId { get; set; } = default!;
         public AppUser Author { get; set; } = default!;
-        public int ThreadId { get; set; }
+        public long ThreadId { get; set; }
         public ForumThread Thread { get; set; } = default!;
     }
 
