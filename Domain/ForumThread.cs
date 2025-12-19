@@ -1,0 +1,17 @@
+﻿namespace Domain
+{
+    public class ForumThread : BaseEntity
+    {
+        public long ForumThreadId { get; set; }
+        public Guid ForumThreadGuid { get; set; }
+        public string Title { get; set; } = default!;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string AuthorId { get; set; } = default!;
+        public AppUser Author { get; set; } = default!;
+        public int CategoryId { get; set; }
+        public ForumCategory Category { get; set; } = default!;
+        public bool IsLocked { get; set; }
+        public ICollection<ForumPost> Posts { get; set; } = new List<ForumPost>();
+    }
+
+}
