@@ -7,6 +7,24 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.env
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -48,10 +66,17 @@ CodeCoverage/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+
 # NUnit
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
-.vs/*
+
+# Github
+~/.vs/
+/.vs/
+.vs
+/WebAPP/RequestLog.txt
+/WebAPP/ResponseLog.txt
 
 
