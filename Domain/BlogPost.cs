@@ -15,7 +15,7 @@
         public AppUser Author { get; set; } = default!;
         public ICollection<Comment> Comments { get; set; } = [];
         public ICollection<BlogPostTag> Tags { get; set; } = [];
-        public long? BlogCategoryId { get; set; }
+        public long? CategoryId { get; set; }
         public BlogCategory? Category { get; set; }
     }
 

@@ -52,7 +52,7 @@ namespace WebApp.Controllers
             var comment = new Comment
             {
                 Body = body.Trim(),
-                BlogPostId = postId,
+                PostId = postId,
                 UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)!,
                 IsApproved = true // یا false در صورت نیاز به تایید
             };

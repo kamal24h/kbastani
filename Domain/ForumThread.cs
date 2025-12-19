@@ -7,7 +7,7 @@
         public string Title { get; set; } = default!;        
         public string AuthorId { get; set; } = default!;
         public AppUser Author { get; set; } = default!;
-        public int CategoryId { get; set; }
+        public long CategoryId { get; set; }
         public ForumCategory Category { get; set; } = default!;
         public bool IsLocked { get; set; }
         public ICollection<ForumPost> Posts { get; set; } = new List<ForumPost>();

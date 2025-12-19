@@ -78,7 +78,81 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
                 NormalizedName = "ADMIN",
                 Description = "Administrator Role"
             });
-       
+
+        modelBuilder.Entity<BlogPostTag>().HasKey(x => new { x.PostId, x.TagId });
+        modelBuilder.Entity<BlogPost>()
+            .HasIndex(p => p.Slug)
+            .IsUnique();
+        modelBuilder.Entity<BlogCategory>()
+            .HasIndex(c => c.Slug)
+            .IsUnique();
+        modelBuilder.Entity<ForumCategory>()
+            .HasIndex(c => c.Slug)
+            .IsUnique();
+
+        modelBuilder.Entity<Comment>(entity =>
+        {
+            entity.HasOne(d => d.Post)
+                  .WithMany(p => p.Comments)
+                  .HasForeignKey(d => d.PostId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<BlogPostTag>(entity =>
+        {
+            entity.HasOne(d => d.Post)
+                  .WithMany(p => p.Tags)
+                  .HasForeignKey(d => d.PostId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<BlogPost>(entity =>
+        {
+            entity.HasOne(d => d.Category)
+                  .WithMany(p => p.Posts)
+                  .HasForeignKey(d => d.CategoryId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<ForumPost>(entity =>
+        {
+            entity.HasOne(d => d.Thread)
+                  .WithMany(p => p.Posts)
+                  .HasForeignKey(d => d.ThreadId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<ForumThread>(entity =>
+        {
+            entity.HasOne(d => d.Category)
+                  .WithMany(p => p.Threads)
+                  .HasForeignKey(d => d.CategoryId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<Project>(entity =>
+        {
+            entity.HasOne(d => d.Profile)
+                  .WithMany(p => p.Projects)
+                  .HasForeignKey(d => d.UserProfileId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
+        modelBuilder.Entity<ProjectTech>(entity =>
+        {
+            entity.HasOne(d => d.Project)
+                  .WithMany(p => p.Techs)
+                  .HasForeignKey(d => d.ProjectId)
+                  .OnDelete(DeleteBehavior.NoAction)
+                  .IsRequired();
+        });
+
 
         //modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
         //{
@@ -329,8 +403,8 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
         //        .IsRequired();
         //});
 
-        
-        
+
+
         //modelBuilder.Entity<Unit>(entity =>
         //{
         //    entity.HasOne(d => d.Building)
