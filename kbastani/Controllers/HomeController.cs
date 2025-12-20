@@ -1,8 +1,9 @@
-using DataAccess;
+﻿using DataAccess;
 using DataAccess.Vms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using QuestPDF.Fluent;
 using System.Diagnostics;
 using WebApp.Helpers;
 using WebApp.Models;
@@ -43,10 +44,39 @@ namespace WebApp.Controllers
             return View(vm);
         }
 
-        public IActionResult Portfolio()
+        public async Task<IActionResult> ExportPdf()
         {
-            return View();
+            var vm = await BuildResumeViewModel();
+
+            var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+
+            var document = new ResumePdfDocument(vm, culture);
+            var pdfBytes = document.GeneratePdf();   // متد استاندارد تولید PDF
+
+            var fileName = culture == "fa" ? "رزومه.pdf" : "resume.pdf";
+
+            return File(pdfBytes, "application/pdf", fileName);
         }
+
+        private async Task<ResumeViewModel> BuildResumeViewModel()
+        {
+            return new ResumeViewModel
+            {
+                Skills = await _db.Skills.OrderByDescending(s => s.Level).ToListAsync(),
+                Projects = await _db.Projects.OrderByDescending(p => p.CreatedAt).ToListAsync(),
+                Experiences = await _db.Experiences.OrderByDescending(e => e.StartDate).ToListAsync(),
+                Educations = await _db.Educations.OrderByDescending(e => e.StartDate).ToListAsync(),
+
+                // اگر پروفایل را از جدول جدا می‌خوانی، اینجا لودش کن
+                FullNameFa = "کمال ...",
+                FullNameEn = "Kamal ...",
+                JobTitleFa = "توسعه‌دهنده ارشد ASP.NET Core",
+                JobTitleEn = "Senior ASP.NET Core Developer",
+                BioFa = "متن معرفی فارسی...",
+                BioEn = "English bio text..."
+            };
+        }
+
 
         public IActionResult Privacy()
         {
