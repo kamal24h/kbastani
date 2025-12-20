@@ -80,3 +80,6 @@ nunit-*.xml
 /WebAPP/ResponseLog.txt
 
 
+/.vs/kbastani/v17/.suo
+/.vs/kbastani/v17/DocumentLayout.backup.json
+/.vs/kbastani/v17/DocumentLayout.json
