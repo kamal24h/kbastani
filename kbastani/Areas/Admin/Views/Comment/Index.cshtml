@@ -20,12 +20,12 @@
         @foreach (var c in Model)
         {
             <tr class="border-b">
-                <td class="p-2">@c.UserName</td>
+                <td class="p-2">@c.User.UserName</td>
                 <td class="p-2">@c.Body</td>
-                <td class="p-2">@c.BlogPost.TitleEn</td>
+                <td class="p-2">@c.Post.TitleEn</td>
                 <td class="p-2">@c.CreatedAt.ToString("yyyy/MM/dd HH:mm")</td>
                 <td class="p-2">
-                    <form asp-action="Delete" asp-route-id="@c.Id" method="post">
+                    <form asp-action="Delete" asp-route-id="@c.CommentId" method="post">
                         <button class="text-red-600">Delete</button>
                     </form>
                 </td>
