@@ -1,0 +1,39 @@
+﻿@using Domain
+@model IEnumerable<Experience>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-4">Experience</h1>
+
+<a asp-action="Create" class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">New Experience</a>
+
+<table class="min-w-full bg-white rounded shadow">
+    <thead>
+        <tr class="border-b">
+            <th class="p-2">Job Title (EN)</th>
+            <th class="p-2">Company (EN)</th>
+            <th class="p-2">Period</th>
+            <th class="p-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr class="border-b">
+                <td class="p-2">@e.JobTitleEn</td>
+                <td class="p-2">@e.CompanyEn</td>
+                <td class="p-2">
+                    @e.StartDate.ToString("yyyy") -
+                    @(e.EndDate?.ToString("yyyy") ?? "Present")
+                </td>
+                <td class="p-2">
+                    <a asp-action="Edit" asp-route-id="@e.ExperienceId" class="text-blue-600">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@e.ExperienceId" method="post" class="inline">
+                        <button class="text-red-600 ml-2">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

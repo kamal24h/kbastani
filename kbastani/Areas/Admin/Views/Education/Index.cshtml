@@ -1,0 +1,38 @@
+﻿@using Domain
+@model IEnumerable<Education>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-4">Education</h1>
+
+<a asp-action="Create" class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">New Education</a>
+
+<table class="min-w-full bg-white rounded shadow">
+    <thead>
+        <tr class="border-b">
+            <th class="p-2">Degree (EN)</th>
+            <th class="p-2">University (EN)</th>
+            <th class="p-2">Period</th>
+            <th class="p-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr class="border-b">
+                <td class="p-2">@e.DegreeEn</td>
+                <td class="p-2">@e.UniversityEn</td>
+                <td class="p-2">
+                    @e.StartDate.ToString("yyyy") - @e.EndDate.ToString("yyyy")
+                </td>
+                <td class="p-2">
+                    <a asp-action="Edit" asp-route-id="@e.EducationId" class="text-blue-600">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@e.EducationId" method="post" class="inline">
+                        <button class="text-red-600 ml-2">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

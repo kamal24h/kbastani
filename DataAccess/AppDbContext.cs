@@ -26,6 +26,9 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<Project> Projects { get; set; }
     public DbSet<ProjectTech> ProjectTechs { get; set; }
     public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Experience> Experiences { get; set; }
+    public DbSet<Education> Educations { get; set; }
+    //public DbSet<Education> Educations => Set<Education>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

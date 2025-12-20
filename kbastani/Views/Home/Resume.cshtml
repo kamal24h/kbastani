@@ -1,0 +1,271 @@
+﻿
+@model ResumeViewModel
+@{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewData["Title"] = culture == "fa" ? "رزومه" : "Resume";
+}
+
+<div class="max-w-5xl mx-auto px-4 py-10">
+
+    <!-- Profile Header -->
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-12">
+
+        <!-- Profile Image -->
+        @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+        {
+            <img src="@Model.ProfileImagePath"
+                 class="w-40 h-40 rounded-full object-cover shadow-lg" />
+        }
+
+        <!-- Info -->
+        <div>
+            <h1 class="text-4xl font-bold">
+                @(culture == "fa" ? Model.FullNameFa : Model.FullNameEn)
+            </h1>
+
+            <p class="text-xl text-blue-600 mt-2">
+                @(culture == "fa" ? Model.JobTitleFa : Model.JobTitleEn)
+            </p>
+
+            <p class="text-gray-600 mt-4 leading-relaxed max-w-xl">
+                @(culture == "fa" ? Model.BioFa : Model.BioEn)
+            </p>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <h2 class="text-3xl font-bold mb-6">
+        @(culture == "fa" ? "مهارت‌ها" : "Skills")
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        @foreach (var s in Model.Skills)
+        {
+            <div>
+                <div class="flex justify-between mb-1">
+                    <span class="font-medium">
+                        @(culture == "fa" ? s.NameFa : s.NameEn)
+                    </span>
+                    <span class="text-gray-500">@s.Level%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded h-2">
+                    <div class="bg-blue-600 h-2 rounded" style="width:@s.Level%"></div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Experience -->
+    <h2 class="text-3xl font-bold mb-6">
+        @(culture == "fa" ? "سوابق کاری" : "Experience")
+    </h2>
+
+    <div class="border-l-4 border-blue-600 pl-6 space-y-10 mb-12">
+        @foreach (var e in Model.Experiences)
+        {
+            <div>
+                <h3 class="text-xl font-bold">
+                    @(culture == "fa" ? e.JobTitleFa : e.JobTitleEn)
+                </h3>
+
+                <p class="text-gray-600">
+                    @(culture == "fa" ? e.CompanyFa : e.CompanyEn)
+                </p>
+
+                <p class="text-sm text-gray-400">
+                    @e.StartDate.ToString("yyyy") -
+                    @(e.EndDate?.ToString("yyyy") ?? (culture == "fa" ? "اکنون" : "Present"))
+                </p>
+
+                <p class="mt-2 text-gray-700 leading-relaxed">
+                    @(culture == "fa" ? e.DescriptionFa : e.DescriptionEn)
+                </p>
+            </div>
+        }
+    </div>
+
+    <!-- Education -->
+    <h2 class="text-3xl font-bold mb-6">
+        @(culture == "fa" ? "سوابق تحصیلی" : "Education")
+    </h2>
+
+    <div class="border-l-4 border-green-600 pl-6 space-y-10 mb-12">
+        @foreach (var e in Model.Educations)
+        {
+            <div>
+                <h3 class="text-xl font-bold">
+                    @(culture == "fa" ? e.DegreeFa : e.DegreeEn)
+                </h3>
+
+                <p class="text-gray-600">
+                    @(culture == "fa" ? e.UniversityFa : e.UniversityEn)
+                </p>
+
+                <p class="text-sm text-gray-400">
+                    @e.StartDate.ToString("yyyy") - @e.EndDate.ToString("yyyy")
+                </p>
+
+                <p class="mt-2 text-gray-700 leading-relaxed">
+                    @(culture == "fa" ? e.DescriptionFa : e.DescriptionEn)
+                </p>
+            </div>
+        }
+    </div>
+
+    <!-- Projects -->
+    <h2 class="text-3xl font-bold mb-6">
+        @(culture == "fa" ? "پروژه‌ها" : "Projects")
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        @foreach (var p in Model.Projects)
+        {
+            <div class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+
+                @if (!string.IsNullOrEmpty(p.ImagePath))
+                {
+                    <img src="@p.ImagePath" class="w-full h-48 object-cover" />
+                }
+
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">
+                        @(culture == "fa" ? p.TitleFa : p.TitleEn)
+                    </h3>
+
+                    <p class="text-gray-600 mb-3">
+                        @(culture == "fa" ? p.DescriptionFa : p.DescriptionEn)
+                    </p>
+
+                    <div class="flex space-x-4">
+                        @if (!string.IsNullOrEmpty(p.ProjectUrl))
+                        {
+                            <a href="@p.ProjectUrl" target="_blank"
+                               class="text-blue-600 underline">Demo</a>
+                        }
+                        @if (!string.IsNullOrEmpty(p.GithubUrl))
+                        {
+                            <a href="@p.GithubUrl" target="_blank"
+                               class="text-gray-800 underline">GitHub</a>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+@* 
+@model ResumeViewModel
+@{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+}
+
+<h2 class="text-3xl font-bold mb-6">
+    @(culture == "fa" ? "سوابق کاری" : "Experience")
+</h2>
+
+<div class="border-l-4 border-blue-600 pl-6 space-y-8">
+
+    @foreach (var e in Model.Experiences)
+    {
+        <div>
+            <h3 class="text-xl font-bold">
+                @(culture == "fa" ? e.JobTitleFa : e.JobTitleEn)
+            </h3>
+            <p class="text-gray-600">
+                @(culture == "fa" ? e.CompanyFa : e.CompanyEn)
+            </p>
+            <p class="text-sm text-gray-400">
+                @e.StartDate.ToString("yyyy") -
+                @(e.EndDate?.ToString("yyyy") ?? (culture == "fa" ? "اکنون" : "Present"))
+            </p>
+            <p class="mt-2 text-gray-700">
+                @(culture == "fa" ? e.DescriptionFa : e.DescriptionEn)
+            </p>
+        </div>
+    }
+
+</div>
+
+<hr class="my-10" />
+
+<h2 class="text-3xl font-bold mb-6">
+    @(culture == "fa" ? "سوابق تحصیلی" : "Education")
+</h2>
+
+<div class="border-l-4 border-green-600 pl-6 space-y-8">
+
+    @foreach (var e in Model.Educations)
+    {
+        <div>
+            <h3 class="text-xl font-bold">
+                @(culture == "fa" ? e.DegreeFa : e.DegreeEn)
+            </h3>
+            <p class="text-gray-600">
+                @(culture == "fa" ? e.UniversityFa : e.UniversityEn)
+            </p>
+            <p class="text-sm text-gray-400">
+                @e.StartDate.ToString("yyyy") - @e.EndDate.ToString("yyyy")
+            </p>
+            <p class="mt-2 text-gray-700">
+                @(culture == "fa" ? e.DescriptionFa : e.DescriptionEn)
+            </p>
+        </div>
+    }
+
+</div>
+
+
+@foreach (var s in Model.Skills)
+{
+    <div class="mb-4">
+        <p class="font-bold">@s.NameEn</p>
+        <div class="w-full bg-gray-200 rounded h-2">
+            <div class="bg-blue-600 h-2 rounded" style="width:@s.Level%"></div>
+        </div>
+    </div>
+}
+
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    @foreach (var p in Model.Projects)
+    {
+        <div class="bg-white rounded shadow overflow-hidden">
+
+            @if (!string.IsNullOrEmpty(p.ImagePath))
+            {
+                <img src="@p.ImagePath" class="w-full h-48 object-cover" />
+            }
+
+            <div class="p-4">
+                <h2 class="text-xl font-bold mb-2">
+                    @(culture == "fa" ? p.TitleFa : p.TitleEn)
+                </h2>
+
+                <p class="text-gray-600 mb-3">
+                    @(culture == "fa" ? p.DescriptionFa : p.DescriptionEn)
+                </p>
+
+                <div class="flex space-x-4">
+                    @if (!string.IsNullOrEmpty(p.ProjectUrl))
+                    {
+                        <a href="@p.ProjectUrl" target="_blank" class="text-blue-600 underline">Demo</a>
+                    }
+                    @if (!string.IsNullOrEmpty(p.GithubUrl))
+                    {
+                        <a href="@p.GithubUrl" target="_blank" class="text-gray-800 underline">GitHub</a>
+                    }
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+</div> *@
