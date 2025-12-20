@@ -71,7 +71,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
             });
 
         // Optional: Add seed data (default admin role/user)
-        modelBuilder.Entity<AppRole>().HasData(new AppRole
+        modelBuilder.Entity<AppRole>().HasData(new AppRole()
             {
                 Id = "1",
                 Name = "Admin",

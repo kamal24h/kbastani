@@ -119,7 +119,7 @@ var services = scope.ServiceProvider;
 try
 {
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 
     await SeedData.InitializeAsync(userManager, roleManager);
 }

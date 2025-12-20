@@ -3,7 +3,7 @@ using Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.Areas.Admin.Controllers
+namespace WebApp.Controllers
 {
     public class AccountController : Controller
     {

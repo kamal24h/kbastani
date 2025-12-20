@@ -8,6 +8,14 @@ namespace Domain
     // Custom role class
     public class AppRole : IdentityRole
     {
+        public AppRole() : base()
+        {
+        }
+
+        public AppRole(string roleName) : base(roleName)
+        {
+        }
+
         // Add any extra role properties here
         public string? Description { get; set; }
     }
