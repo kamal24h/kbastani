@@ -29,7 +29,6 @@ namespace WebApp.Controllers
             _localizer = factory.Create(type);
         }
 
-
         public IActionResult Index()
         {
             ViewData["Message"] = _localizer["Welcome"];
