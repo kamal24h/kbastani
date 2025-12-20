@@ -5,19 +5,29 @@
     {
         public long BlogPostId { get; set; }
         public Guid BlogPostGuid { get; set; }
-        // عنوان
+        
+        // Titles
         public string TitleFa { get; set; } = default!;
         public string TitleEn { get; set; } = default!;
-        // خلاصه
+
+        // Summaries
         public string SummaryFa { get; set; } = default!;
         public string SummaryEn { get; set; } = default!;
-        // متن
+
+        // Content
         public string ContentFa { get; set; } = default!;
         public string ContentEn { get; set; } = default!;
 
+        // SEO Slug
         public string Slug { get; set; } = default!;
-        public DateTime PublishedAt { get; set; }
-        public bool IsPublished { get; set; }
+
+        // Image
+        public string? ThumbnailPath { get; set; }
+
+        // Meta
+        public DateTime PublishedAt { get; set; } = DateTime.UtcNow;
+        public bool IsPublished { get; set; } = false;
+                
         public string AuthorId { get; set; } = default!;
         public AppUser Author { get; set; } = default!;
         public ICollection<Comment> Comments { get; set; } = [];
