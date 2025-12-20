@@ -9,7 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="wwwroot\Resources\SharedResource.fa.resx" />
+	  <Content Include="Resources\SharedResource.en.resx" />
+	  <Content Include="Resources\SharedResource.fa.resx" />
 	</ItemGroup>
 
 	<ItemGroup>

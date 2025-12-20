@@ -5,7 +5,8 @@ namespace Domain
     {
         public long BlogCategoryId { get; set; }
         public Guid BlogCategoryGuid { get; set; }
-        public string Name { get; set; } = default!;
+        public string NameFa { get; set; } = default!;
+        public string NameEn { get; set; } = default!;
         public string Slug { get; set; } = default!;
         public ICollection<BlogPost> Posts { get; set; } = [];
     }

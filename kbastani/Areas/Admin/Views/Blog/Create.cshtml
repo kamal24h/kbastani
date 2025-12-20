@@ -1,0 +1,49 @@
+﻿@using Domain
+@model BlogPost
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "ایجاد پست جدید";
+}
+
+<h1 class="text-2xl font-bold mb-4">ایجاد پست جدید</h1>
+
+<form asp-action="Create" method="post" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="font-semibold mb-2">فارسی</h2>
+            <label class="block text-sm font-medium mb-1">عنوان (FA)</label>
+            <input asp-for="TitleFa" class="w-full border rounded p-2" />
+            <span asp-validation-for="TitleFa" class="text-red-600 text-sm"></span>
+
+            <label class="block text-sm font-medium mt-3 mb-1">خلاصه (FA)</label>
+            <textarea asp-for="SummaryFa" class="w-full border rounded p-2"></textarea>
+
+            <label class="block text-sm font-medium mt-3 mb-1">متن (FA)</label>
+            <textarea asp-for="ContentFa" rows="6" class="w-full border rounded p-2"></textarea>
+        </div>
+
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="font-semibold mb-2">English</h2>
+            <label class="block text-sm font-medium mb-1">Title (EN)</label>
+            <input asp-for="TitleEn" class="w-full border rounded p-2" />
+            <span asp-validation-for="TitleEn" class="text-red-600 text-sm"></span>
+
+            <label class="block text-sm font-medium mt-3 mb-1">Summary (EN)</label>
+            <textarea asp-for="SummaryEn" class="w-full border rounded p-2"></textarea>
+
+            <label class="block text-sm font-medium mt-3 mb-1">Content (EN)</label>
+            <textarea asp-for="ContentEn" rows="6" class="w-full border rounded p-2"></textarea>
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow flex items-center space-x-2 space-x-reverse">
+        <input asp-for="IsPublished" type="checkbox" class="h-4 w-4 text-blue-600" />
+        <label asp-for="IsPublished" class="text-sm font-medium">منتشر شود</label>
+    </div>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">ثبت</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

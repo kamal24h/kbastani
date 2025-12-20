@@ -1,0 +1,27 @@
+﻿@using Domain
+@model BlogPost
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-2xl font-bold">
+        @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? Model.TitleFa : Model.TitleEn)
+    </h2>
+    <div class="mt-4">
+        @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? Model.ContentFa : Model.ContentEn)
+    </div>
+</div>
+
+<h3 class="mt-6 text-lg font-bold">نظرات</h3>
+<ul class="space-y-2">
+    @foreach (var c in Model.Comments)
+    {
+        <li class="bg-gray-100 p-2 rounded">@c.User.UserName: @c.Body</li>
+    }
+</ul>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <form asp-action="AddComment" method="post" class="mt-4">
+        <input type="hidden" name="postId" value="@Model.BlogPostId" />
+        <textarea name="body" class="w-full border rounded p-2"></textarea>
+        <button type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded">ارسال نظر</button>
+    </form>
+}

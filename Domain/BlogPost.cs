@@ -4,11 +4,18 @@
     public class BlogPost : BaseEntity
     {
         public long BlogPostId { get; set; }
-        public Guid BlogPostGuid { get; set; }        
-        public string Title { get; set; } = default!;
+        public Guid BlogPostGuid { get; set; }
+        // عنوان
+        public string TitleFa { get; set; } = default!;
+        public string TitleEn { get; set; } = default!;
+        // خلاصه
+        public string SummaryFa { get; set; } = default!;
+        public string SummaryEn { get; set; } = default!;
+        // متن
+        public string ContentFa { get; set; } = default!;
+        public string ContentEn { get; set; } = default!;
+
         public string Slug { get; set; } = default!;
-        public string Summary { get; set; } = default!;
-        public string Content { get; set; } = default!;
         public DateTime PublishedAt { get; set; }
         public bool IsPublished { get; set; }
         public string AuthorId { get; set; } = default!;

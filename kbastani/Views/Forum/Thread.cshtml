@@ -1,0 +1,22 @@
+﻿@using Domain
+@model ForumThread
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-2xl font-bold">
+        @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? Model.TitleFa : Model.TitleEn)
+    </h2>
+    <ul class="space-y-2 mt-4">
+        @foreach (var p in Model.Posts)
+        {
+            <li class="bg-gray-100 p-2 rounded">@p.Author.UserName: @p.Body</li>
+        }
+    </ul>
+</div>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <form asp-action="AddPost" method="post" class="mt-4">
+        <input type="hidden" name="threadId" value="@Model.ForumThreadId" />
+        <textarea name="body" class="w-full border rounded p-2"></textarea>
+        <button type="submit" class="mt-2 bg-green-600 text-white px-4 py-2 rounded">ارسال پاسخ</button>
+    </form>
+}

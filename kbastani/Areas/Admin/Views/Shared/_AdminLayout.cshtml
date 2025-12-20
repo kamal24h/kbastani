@@ -1,0 +1,30 @@
+﻿@* @inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer *@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Admin</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex">
+        <aside class="w-64 bg-gray-900 text-gray-100">
+            <div class="p-4 text-xl font-bold border-b border-gray-700">
+                Admin Panel
+            </div>
+            <nav class="p-4 space-y-2">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">داشبورد</a>
+                <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">وبلاگ</a>
+                <a asp-area="Admin" asp-controller="Forum" asp-action="Categories"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">فروم</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-6">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

@@ -15,8 +15,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // ---------------------------------------------------
-// 2️ Add Identity Core Services
+// Add Identity Core Services
 // ---------------------------------------------------
+
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     // Password settings
@@ -43,7 +44,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddDefaultTokenProviders(); // needed for password reset, email confirmation, etc.
 
 // ---------------------------------------------------
-// 3️ Add authentication cookie configuration (optional)
+// Add authentication cookie configuration (optional)
 // ---------------------------------------------------
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -54,7 +55,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 // ---------------------------------------------------
-// 4 Other Important Configs
+// Other Important Configs
 // ---------------------------------------------------
 builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthorizationCore(options =>
@@ -102,8 +103,29 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
+
+// Seed Initial Data
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+try
+{
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    await SeedData.InitializeAsync(userManager, roleManager);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error seeding data: " + ex.Message);
+}
 
 app.Run();
