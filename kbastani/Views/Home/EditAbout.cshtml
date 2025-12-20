@@ -1,0 +1,65 @@
+﻿@using DataAccess.Vms
+@model AboutViewModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-6">Edit About Me</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data" class="space-y-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="font-semibold mb-2">فارسی</h2>
+
+            <label>عنوان</label>
+            <input asp-for="TitleFa" class="w-full border p-2 rounded" />
+
+            <label class="mt-3">بیوگرافی</label>
+            <textarea asp-for="BioFa" class="w-full border p-2 rounded"></textarea>
+
+            <label class="mt-3">موقعیت</label>
+            <input asp-for="LocationFa" class="w-full border p-2 rounded" />
+        </div>
+
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="font-semibold mb-2">English</h2>
+
+            <label>Title</label>
+            <input asp-for="TitleEn" class="w-full border p-2 rounded" />
+
+            <label class="mt-3">Biography</label>
+            <textarea asp-for="BioEn" class="w-full border p-2 rounded"></textarea>
+
+            <label class="mt-3">Location</label>
+            <input asp-for="LocationEn" class="w-full border p-2 rounded" />
+        </div>
+
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+        <label>Email</label>
+        <input asp-for="Email" class="w-full border p-2 rounded" />
+
+        <label class="mt-3">Phone</label>
+        <input asp-for="Phone" class="w-full border p-2 rounded" />
+
+        <label class="mt-3">Profile Image</label>
+        <input asp-for="ProfileImage" type="file" class="w-full border p-2 rounded" />
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+        <label>LinkedIn</label>
+        <input asp-for="LinkedinUrl" class="w-full border p-2 rounded" />
+
+        <label class="mt-3">GitHub</label>
+        <input asp-for="GithubUrl" class="w-full border p-2 rounded" />
+
+        <label class="mt-3">Website</label>
+        <input asp-for="WebsiteUrl" class="w-full border p-2 rounded" />
+    </div>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+
+</form>

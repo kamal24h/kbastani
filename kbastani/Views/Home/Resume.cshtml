@@ -10,12 +10,18 @@
     <!-- Profile Header -->
     <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-12">
 
+        <!-- Print -->
         <div class="flex justify-end mb-4">
             <a asp-action="ExportPdf"
                class="bg-red-600 text-white px-4 py-2 rounded shadow hover:bg-red-700">
                 @(culture == "fa" ? "دانلود PDF رزومه" : "Download Resume PDF")
             </a>
+            <a asp-action="ExportAtsPdf"
+               class="bg-gray-800 text-white px-4 py-2 rounded shadow hover:bg-black">
+                Download ATS-Friendly Resume
+            </a>
         </div>
+
 
         <!-- Profile Image -->
         @if (!string.IsNullOrEmpty(Model.ProfileImagePath))

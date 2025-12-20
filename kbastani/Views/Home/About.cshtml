@@ -1,0 +1,60 @@
+﻿@using Domain
+@model About
+@{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewData["Title"] = culture == "fa" ? "درباره من" : "About Me";
+}
+
+<div class="max-w-4xl mx-auto px-4 py-10">
+
+    <div class="flex flex-col md:flex-row items-center gap-8">
+
+        @if (!string.IsNullOrEmpty(Model.ProfileImagePath))
+        {
+            <img src="@Model.ProfileImagePath"
+                 class="w-48 h-48 rounded-full object-cover shadow-lg" />
+        }
+
+        <div>
+            <h1 class="text-4xl font-bold mb-2">
+                @(culture == "fa" ? Model.TitleFa : Model.TitleEn)
+            </h1>
+
+            <p class="text-gray-600 leading-relaxed">
+                @(culture == "fa" ? Model.BioFa : Model.BioEn)
+            </p>
+
+            <div class="mt-6 space-y-2 text-gray-700">
+                @if (!string.IsNullOrEmpty(Model.Email))
+                {
+                    <p><strong>Email:</strong> @Model.Email</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Phone))
+                {
+                    <p><strong>Phone:</strong> @Model.Phone</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.LocationEn))
+                {
+                    <p><strong>Location:</strong> @(culture == "fa" ? Model.LocationFa : Model.LocationEn)</p>
+                }
+            </div>
+
+            <div class="mt-6 flex gap-4">
+                @if (!string.IsNullOrEmpty(Model.LinkedinUrl))
+                {
+                    <a href="@Model.LinkedinUrl" target="_blank" class="text-blue-600 underline">LinkedIn</a>
+                }
+                @if (!string.IsNullOrEmpty(Model.GithubUrl))
+                {
+                    <a href="@Model.GithubUrl" target="_blank" class="text-gray-800 underline">GitHub</a>
+                }
+                @if (!string.IsNullOrEmpty(Model.WebsiteUrl))
+                {
+                    <a href="@Model.WebsiteUrl" target="_blank" class="text-green-600 underline">Website</a>
+                }
+            </div>
+        </div>
+
+    </div>
+
+</div>
