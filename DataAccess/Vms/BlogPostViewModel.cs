@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain;
+using Microsoft.AspNetCore.Http;
 
 namespace DataAccess.Vms
 {
     public class BlogPostViewModel
     {
-        public int Id { get; set; }
+        public long BlogPostId { get; set; }
 
         public string TitleFa { get; set; } = default!;
         public string TitleEn { get; set; } = default!;
@@ -16,6 +17,13 @@ namespace DataAccess.Vms
         public bool IsPublished { get; set; }
 
         public IFormFile? Thumbnail { get; set; }
+
+        public long CategoryId { get; set; }
+        public List<long> SelectedTags { get; set; } = [];
+
+        public List<BlogCategory>? Categories { get; set; }
+        public List<Tag>? Tags { get; set; }
+
     }
 
 }

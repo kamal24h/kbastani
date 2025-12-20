@@ -9,6 +9,19 @@
 
 <a asp-action="Create" class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">New Post</a>
 
+@* <p class="text-sm text-blue-600">
+    @post.Category.NameEn
+</p>
+
+<div class="flex flex-wrap gap-2 mt-2">
+    @foreach (var t in post.BlogPostTags)
+    {
+        <span class="px-2 py-1 bg-gray-200 rounded text-sm">
+            @t.Tag.NameEn
+        </span>
+    }
+</div> *@
+
 <table class="min-w-full bg-white rounded shadow">
     <thead>
         <tr class="border-b">

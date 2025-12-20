@@ -68,6 +68,14 @@ namespace WebApp.Areas.Admin.Controllers
                 post.ThumbnailPath = "/uploads/blog/" + fileName;
             }
 
+            foreach (var tagId in model.SelectedTags)
+            {
+                post.Tags.Add(new BlogPostTag
+                {
+                    TagId = tagId
+                });
+            }
+
             _db.BlogPosts.Add(post);
             await _db.SaveChangesAsync();
 
@@ -81,7 +89,7 @@ namespace WebApp.Areas.Admin.Controllers
 
             return View(new BlogPostViewModel
             {
-                Id = post.Id,
+                BlogPostId = post.BlogPostId,
                 TitleFa = post.TitleFa,
                 TitleEn = post.TitleEn,
                 SummaryFa = post.SummaryFa,
@@ -98,7 +106,7 @@ namespace WebApp.Areas.Admin.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var post = await _db.BlogPosts.FindAsync(model.Id);
+            var post = await _db.BlogPosts.FindAsync(model.BlogPostId);
             if (post == null) return NotFound();
 
             post.TitleFa = model.TitleFa;
@@ -123,6 +131,17 @@ namespace WebApp.Areas.Admin.Controllers
                 }
 
                 post.ThumbnailPath = "/uploads/blog/" + fileName;
+            }
+
+            _db.BlogPostTags.RemoveRange(post.Tags);
+
+            foreach (var tagId in model.SelectedTags)
+            {
+                post.Tags.Add(new BlogPostTag
+                {
+                    PostId = post.BlogPostId,
+                    TagId = tagId
+                });
             }
 
             await _db.SaveChangesAsync();
@@ -156,6 +175,30 @@ namespace WebApp.Areas.Admin.Controllers
         {
             return title.ToLower().Replace(" ", "-").Replace(".", "");
         }
+
+        public async Task<IActionResult> Category(string slug)
+        {
+            var posts = await _db.BlogPosts
+                .Include(p => p.Category)
+                .Where(p => p.Category.Slug == slug && p.IsPublished)
+                .ToListAsync();
+
+            return View("Index", posts);
+        }
+
+        public async Task<IActionResult> Tag(string slug)
+        {
+            var posts = await _db.BlogPostTags
+                .Where(t => t.Tag.Slug == slug)
+                .Select(t => t.Post)
+                .Where(p => p.IsPublished)
+                .ToListAsync();
+
+            return View("Index", posts);
+        }
+
+        
+
     }
 }
 

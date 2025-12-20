@@ -32,6 +32,12 @@
         </nav>
     </header>
     <div class="container">
+        <form asp-controller="Blog" asp-action="Search" method="get" class="flex">
+            <input name="q" type="text" placeholder="جستجو..."
+            @* <input name="q" type="text" placeholder="Search..." /> *@
+                   class="border rounded-l px-3 py-2 w-48" />
+            <button class="bg-blue-600 text-white px-4 rounded-r">جستجو</button>
+        </form>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -45,6 +51,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Tailwindcss.config.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

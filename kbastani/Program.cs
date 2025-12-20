@@ -3,9 +3,30 @@ using Common.DependencyInjection;
 using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// ---------------------------------------------------
+// Localization
+// ---------------------------------------------------
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+var supportedCultures = new[] { "fa", "en" };
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("fa");
+    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+});
+
 
 // ---------------------------------------------------
 // Add services to the container.
@@ -85,6 +106,12 @@ Bootstrap.ConfigureService(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
+// Middleware
+var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(locOptions.Value);
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -109,6 +136,17 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "blog-details",
+    pattern: "blog/{slug}",
+    defaults: new { controller = "Blog", action = "Details" });
+
+app.MapControllerRoute(
+    name: "blog-search",
+    pattern: "blog/search",
+    defaults: new { controller = "Blog", action = "Search" });
+
 
 app.MapRazorPages();
 

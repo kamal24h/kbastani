@@ -1,20 +1,26 @@
 using System.Diagnostics;
 using kbastani.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace kbastani.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStringLocalizer _localizer;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizerFactory factory)
         {
             _logger = logger;
+            var type = typeof(SharedResource);
+            _localizer = factory.Create(type);
         }
+
 
         public IActionResult Index()
         {
+            ViewData["Message"] = _localizer["Welcome"];
             return View();
         }
 

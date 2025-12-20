@@ -24,6 +24,25 @@
 
             <label class="block mt-3 mb-1">متن</label>
             <textarea asp-for="ContentFa" class="editor w-full border rounded p-2"></textarea>
+
+            <select asp-for="CategoryId" class="w-full border rounded p-2">
+                @foreach (var c in Model.Categories)
+                {
+                    <option value="@c.BlogCategoryId">@c.NameFa</option>
+                }
+            </select>
+
+            <label class="block mt-4 mb-2">Tags</label>
+            <div class="grid grid-cols-2 gap-2">
+                @foreach (var t in Model.Tags)
+                {
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="SelectedTags" value="@t.TagId" />
+                        <span>@t.NameFa</span>
+                    </label>
+                }
+            </div>
+
         </div>
 
         <!-- English -->
@@ -38,6 +57,26 @@
 
             <label class="block mt-3 mb-1">Content</label>
             <textarea asp-for="ContentEn" class="editor w-full border rounded p-2"></textarea>
+
+            <select asp-for="CategoryId" class="w-full border rounded p-2">
+                @foreach (var c in Model.Categories)
+                {
+                    <option value="@c.BlogCategoryId">@c.NameEn</option>
+                }
+            </select>
+
+            <label class="block mt-4 mb-2">Tags</label>
+            <div class="grid grid-cols-2 gap-2">
+                @foreach (var t in Model.Tags)
+                {
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="SelectedTags" value="@t.TagId" />
+                        <span>@t.NameEn</span>
+                    </label>
+                }
+            </div>
+
+
         </div>
 
     </div>

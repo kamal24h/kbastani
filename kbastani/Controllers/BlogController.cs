@@ -61,5 +61,50 @@ namespace WebApp.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Details), new { slug = post.Slug });
         }
+
+        public async Task<IActionResult> Search(string q)
+        {
+            if (string.IsNullOrWhiteSpace(q))
+                return RedirectToAction("Index");
+
+            var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+
+            IQueryable<BlogPost> query = _db.BlogPosts
+                .Where(p => p.IsPublished);
+
+            // Search in FA
+            if (culture == "fa")
+            {
+                query = query.Where(p =>
+                    p.TitleFa.Contains(q) ||
+                    p.SummaryFa.Contains(q) ||
+                    p.ContentFa.Contains(q));
+            }
+            else // Search in EN
+            {
+                query = query.Where(p =>
+                    p.TitleEn.Contains(q) ||
+                    p.SummaryEn.Contains(q) ||
+                    p.ContentEn.Contains(q));
+            }
+
+            var results = await query
+                .OrderByDescending(p => p.PublishedAt)
+                .ToListAsync();
+
+            ViewBag.Query = q;
+
+            //query = query.Where(p =>
+            //p.Tags.Any(t => t.Tag.NameFa.Contains(q) || t.Tag.NameEn.Contains(q))
+            //);
+
+
+            //query = query.Where(p =>
+            //p.Category.NameFa.Contains(q) || p.Category.NameEn.Contains(q)
+            //);
+
+
+            return View(results);
+        }
     }
 }
