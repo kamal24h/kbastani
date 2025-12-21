@@ -4,7 +4,7 @@ using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
 
-namespace WebApp.Helpers
+namespace WebApp.Pdf
 {
     public class ResumePdfDocument : IDocument
     {

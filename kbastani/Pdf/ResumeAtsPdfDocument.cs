@@ -3,7 +3,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
-namespace WebApp.Helpers
+namespace WebApp.Pdf
 {
     
     public class ResumeAtsPdfDocument : IDocument
@@ -79,7 +79,7 @@ namespace WebApp.Helpers
                 col.Item().Text($"{e.JobTitleEn} — {e.CompanyEn}")
                     .FontSize(11).SemiBold();
 
-                col.Item().Text($"{e.StartDate:yyyy} - {(e.EndDate?.ToString("yyyy") ?? "Present")}")
+                col.Item().Text($"{e.StartDate:yyyy} - {e.EndDate?.ToString("yyyy") ?? "Present"}")
                     .FontSize(10).FontColor("#555555");
 
                 col.Item().Text(e.DescriptionEn)

@@ -1,0 +1,47 @@
+﻿@using Domain
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IEnumerable<Tag>
+@inject IViewLocalizer Localizer
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-4">@Localizer["Tags"]</h1>
+
+<a asp-action="Create"
+   class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">
+    @Localizer["Create"]
+</a>
+
+<table class="min-w-full bg-white rounded shadow">
+    <thead>
+        <tr class="border-b">
+            <th class="p-2">ID</th>
+            <th class="p-2">@Localizer["Title"] (FA)</th>
+            <th class="p-2">@Localizer["Title"] (EN)</th>
+            <th class="p-2">Slug</th>
+            <th class="p-2">@Localizer["Actions"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr class="border-b">
+                <td class="p-2">@t.TagId</td>
+                <td class="p-2">@t.NameFa</td>
+                <td class="p-2">@t.NameEn</td>
+                <td class="p-2">@t.Slug</td>
+                <td class="p-2 space-x-2">
+                    <a asp-action="Edit" asp-route-id="@t.TagId" class="text-blue-600">
+                        @Localizer["Edit"]
+                    </a>
+
+                    <form asp-action="Delete" asp-route-id="@t.TagId" method="post" class="inline">
+                        <button class="text-red-600">@Localizer["Delete"]</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,48 +1,87 @@
 ﻿using DataAccess;
 using DataAccess.Vms;
-using Domain;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using QuestPDF.Fluent;
-using System.Diagnostics;
-using WebApp.Helpers;
-using WebApp.Models;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IStringLocalizer _localizer;
         private readonly AppDbContext _db;
-        private readonly IWebHostEnvironment _env;
 
-        public HomeController( AppDbContext db, ILogger<HomeController> logger,
-            IStringLocalizerFactory factory, IWebHostEnvironment env)
+        public HomeController(AppDbContext db)
         {
-            _logger = logger;
             _db = db;
-            var type = typeof(SharedResource);
-            _localizer = factory.Create(type);
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewData["Message"] = _localizer["Welcome"];
-            return View();
-        }       
+            var vm = new HomeViewModel
+            {
+                About = await _db.Abouts.FirstOrDefaultAsync(),
 
-        public IActionResult Privacy()
-        {
-            return View();
+                LatestPosts = await _db.BlogPosts
+                    .Where(p => p.IsPublished)
+                    .OrderByDescending(p => p.PublishedAt)
+                    .Take(3)
+                    .ToListAsync(),
+
+                LatestProjects = await _db.Projects
+                    .OrderByDescending(p => p.CreatedAt)
+                    .Take(3)
+                    .ToListAsync()
+            };
+
+            return View(vm);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(
+                    new RequestCulture(culture)
+                ),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return LocalRedirect(returnUrl);
         }
     }
+
+    //public class HomeController : Controller
+    //{
+    //    private readonly ILogger<HomeController> _logger;
+    //    private readonly IStringLocalizer _localizer;
+    //    private readonly AppDbContext _db;
+    //    private readonly IWebHostEnvironment _env;
+
+    //    public HomeController( AppDbContext db, ILogger<HomeController> logger,
+    //        IStringLocalizerFactory factory, IWebHostEnvironment env)
+    //    {
+    //        _logger = logger;
+    //        _db = db;
+    //        var type = typeof(SharedResource);
+    //        _localizer = factory.Create(type);
+    //    }
+
+    //    public IActionResult Index()
+    //    {
+    //        ViewData["Message"] = _localizer["Welcome"];
+    //        return View();
+    //    }       
+
+    //    public IActionResult Privacy()
+    //    {
+    //        return View();
+    //    }
+
+    //    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    //    public IActionResult Error()
+    //    {
+    //        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    //    }
+    //}
 }

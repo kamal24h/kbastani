@@ -1,10 +1,13 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
     npx @tailwindcss/cli -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify
+
+    npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/output.css --watch
 
 */
 

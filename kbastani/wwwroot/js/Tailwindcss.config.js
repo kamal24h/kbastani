@@ -1,12 +1,17 @@
 ﻿
+///** @type {import('tailwindcss').Config} **/
 module.exports = {
-    content: ["./Area/Admin/Views/**/*.cshtml", "./Views/**/*.cshtml"],
-    theme: { extend: {} },
+    darkMode: 'class',
+    content: [
+        "./Views/**/*.cshtml",
+        "./Areas/**/*.cshtml",
+        "./Pages/**/*.cshtml",
+        "./wwwroot/js/**/*.js"
+    ],
+    theme: {
+        extend: {},
+    },
     plugins: [
         require('@tailwindcss/typography')
     ],
 }
-
-//plugins: [
-//    require('@tailwindcss/typography')
-//]

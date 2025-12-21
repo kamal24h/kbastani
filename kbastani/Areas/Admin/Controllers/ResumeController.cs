@@ -6,6 +6,7 @@ using Microsoft.Extensions.Localization;
 using QuestPDF.Fluent;
 using WebApp.Controllers;
 using WebApp.Helpers;
+using WebApp.Pdf;
 
 namespace WebApp.Areas.Admin.Controllers
 {

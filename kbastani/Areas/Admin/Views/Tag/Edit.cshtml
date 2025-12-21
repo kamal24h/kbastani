@@ -1,0 +1,30 @@
+﻿@using Domain
+@using Microsoft.AspNetCore.Mvc.Localization
+@model Tag
+@inject IViewLocalizer Localizer
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-6">@Localizer["Edit"] @Localizer["Tags"]</h1>
+
+<form asp-action="Edit" method="post" class="space-y-6">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="bg-white p-4 rounded shadow">
+        <label class="block mb-1">نام فارسی</label>
+        <input asp-for="NameFa" class="w-full border p-2 rounded" />
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+        <label class="block mb-1">English Name</label>
+        <input asp-for="NameEn" class="w-full border p-2 rounded" />
+    </div>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">
+        @Localizer["Save"]
+    </button>
+
+</form>

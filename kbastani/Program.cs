@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using QuestPDF.Infrastructure;
 using System.Globalization;
-using WebApp.Helpers;
+using WebApp.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,7 +30,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
     options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
 });
-
 
 builder.Services.AddTransient<EmailService>();
 
