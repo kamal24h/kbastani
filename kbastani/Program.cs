@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using System.Globalization;
-using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
+using System.Globalization;
+using WebApp.Helpers;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,8 +32,11 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 
+builder.Services.AddTransient<EmailService>();
+
+
 // ---------------------------------------------------
-// Add services to the container.
+// Database
 // ---------------------------------------------------
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

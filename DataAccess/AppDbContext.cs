@@ -29,6 +29,8 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<Experience> Experiences { get; set; }
     public DbSet<Education> Educations { get; set; }
     public DbSet<About> Abouts { get; set; }
+    public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
+
     //public DbSet<Education> Educations => Set<Education>();
 
 

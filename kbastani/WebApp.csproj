@@ -9,11 +9,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="Resources\SharedResource.en.resx" />
-	  <Content Include="Resources\SharedResource.fa.resx" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.13" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.13" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.13" />
@@ -27,6 +22,13 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Common\Common.csproj" />
 		<ProjectReference Include="..\Service\Service.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\" />
+	  <Folder Include="wwwroot\uploads\blog\" />
+	  <Folder Include="wwwroot\uploads\profile\" />
+	  <Folder Include="wwwroot\uploads\projects\" />
 	</ItemGroup>
 
 	<!--<ItemGroup>

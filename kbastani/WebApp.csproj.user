@@ -11,7 +11,13 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Resources\SharedResource.fa.resx">
+    <EmbeddedResource Update="Resources\Admin.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Admin.fa.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Shared.en.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

@@ -16,7 +16,10 @@ namespace DataAccess.Vms.Identity
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; } = default!;
+        [Required]
+        public string DisplayName { get; set; } = default!;
 
         public bool RememberMe { get; set; }
+
     }
 }
