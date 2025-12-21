@@ -84,3 +84,7 @@ nunit-*.xml
 /.vs/kbastani/v17/DocumentLayout.backup.json
 /.vs/kbastani/v17/DocumentLayout.json
 /.vs/kbastani/DesignTimeBuild/.dtbcache.v2
+/.vs/kbastani/v17/.futdcache.v2
+/.vs/ProjectEvaluation/kbastani.metadata.v9.bin
+/.vs/ProjectEvaluation/kbastani.projects.v9.bin
+/.vs/ProjectEvaluation/kbastani.strings.v9.bin
