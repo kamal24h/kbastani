@@ -1,8 +1,8 @@
 
 
-@tailwind base;
+/*@tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;*/
 
 /*
     npx @tailwindcss/cli -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify
@@ -33,3 +33,4 @@ html {
 body {
   margin-bottom: 60px;
 }
+

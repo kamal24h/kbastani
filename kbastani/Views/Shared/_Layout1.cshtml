@@ -1,9 +1,6 @@
-﻿@using Domain
-@using Microsoft.AspNetCore.Identity
+﻿
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
-@inject SignInManager<AppUser> SignInManager
-@inject UserManager<AppUser> UserManager
 @inject IViewLocalizer Localizer
 
 @{
@@ -19,9 +16,11 @@
     <title>@ViewData["Title"] - Portfolio</title>
 
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/tailwind.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
 
     <script>
-        // Load saved theme
+        // حفظ حالت Dark Mode در localStorage
         (function () {
             const saved = localStorage.getItem('theme');
             if (saved === 'dark') {
@@ -33,9 +32,9 @@
 
 <body class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- NAVBAR -->
+    <!-- Navbar -->
     <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-sm sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
 
             <!-- Logo -->
             <a asp-controller="Home" asp-action="Index"
@@ -85,28 +84,6 @@
                     </select>
                 </form>
 
-                <!-- Login / Logout -->
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <form asp-controller="Account" asp-action="Logout" method="post">
-                        <button class="text-red-600 dark:text-red-400 hover:underline">
-                            @Localizer["Logout"]
-                        </button>
-                    </form>
-                }
-                else
-                {
-                    <a asp-controller="Account" asp-action="Login"
-                       class="text-blue-600 dark:text-blue-400 hover:underline">
-                        @Localizer["Login"]
-                    </a>
-
-                    <a asp-controller="Account" asp-action="Register"
-                       class="text-green-600 dark:text-green-400 hover:underline">
-                        @Localizer["Register"]
-                    </a>
-                }
-
                 <!-- Dark Mode Toggle -->
                 <button id="themeToggle"
                         class="ml-2 w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
@@ -117,25 +94,28 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- Main Content -->
     <main class="min-h-screen">
         @RenderBody()
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-10">
-        <div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400 text-sm">
+        <div class="max-w-6xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400 text-sm">
             © @DateTime.Now.Year — @Localizer["AllRightsReserved"]
         </div>
     </footer>
 
-    <!-- Dark Mode Script -->
     <script>
         const btn = document.getElementById('themeToggle');
         const icon = document.getElementById('themeIcon');
 
         function setIcon() {
-            icon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+            if (document.documentElement.classList.contains('dark')) {
+                icon.textContent = '☀️';
+            } else {
+                icon.textContent = '🌙';
+            }
         }
 
         setIcon();
