@@ -85,6 +85,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Other Important Configs
 // ---------------------------------------------------
 builder.Services.AddAuthenticationCore();
+
 builder.Services.AddAuthorizationCore(options =>
 {
     options.AddPolicy("CanPublish", p => p.RequireRole("Admin"));
@@ -134,6 +135,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+
 
 app.MapControllerRoute(
     name: "areas",

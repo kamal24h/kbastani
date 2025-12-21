@@ -21,5 +21,10 @@ namespace DataAccess.Vms.Identity
         [DataType(DataType.Password)]
         [Compare("Password")]
         public string ConfirmPassword { get; set; } = default!;
+
+        public string DisplayName { get; set; } = default!;
+        public string FirstName = "Admin";
+        public string LastName = "Admin";
+
     }
 }
