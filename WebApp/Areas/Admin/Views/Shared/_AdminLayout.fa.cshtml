@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Admin Panel</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/new/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-gray-100 flex flex-col">
+            <div class="p-4 text-xl font-bold border-b border-gray-700">
+                مدیریت سایت
+            </div>
+
+            <nav class="flex-1 p-4 space-y-2">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">داشبورد</a>
+
+                <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">مدیریت وبلاگ</a>
+
+                <a asp-area="Admin" asp-controller="Forum" asp-action="Categories"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">مدیریت فروم</a>
+
+                <a asp-area="Admin" asp-controller="Projects" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">پروژه‌ها</a>
+
+                <a asp-area="Admin" asp-controller="Users" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">کاربران</a>
+            </nav>
+
+            <div class="p-4 border-t border-gray-700">
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">
+                        خروج
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            @RenderBody()
+        </main>
+
+    </div>
+
+    <script src="~/js/Tailwindcss.config.js" asp-append-version="true"></script>
+
+</body>
+</html>
+
+@* @inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer *@
+
+@* <!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Admin</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex">
+        <aside class="w-64 bg-gray-900 text-gray-100">
+            <div class="p-4 text-xl font-bold border-b border-gray-700">
+                Admin Panel
+            </div>
+            <nav class="p-4 space-y-2">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">داشبورد</a>
+                <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">وبلاگ</a>
+                <a asp-area="Admin" asp-controller="Forum" asp-action="Categories"
+                   class="block px-3 py-2 rounded hover:bg-gray-800">فروم</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-6">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html> *@

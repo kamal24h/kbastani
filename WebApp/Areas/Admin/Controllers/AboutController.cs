@@ -4,11 +4,6 @@ using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using QuestPDF.Fluent;
-using System.Diagnostics;
-using WebApp.Helpers;
-using WebApp.Models;
 
 namespace WebApp.Areas.Admin.Controllers
 {

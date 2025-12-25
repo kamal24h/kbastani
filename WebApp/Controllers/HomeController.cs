@@ -1,30 +1,54 @@
-﻿using System.Diagnostics;
+﻿using DataAccess;
+using DataAccess.Vms;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly AppDbContext _db;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, AppDbContext db)
     {
         _logger = logger;
+        _db = db;
     }
 
     public async Task<IActionResult> Index()
     {
-        return View();
+        var vm = new HomeViewModel
+        {
+            About = await _db.Abouts.FirstOrDefaultAsync(),
+
+            LatestPosts = await _db.BlogPosts
+                .Where(p => p.IsPublished)
+                .OrderByDescending(p => p.PublishedAt)
+                .Take(3)
+                .ToListAsync(),
+
+            LatestProjects = await _db.Projects
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(3)
+                .ToListAsync()
+        };
+
+        return View(vm);
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult SetLanguage(string culture, string returnUrl = "/")
     {
-        return View();
-    }
+        Response.Cookies.Append(
+            CookieRequestCultureProvider.DefaultCookieName,
+            CookieRequestCultureProvider.MakeCookieValue(
+                new RequestCulture(culture)
+            ),
+            new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+        );
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return LocalRedirect(returnUrl);
     }
 }
+
 

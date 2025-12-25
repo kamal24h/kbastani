@@ -1,86 +1,76 @@
-﻿<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+﻿@using Domain
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject SignInManager<AppUser> SignInManager
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/new/tailwind.min.css" rel="stylesheet" />
 </head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
-<body class="bg-gray-100 font-sans">
+    <!-- Admin Navbar -->
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
 
-    <div class="flex min-h-screen">
-
-        <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-gray-100 flex flex-col">
-            <div class="p-4 text-xl font-bold border-b border-gray-700">
-                مدیریت سایت
+            <!-- Logo / Back to Public -->
+            <div class="flex items-center gap-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index"
+                   class="text-xl font-bold text-blue-600 dark:text-blue-400 hover:underline">
+                    ← @Localizer["Back to Site"]
+                </a>
+                <span class="text-gray-600 dark:text-gray-300 font-semibold">Admin Panel</span>
             </div>
 
-            <nav class="flex-1 p-4 space-y-2">
-                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">داشبورد</a>
+            <!-- Links -->
+            <nav class="flex items-center gap-6 text-sm">
+                <a asp-area="Admin" asp-controller="Resume" asp-action="Index"
+                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Manage Resume"]</a>
+
+                <a asp-area="Admin" asp-controller="About" asp-action="Index"
+                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Manage About"]</a>
+
+                <a asp-area="Admin" asp-controller="Category" asp-action="Index"
+                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Blog Categories"]</a>
+
+                <a asp-area="Admin" asp-controller="Forum" asp-action="Index"
+                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Forum"]</a>
 
                 <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">مدیریت وبلاگ</a>
+                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Blogs"]</a>
 
-                <a asp-area="Admin" asp-controller="Forum" asp-action="Categories"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">مدیریت فروم</a>
-
-                <a asp-area="Admin" asp-controller="Projects" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">پروژه‌ها</a>
-
-                <a asp-area="Admin" asp-controller="Users" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">کاربران</a>
+                <!-- Logout -->
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="inline">
+                        <button type="submit"
+                                class="text-red-600 dark:text-red-400 hover:underline">
+                            @Localizer["Logout"]
+                        </button>
+                    </form>
+                }
             </nav>
+        </div>
+    </header>
 
-            <div class="p-4 border-t border-gray-700">
-                <form asp-controller="Account" asp-action="Logout" method="post">
-                    <button class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700">
-                        خروج
-                    </button>
-                </form>
-            </div>
-        </aside>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        @RenderBody()
+    </main>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            @RenderBody()
-        </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-10">
+        <div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400 text-sm">
+            © @DateTime.Now.Year — Admin Panel
+        </div>
+    </footer>
 
-    </div>
-
-    <script src="~/js/Tailwindcss.config.js" asp-append-version="true"></script>
-
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
-
-@* @inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> Localizer *@
-
-@* <!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewData["Title"] - Admin</title>
-    <link href="~/css/site.css" rel="stylesheet" />
-</head>
-<body class="bg-gray-100">
-    <div class="min-h-screen flex">
-        <aside class="w-64 bg-gray-900 text-gray-100">
-            <div class="p-4 text-xl font-bold border-b border-gray-700">
-                Admin Panel
-            </div>
-            <nav class="p-4 space-y-2">
-                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">داشبورد</a>
-                <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">وبلاگ</a>
-                <a asp-area="Admin" asp-controller="Forum" asp-action="Categories"
-                   class="block px-3 py-2 rounded hover:bg-gray-800">فروم</a>
-            </nav>
-        </aside>
-        <main class="flex-1 p-6">
-            @RenderBody()
-        </main>
-    </div>
-</body>
-</html> *@
