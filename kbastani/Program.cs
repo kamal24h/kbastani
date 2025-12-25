@@ -7,27 +7,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using QuestPDF.Infrastructure;
+using System.Globalization;
+using WebApp.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // ---------------------------------------------------
-// Localization
-// ---------------------------------------------------
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-builder.Services.AddControllersWithViews()
-    .AddViewLocalization()
-    .AddDataAnnotationsLocalization();
-
-var supportedCultures = new[] { "fa", "en" };
-builder.Services.Configure<RequestLocalizationOptions>(options =>
-{
-    options.DefaultRequestCulture = new RequestCulture("fa");
-    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
-    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
-});
-
+// Add services to the container.
 // ---------------------------------------------------
 // Add services For Db Configs
 // ---------------------------------------------------
@@ -38,6 +26,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 // ---------------------------------------------------
 // Add Identity Core Services
 // ---------------------------------------------------
+
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     // Password settings
@@ -78,6 +67,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Other Important Configs
 // ---------------------------------------------------
 builder.Services.AddAuthenticationCore();
+
 builder.Services.AddAuthorizationCore(options =>
 {
     options.AddPolicy("CanPublish", p => p.RequireRole("Admin"));
@@ -105,6 +95,12 @@ Bootstrap.ConfigureService(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
+// Middleware
+var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(locOptions.Value);
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -126,9 +122,46 @@ app.UseRequestLocalization(locOptions.Value);
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "blog-details",
+    pattern: "blog/{slug}",
+    defaults: new { controller = "Blog", action = "Details" });
+
+app.MapControllerRoute(
+    name: "blog-search",
+    pattern: "blog/search",
+    defaults: new { controller = "Blog", action = "Search" });
+
+
 app.MapRazorPages();
+
+// Seed Initial Data
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+try
+{
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
+
+    await SeedData.InitializeAsync(userManager, roleManager);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error seeding data: " + ex.Message);
+}
 
 app.Run();

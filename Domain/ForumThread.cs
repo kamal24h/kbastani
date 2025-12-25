@@ -4,7 +4,8 @@
     {
         public long ForumThreadId { get; set; }
         public Guid ForumThreadGuid { get; set; }
-        public string Title { get; set; } = default!;        
+        public string TitleEn { get; set; } = default!;        
+        public string TitleFa { get; set; } = default!;
         public string AuthorId { get; set; } = default!;
         public AppUser Author { get; set; } = default!;
         public long CategoryId { get; set; }

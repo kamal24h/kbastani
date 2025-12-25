@@ -122,6 +122,12 @@ interface UserConfig {
 interface UserConfig {
     future?: 'all' | Record<string, boolean>;
 }
+<<<<<<< HEAD
+=======
+interface UserConfig {
+    experimental?: 'all' | Record<string, boolean>;
+}
+>>>>>>> 68267831b09b30dd31ca67d6b7ec933ca294e8e2
 
 declare function createPlugin(handler: PluginFn, config?: Partial<Config>): PluginWithConfig;
 declare namespace createPlugin {

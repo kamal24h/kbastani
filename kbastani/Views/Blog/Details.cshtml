@@ -1,0 +1,82 @@
+﻿@using Domain
+@model BlogPost
+
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+}
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-2xl font-bold">
+        @(culture == "fa" ? Model.TitleFa : Model.TitleEn)
+    </h2>
+    <div class="mt-4">
+        @(culture == "fa" ? Model.ContentFa : Model.ContentEn)
+    </div>
+</div>
+
+<h3 class="mt-6 text-lg font-bold">نظرات</h3>
+@* <ul class="space-y-2">
+    @foreach (var c in Model.Comments)
+    {
+        <li class="bg-gray-100 p-2 rounded">@c.User.UserName: @c.Body</li>
+    }
+</ul>
+ *@
+
+@if (Model.Comments.Any())
+{
+    <div class="space-y-4">
+        @foreach (var c in Model.Comments.OrderByDescending(x => x.CreatedAt))
+        {
+            <div class="bg-gray-100 p-4 rounded">
+                <p class="font-semibold">@c.User.UserName</p>
+                <p class="text-gray-700 mt-1">@c.Body</p>
+                <p class="text-xs text-gray-400 mt-2">@c.CreatedAt.ToString("yyyy/MM/dd HH:mm")</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="text-gray-500">
+        @(culture == "fa" ? "هنوز نظری ثبت نشده است." : "No comments yet.")
+    </p>
+}
+
+@if (User.Identity!.IsAuthenticated)
+{
+    <form asp-action="AddComment" method="post" class="mt-6 space-y-4">
+        <input type="hidden" name="postId" value="@Model.BlogPostId" />
+
+        <textarea name="body" rows="4"
+                  class="w-full border rounded p-3"
+                  placeholder="@(culture == "fa" ? "نظر خود را بنویسید..." : "Write your comment...")"></textarea>
+
+        <button class="bg-blue-600 text-white px-4 py-2 rounded">
+            @(culture == "fa" ? "ارسال نظر" : "Submit Comment")
+        </button>
+    </form>
+}
+else
+{
+    <p class="mt-4 text-gray-600">
+        @(culture == "fa"
+            ? "برای ارسال نظر باید وارد شوید."
+            : "You must be logged in to comment.")
+        <a asp-controller="Account" asp-action="Login" class="text-blue-600 underline">
+            @(culture == "fa" ? "ورود" : "Login")
+        </a>
+    </p>
+}
+
+
+
+@* @if (User.Identity?.IsAuthenticated ?? false)
+{
+    <form asp-action="AddComment" method="post" class="mt-4">
+        <input type="hidden" name="postId" value="@Model.BlogPostId" />
+        <textarea name="body" class="w-full border rounded p-2"></textarea>
+        <button type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded">ارسال نظر</button>
+    </form>
+} *@
+
+<hr class="my-8" />

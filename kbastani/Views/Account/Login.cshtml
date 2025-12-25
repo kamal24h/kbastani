@@ -1,0 +1,79 @@
+﻿@using DataAccess.Vms.Identity
+@model LoginViewModel
+@{
+    ViewData["Title"] = "ورود";
+}
+
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center mb-6">ورود به حساب</h2>
+
+        <form asp-action="Login" method="post" class="space-y-4">
+            <div>
+                <label asp-for="Email" class="block text-sm font-medium mb-1"></label>
+                <input asp-for="Email" class="w-full border rounded p-2 focus:ring focus:ring-blue-300" />
+                <span asp-validation-for="Email" class="text-red-600 text-sm"></span>
+            </div>
+
+            <div>
+                <label asp-for="Password" class="block text-sm font-medium mb-1"></label>
+                <input asp-for="Password" type="password" class="w-full border rounded p-2 focus:ring focus:ring-blue-300" />
+                <span asp-validation-for="Password" class="text-red-600 text-sm"></span>
+            </div>
+
+            <div class="flex items-center">
+                <input asp-for="RememberMe" type="checkbox" class="h-4 w-4 text-blue-600" />
+                <label asp-for="RememberMe" class="ml-2 text-sm">مرا به خاطر بسپار</label>
+            </div>
+
+
+            <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                ورود
+            </button>
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="text-sm">
+                حساب ندارید؟
+                <a asp-action="Register" class="text-blue-600 hover:underline">ثبت‌نام</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@* @using Microsoft.AspNetCore.Identity
+@using LuxShop.Domain.Identity
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage" text-light>سلام @UserManager.GetUserAsync(User)?.Result?.DisplayUserName!</a>
+                @*<a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">سلام @UserManager.GetUserName(User)!</a>
+                <a class="btn btn-link navbar-btn navbar-link" asp-controller="Manage" asp-action="Index" title="Manage">مدیر سیستم!</a>
+            </li>
+            <li>
+                <a> _ </a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link text-light">  خروج</button>
+            </li>
+        </ul> 
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">ورود</a></li>
+    </ul>
+} *@

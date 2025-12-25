@@ -1,0 +1,85 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
+
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 4v16m8-8H4"></path>
+            </svg>
+        </div>
+        <div class="ml-4">
+            <p class="text-gray-500">Total Posts</p>
+            <p class="text-2xl font-bold">42</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-green-100 text-green-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <div class="ml-4">
+            <p class="text-gray-500">Active Users</p>
+            <p class="text-2xl font-bold">128</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-yellow-100 text-yellow-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 7h18M3 12h18M3 17h18"></path>
+            </svg>
+        </div>
+        <div class="ml-4">
+            <p class="text-gray-500">Forum Threads</p>
+            <p class="text-2xl font-bold">67</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Table -->
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Latest Blog Posts</h2>
+
+    <table class="min-w-full text-left">
+        <thead>
+            <tr class="border-b">
+                <th class="p-2">Title</th>
+                <th class="p-2">Date</th>
+                <th class="p-2">Status</th>
+                <th class="p-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b">
+                <td class="p-2">ASP.NET Core Tutorial</td>
+                <td class="p-2">2024-01-02</td>
+                <td class="p-2 text-green-600">Published</td>
+                <td class="p-2">
+                    <a class="text-blue-600 hover:underline">Edit</a>
+                </td>
+            </tr>
+
+            <tr class="border-b">
+                <td class="p-2">What is Tailwind CSS?</td>
+                <td class="p-2">2024-01-01</td>
+                <td class="p-2 text-yellow-600">Draft</td>
+                <td class="p-2">
+                    <a class="text-blue-600 hover:underline">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

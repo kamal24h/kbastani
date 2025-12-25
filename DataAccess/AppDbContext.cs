@@ -26,6 +26,12 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<Project> Projects { get; set; }
     public DbSet<ProjectTech> ProjectTechs { get; set; }
     public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Experience> Experiences { get; set; }
+    public DbSet<Education> Educations { get; set; }
+    public DbSet<About> Abouts { get; set; }
+    public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
+
+    //public DbSet<Education> Educations => Set<Education>();
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -71,7 +77,7 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
             });
 
         // Optional: Add seed data (default admin role/user)
-        modelBuilder.Entity<AppRole>().HasData(new AppRole
+        modelBuilder.Entity<AppRole>().HasData(new AppRole()
             {
                 Id = "1",
                 Name = "Admin",

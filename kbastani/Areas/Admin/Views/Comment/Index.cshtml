@@ -1,0 +1,35 @@
+﻿@using Domain
+@model IEnumerable<Comment>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-2xl font-bold mb-4">Comments</h1>
+
+<table class="min-w-full bg-white rounded shadow">
+    <thead>
+        <tr class="border-b">
+            <th class="p-2">User</th>
+            <th class="p-2">Comment</th>
+            <th class="p-2">Post</th>
+            <th class="p-2">Date</th>
+            <th class="p-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr class="border-b">
+                <td class="p-2">@c.User.UserName</td>
+                <td class="p-2">@c.Body</td>
+                <td class="p-2">@c.Post.TitleEn</td>
+                <td class="p-2">@c.CreatedAt.ToString("yyyy/MM/dd HH:mm")</td>
+                <td class="p-2">
+                    <form asp-action="Delete" asp-route-id="@c.CommentId" method="post">
+                        <button class="text-red-600">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

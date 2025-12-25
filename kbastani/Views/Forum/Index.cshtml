@@ -1,0 +1,22 @@
+﻿@using Domain
+@model IEnumerable<ForumCategory>
+<div class="space-y-6">
+    @foreach (var cat in Model)
+    {
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-xl font-bold">
+                @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? cat.NameFa : cat.NameEn)
+            </h2>
+            <ul class="list-disc ml-6">
+                @foreach (var t in cat.Threads)
+                {
+                    <li>
+                        <a asp-action="Thread" asp-route-id="@t.ForumThreadId">
+                            @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? t.TitleFa : t.TitleEn)
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

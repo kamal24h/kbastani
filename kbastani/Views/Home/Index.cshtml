@@ -1,7 +1,332 @@
-﻿@{
+﻿@using DataAccess.Vms
+
+@model HomeViewModel
+@{
     ViewData["Title"] = "Home";
 }
 <div class="bg-white p-6 rounded shadow">
     <h2 class="text-2xl font-bold">@ViewData["Message"]</h2>
     <p class="mt-4">این یک نمونه اسکلت پروژه با Tailwind و چندزبانه است.</p>
 </div>
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewData["Title"] = culture == "fa" ? "خانه" : "Home";
+}
+
+<!-- BACKGROUND PARALLAX HERO -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_#2563eb33,_transparent_60%),radial-gradient(circle_at_bottom,_#9333ea33,_transparent_60%)] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 relative z-10 flex flex-col md:flex-row items-center gap-10">
+
+        <!-- Profile Image -->
+        @if (Model.About?.ProfileImagePath != null)
+        {
+            <div class="transform transition duration-700 hover:-translate-y-2">
+                <img src="@Model.About.ProfileImagePath"
+                     class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover shadow-2xl ring-4 ring-blue-500/30" />
+            </div>
+        }
+
+        <!-- Hero Text -->
+        <div class="space-y-5 md:space-y-6 animate-[fadeIn_0.8s_ease-out]">
+            <p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                @(culture == "fa" ? "Full Stack Developer" : "Full Stack Developer")
+            </p>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                @(culture == "fa" ? Model.About?.TitleFa : Model.About?.TitleEn)
+            </h1>
+
+            <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl">
+                @(culture == "fa" ? Model.About?.BioFa : Model.About?.BioEn)
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+                <a asp-controller="Resume" asp-action="Index"
+                   class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
+                    @(culture == "fa" ? "مشاهده رزومه" : "View Resume")
+                </a>
+
+                <a asp-controller="Contact" asp-action="Index"
+                   class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    @(culture == "fa" ? "تماس با من" : "Contact Me")
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS SLIDER -->
+<section class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold">
+            @(culture == "fa" ? "آخرین پروژه‌ها" : "Latest Projects")
+        </h2>
+
+        <div class="flex gap-2">
+            <button id="projectsPrev"
+                    class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+                ‹
+            </button>
+            <button id="projectsNext"
+                    class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+                ›
+            </button>
+        </div>
+    </div>
+
+    <div id="projectsSlider" class="relative overflow-hidden">
+        <div id="projectsTrack"
+             class="flex gap-6 transition-transform duration-500 will-change-transform">
+            @foreach (var p in Model.LatestProjects)
+            {
+                <div class="min-w-[260px] md:min-w-[320px] bg-white dark:bg-gray-900 rounded-xl shadow hover:shadow-2xl transition overflow-hidden transform hover:-translate-y-1">
+                    @if (!string.IsNullOrEmpty(p.ImagePath))
+                    {
+                        <div class="h-40 md:h-48 overflow-hidden">
+                            <img src="@p.ImagePath" class="w-full h-full object-cover hover:scale-105 transition duration-700" />
+                        </div>
+                    }
+                    <div class="p-4 space-y-2">
+                        <h3 class="text-lg font-bold">
+                            @(culture == "fa" ? p.TitleFa : p.TitleEn)
+                        </h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
+                            @(culture == "fa" ? p.DescriptionFa : p.DescriptionEn)
+                        </p>
+                        <div class="flex flex-wrap gap-3 pt-2 text-sm">
+                            @if (!string.IsNullOrEmpty(p.ProjectUrl))
+                            {
+                                <a href="@p.ProjectUrl" target="_blank"
+                                   class="text-blue-600 dark:text-blue-400 underline">
+                                    Demo
+                                </a>
+                            }
+                            @if (!string.IsNullOrEmpty(p.GithubUrl))
+                            {
+                                <a href="@p.GithubUrl" target="_blank"
+                                   class="text-gray-800 dark:text-gray-100 underline">
+                                    GitHub
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="max-w-6xl mx-auto px-4 pb-16 md:pb-20">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">
+        @(culture == "fa" ? "آخرین پست‌های وبلاگ" : "Latest Blog Posts")
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @foreach (var post in Model.LatestPosts)
+        {
+            <article class="bg-white dark:bg-gray-900 rounded-xl shadow hover:shadow-2xl transition p-4 flex flex-col justify-between transform hover:-translate-y-1">
+                <div>
+                    <h3 class="text-lg font-bold mb-2">
+                        @(culture == "fa" ? post.TitleFa : post.TitleEn)
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">
+                        @(culture == "fa" ? post.SummaryFa : post.SummaryEn)
+                    </p>
+                </div>
+                <a asp-controller="Blog" asp-action="Details" asp-route-slug="@post.Slug"
+                   class="text-blue-600 dark:text-blue-400 text-sm mt-2">
+                    @(culture == "fa" ? "ادامه مطلب" : "Read More")
+                </a>
+            </article>
+        }
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="bg-blue-600 dark:bg-blue-700 text-white py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold">
+            @(culture == "fa" ? "آماده همکاری هستم" : "I'm Available for Work")
+        </h2>
+        <p class="text-base md:text-lg opacity-90">
+            @(culture == "fa"
+                ? "اگر به دنبال یک توسعه‌دهنده فول‌استک حرفه‌ای هستید، خوشحال می‌شوم با شما همکاری کنم."
+                : "If you're looking for a professional full-stack developer, I'd love to work with you.")
+        </p>
+        <a asp-controller="Contact" asp-action="Index"
+           class="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-3 rounded-full shadow hover:bg-gray-100 transition">
+            @(culture == "fa" ? "تماس با من" : "Contact Me")
+        </a>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        // اسلایدر ساده پروژه‌ها (بدون لایبرری خارجی)
+        (function () {
+            const track = document.getElementById('projectsTrack');
+            const prev = document.getElementById('projectsPrev');
+            const next = document.getElementById('projectsNext');
+            if (!track || !prev || !next) return;
+
+            let index = 0;
+            const cards = track.children;
+            const visible = 3; // تقریبی برای دسکتاپ، تو موبایل طبیعی scroll می‌شود
+            const maxIndex = Math.max(0, cards.length - visible);
+            const step = 320; // پیکسل تقریبی هر کارت
+
+            function update() {
+                const offset = -index * step;
+                track.style.transform = `translateX(${offset}px)`;
+            }
+
+            prev.addEventListener('click', function () {
+                index = Math.max(0, index - 1);
+                update();
+            });
+
+            next.addEventListener('click', function () {
+                index = Math.min(maxIndex, index + 1);
+                update();
+            });
+        })();
+    </script>
+}
+
+
+@* <div class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- HERO SECTION -->
+    <section class="flex flex-col md:flex-row items-center gap-10 mb-20">
+
+        <!-- Profile Image -->
+        @if (Model.About?.ProfileImagePath != null)
+        {
+            <img src="@Model.About.ProfileImagePath"
+                 class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg" />
+        }
+
+        <!-- Hero Text -->
+        <div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                @(culture == "fa" ? Model.About?.TitleFa : Model.About?.TitleEn)
+            </h1>
+
+            <p class="text-gray-600 text-lg leading-relaxed max-w-xl mb-6">
+                @(culture == "fa" ? Model.About?.BioFa : Model.About?.BioEn)
+            </p>
+
+            <div class="flex gap-4">
+                <a asp-controller="Resume" asp-action="Index"
+                   class="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700">
+                    @(culture == "fa" ? "مشاهده رزومه" : "View Resume")
+                </a>
+
+                <a asp-controller="Contact" asp-action="Index"
+                   class="bg-gray-800 text-white px-6 py-3 rounded shadow hover:bg-black">
+                    @(culture == "fa" ? "تماس با من" : "Contact Me")
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- LATEST PROJECTS -->
+    <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-6">
+            @(culture == "fa" ? "آخرین پروژه‌ها" : "Latest Projects")
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            @foreach (var p in Model.LatestProjects)
+            {
+                <div class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+
+                    @if (!string.IsNullOrEmpty(p.ImagePath))
+                    {
+                        <img src="@p.ImagePath" class="w-full h-48 object-cover" />
+                    }
+
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">
+                            @(culture == "fa" ? p.TitleFa : p.TitleEn)
+                        </h3>
+
+                        <p class="text-gray-600 mb-3">
+                            @(culture == "fa" ? p.DescriptionFa : p.DescriptionEn)
+                        </p>
+
+                        <div class="flex gap-4">
+                            @if (!string.IsNullOrEmpty(p.ProjectUrl))
+                            {
+                                <a href="@p.ProjectUrl" target="_blank"
+                                   class="text-blue-600 underline">Demo</a>
+                            }
+                            @if (!string.IsNullOrEmpty(p.GithubUrl))
+                            {
+                                <a href="@p.GithubUrl" target="_blank"
+                                   class="text-gray-800 underline">GitHub</a>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </section>
+
+    <!-- LATEST BLOG POSTS -->
+    <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-6">
+            @(culture == "fa" ? "آخرین پست‌های وبلاگ" : "Latest Blog Posts")
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            @foreach (var post in Model.LatestPosts)
+            {
+                <div class="bg-white rounded shadow hover:shadow-lg transition p-4">
+
+                    <h3 class="text-xl font-bold mb-2">
+                        @(culture == "fa" ? post.TitleFa : post.TitleEn)
+                    </h3>
+
+                    <p class="text-gray-600 mb-3">
+                        @(culture == "fa" ? post.SummaryFa : post.SummaryEn)
+                    </p>
+
+                    <a asp-controller="Blog" asp-action="Details" asp-route-slug="@post.Slug"
+                       class="text-blue-600 underline">
+                        @(culture == "fa" ? "ادامه مطلب" : "Read More")
+                    </a>
+
+                </div>
+            }
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="text-center py-16 bg-blue-600 text-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold mb-4">
+            @(culture == "fa" ? "آماده همکاری هستم" : "I'm Available for Work")
+        </h2>
+
+        <p class="text-lg mb-6">
+            @(culture == "fa"
+                ? "اگر به دنبال یک توسعه‌دهنده فول‌استک حرفه‌ای هستید، خوشحال می‌شوم با شما همکاری کنم."
+                : "If you're looking for a professional full-stack developer, I'd love to work with you.")
+        </p>
+
+        <a asp-controller="Contact" asp-action="Index"
+           class="bg-white text-blue-600 px-8 py-3 rounded shadow hover:bg-gray-200">
+            @(culture == "fa" ? "تماس با من" : "Contact Me")
+        </a>
+    </section>
+
+</div> *@
+

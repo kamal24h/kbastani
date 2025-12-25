@@ -1,0 +1,85 @@
+﻿@{
+    Layout = $"~/Areas/Admin/Views/Shared/{ViewBag.AdminLayout}";
+    ViewData["Title"] = "داشبورد";
+}
+
+<h1 class="text-3xl font-bold mb-6">داشبورد مدیریت</h1>
+
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 4v16m8-8H4"></path>
+            </svg>
+        </div>
+        <div class="mr-4">
+            <p class="text-gray-500">تعداد پست‌ها</p>
+            <p class="text-2xl font-bold">42</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-green-100 text-green-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        <div class="mr-4">
+            <p class="text-gray-500">کاربران فعال</p>
+            <p class="text-2xl font-bold">128</p>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow flex items-center">
+        <div class="bg-yellow-100 text-yellow-600 p-4 rounded-full">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 7h18M3 12h18M3 17h18"></path>
+            </svg>
+        </div>
+        <div class="mr-4">
+            <p class="text-gray-500">تاپیک‌های فروم</p>
+            <p class="text-2xl font-bold">67</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Table -->
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">آخرین پست‌های وبلاگ</h2>
+
+    <table class="min-w-full text-right">
+        <thead>
+            <tr class="border-b">
+                <th class="p-2">عنوان</th>
+                <th class="p-2">تاریخ</th>
+                <th class="p-2">وضعیت</th>
+                <th class="p-2">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b">
+                <td class="p-2">آموزش ASP.NET Core</td>
+                <td class="p-2">1402/10/12</td>
+                <td class="p-2 text-green-600">منتشر شده</td>
+                <td class="p-2">
+                    <a class="text-blue-600 hover:underline">ویرایش</a>
+                </td>
+            </tr>
+
+            <tr class="border-b">
+                <td class="p-2">Tailwind چیست؟</td>
+                <td class="p-2">1402/10/10</td>
+                <td class="p-2 text-yellow-600">پیش‌نویس</td>
+                <td class="p-2">
+                    <a class="text-blue-600 hover:underline">ویرایش</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

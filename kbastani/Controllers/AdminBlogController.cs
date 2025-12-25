@@ -24,7 +24,7 @@ namespace WebApp.Controllers
             model.AuthorId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
             model.PublishedAt = DateTime.UtcNow;
             // تولید اسلاگ یکتا
-            model.Slug = Slugify(model.Title);
+            model.Slug = Slugify(model.TitleEn);
             _db.BlogPosts.Add(model);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Blog");
