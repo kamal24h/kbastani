@@ -7,15 +7,28 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using QuestPDF.Infrastructure;
-using System.Globalization;
-using WebApp.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ---------------------------------------------------
-// Add services to the container.
+// Add services to the Localization.
+// ---------------------------------------------------
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+var supportedCultures = new[] { "fa", "en" };
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("fa");
+    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+});
+
 // ---------------------------------------------------
 // Add services For Db Configs
 // ---------------------------------------------------
@@ -99,8 +112,6 @@ var app = builder.Build();
 var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
 app.UseRequestLocalization(locOptions.Value);
 
-
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -115,17 +126,11 @@ else
 
 app.UseHttpsRedirection();
 
-// Middleware
-var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
-app.UseRequestLocalization(locOptions.Value);
-
 app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-
 
 app.MapControllerRoute(
     name: "areas",
@@ -144,7 +149,6 @@ app.MapControllerRoute(
     name: "blog-search",
     pattern: "blog/search",
     defaults: new { controller = "Blog", action = "Search" });
-
 
 app.MapRazorPages();
 
@@ -165,3 +169,4 @@ catch (Exception ex)
 }
 
 app.Run();
+
