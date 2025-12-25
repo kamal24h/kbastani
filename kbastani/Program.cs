@@ -1,21 +1,42 @@
-﻿using Common.Configuration;
+﻿using System.Globalization;
+using Common.Configuration;
 using Common.DependencyInjection;
 using DataAccess;
 using Domain;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // ---------------------------------------------------
-// Add services to the container.
+// Localization
+// ---------------------------------------------------
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
+
+var supportedCultures = new[] { "fa", "en" };
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("fa");
+    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+});
+
+// ---------------------------------------------------
+// Add services For Db Configs
 // ---------------------------------------------------
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // ---------------------------------------------------
-// 2️ Add Identity Core Services
+// Add Identity Core Services
 // ---------------------------------------------------
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
@@ -43,7 +64,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddDefaultTokenProviders(); // needed for password reset, email confirmation, etc.
 
 // ---------------------------------------------------
-// 3️ Add authentication cookie configuration (optional)
+// Add authentication cookie configuration (optional)
 // ---------------------------------------------------
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -54,7 +75,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 // ---------------------------------------------------
-// 4 Other Important Configs
+// Other Important Configs
 // ---------------------------------------------------
 builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthorizationCore(options =>
@@ -97,8 +118,12 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
+// Middleware
+var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(locOptions.Value);
+
+app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(

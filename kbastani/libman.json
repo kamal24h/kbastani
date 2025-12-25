@@ -1,0 +1,10 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [{
+  "provider": "cdnjs",
+  "library": "tailwindcss@4.1.13",
+  "destination": "wwwroot/lib/tailwindcss/"
+}
+]
+}

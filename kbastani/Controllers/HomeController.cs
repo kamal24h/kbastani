@@ -1,32 +1,24 @@
-using System.Diagnostics;
-using kbastani.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace kbastani.Controllers
+namespace WebApp.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Localization;
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IStringLocalizer _localizer;
+        public HomeController(IStringLocalizerFactory factory)
         {
-            _logger = logger;
+            var type = typeof(SharedResource);
+            _localizer = factory.Create(type);
         }
 
         public IActionResult Index()
         {
+            ViewData["Message"] = _localizer["Welcome"];
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
+    public class SharedResource { }
+
 }
