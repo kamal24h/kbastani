@@ -9,7 +9,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Views\Shared\tailwindcss.browser%404.js" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Content Include="Pdf\tailwind.min.css">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Views\Shared\tailwindcss.browser@4.js">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>

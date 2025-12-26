@@ -115,8 +115,7 @@
               "RelativeToolTip": "WebApp\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T13:04:21.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T13:04:21.153Z"
             },
             {
               "$type": "Document",
@@ -128,8 +127,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Resume\\Index.cshtml",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T13:03:55.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T13:03:55.898Z"
             },
             {
               "$type": "Document",
@@ -141,8 +139,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\About\\Edit.cshtml",
               "ViewState": "AgIAACMAAAAAAAAAAAAAAC8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T13:03:45.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T13:03:45.314Z"
             },
             {
               "$type": "Document",
@@ -154,8 +151,7 @@
               "RelativeToolTip": "WebApp\\Controllers\\HomeController.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAYwDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T12:39:32.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:39:32.236Z"
             },
             {
               "$type": "Document",
@@ -167,8 +163,7 @@
               "RelativeToolTip": "WebApp\\Program.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T12:25:40.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:25:40.167Z"
             },
             {
               "$type": "Document",
@@ -180,8 +175,7 @@
               "RelativeToolTip": "WebApp\\Views\\Contact\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:24:46.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:24:46.635Z"
             },
             {
               "$type": "Document",
@@ -193,8 +187,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Dashboard\\Index_en.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:23:03.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:23:03.545Z"
             },
             {
               "$type": "Document",
@@ -206,8 +199,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:22:43.962Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:22:43.962Z"
             },
             {
               "$type": "Document",
@@ -219,8 +211,7 @@
               "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAmwD0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:15:12.836Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:15:12.836Z"
             },
             {
               "$type": "Document",
@@ -232,8 +223,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Shared\\AdminTemplate.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:22:36.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:22:36.419Z"
             },
             {
               "$type": "Document",
@@ -245,8 +235,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Shared\\_AdminLayout.fa.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:21:01.609Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:21:01.609Z"
             },
             {
               "$type": "Document",
@@ -258,8 +247,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Shared\\_AdminLayout.en.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:20:41.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:20:41.242Z"
             },
             {
               "$type": "Document",
@@ -271,8 +259,7 @@
               "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-26T12:20:18.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:20:18.925Z"
             },
             {
               "$type": "Document",
@@ -284,8 +271,7 @@
               "RelativeToolTip": "WebApp\\wwwroot\\css\\site.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-26T12:16:23.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-26T12:16:23.128Z"
             }
           ]
         }
