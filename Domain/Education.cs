@@ -21,7 +21,7 @@ namespace Domain
         public string DescriptionEn { get; set; } = default!;
 
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 
 }

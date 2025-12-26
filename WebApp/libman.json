@@ -1,22 +1,17 @@
 {
-  "version": "3.0",
-  "defaultProvider": "cdnjs",
-  "libraries": [
-    {
-      "provider": "jsdelivr",
-      "library": "@telegraph/typography@0.1.28",
-      "destination": "wwwroot/lib/telegraph/typography/"
-    },
-    {
-  "libraries": [{
-  "provider": "cdnjs",
-      "library": "tailwindcss@4.1.13",
-      "destination": "wwwroot/lib/tailwindcss/"
-    },
-    {
-      "provider": "jsdelivr",
-      "library": "@tailwindcss/typography@0.5.2",
-      "destination": "wwwroot/lib/tailwindcss/typography/"
-    }
-  ]
+    "version": "3.0",
+    "defaultProvider": "cdnjs",
+    //"libraries": [
+    //  {
+    //    "provider": "jsdelivr",
+    //    "library": "@telegraph/typography@0.1.28",
+    //    "destination": "wwwroot/lib/telegraph/typography/"
+    //  },
+    "libraries": [        
+        {
+            "provider": "cdnjs",
+            "library": "tailwindcss@3.4.17",
+            "destination": "wwwroot/lib/tailwindcss/"
+        }
+    ]
 }

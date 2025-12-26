@@ -24,7 +24,7 @@
                 <td class="p-2">@e.DegreeEn</td>
                 <td class="p-2">@e.UniversityEn</td>
                 <td class="p-2">
-                    @e.StartDate.ToString("yyyy") - @e.EndDate.ToString("yyyy")
+                    @e.StartDate.ToString("yyyy") - @e.EndDate?.ToString("yyyy")
                 </td>
                 <td class="p-2">
                     <a asp-action="Edit" asp-route-id="@e.EducationId" class="text-blue-600">Edit</a>

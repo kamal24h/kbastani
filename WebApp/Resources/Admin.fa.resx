@@ -203,4 +203,29 @@
   <data name="ForumThreads" xml:space="preserve">
     <value>تاپیک‌های فروم</value>
   </data>
+
+  <data name="Contact" xml:space="preserve">
+    <value>تماس</value>
+  </data>
+
+  <data name="Your message has been sent successfully." xml:space="preserve">
+    <value>پیام شما با موفقیت ارسال شد.</value>
+  </data>
+
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+
+  <data name="Message" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  
 </root>

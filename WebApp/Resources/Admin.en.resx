@@ -203,4 +203,23 @@
     <value>Forum Threads</value>
   </data>
 
+  <data name="Contact" xml:space="preserve">
+  <value>Contact</value>
+</data>
+<data name="Your message has been sent successfully." xml:space="preserve">
+  <value>Your message has been sent successfully.</value>
+</data>
+<data name="Name" xml:space="preserve">
+  <value>Name</value>
+</data>
+<data name="Email" xml:space="preserve">
+  <value>Email</value>
+</data>
+<data name="Message" xml:space="preserve">
+  <value>Message</value>
+</data>
+<data name="Send" xml:space="preserve">
+  <value>ُSend</value>
+  </data>
+
 </root>

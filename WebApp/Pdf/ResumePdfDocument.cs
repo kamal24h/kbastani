@@ -141,7 +141,7 @@ namespace WebApp.Pdf
                     var degree = _culture == "fa" ? e.DegreeFa : e.DegreeEn;
                     var uni = _culture == "fa" ? e.UniversityFa : e.UniversityEn;
                     var desc = _culture == "fa" ? e.DescriptionFa : e.DescriptionEn;
-                    var period = e.StartDate.Year + " - " + e.EndDate.Year;
+                    var period = e.StartDate.Year + " - " + e.EndDate?.Year;
 
                     col.Item().PaddingBottom(5).Element(c =>
                     {

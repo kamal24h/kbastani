@@ -3,6 +3,7 @@ using DataAccess.Vms;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Services;
+using Microsoft.Extensions.Localization;
 
 namespace WebApp.Controllers
 {
@@ -10,21 +11,26 @@ namespace WebApp.Controllers
     {
         private readonly EmailService _email;
         private readonly AppDbContext _db;
+        private readonly IStringLocalizer<ContactController> _localizer;
 
-        public ContactController(EmailService email, AppDbContext db)
+        public ContactController(EmailService email, AppDbContext db,
+            IStringLocalizer<ContactController> localizer = null)
         {
             _email = email;
             _db = db;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
         {
+            ViewData["Title"] = _localizer["Contact"];
             return View(new ContactFormViewModel());
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(ContactFormViewModel model)
         {
+            ViewData["Title"] = _localizer["Contact"];
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -54,7 +60,7 @@ namespace WebApp.Controllers
             <p><strong>Email:</strong> {model.Email}</p>
             <p><strong>Subject:</strong> {model.Subject}</p>
             <p><strong>Message:</strong><br>{model.Message}</p>
-        ";
+            ";
 
             await _email.SendEmailAsync("your-email@gmail.com", "New Contact Message", body);
 
