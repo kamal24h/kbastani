@@ -3,10 +3,12 @@ using Common.Configuration;
 using Common.DependencyInjection;
 using DataAccess;
 using Domain;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using WebApp.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,18 +17,30 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the Localization.
 // ---------------------------------------------------
 
+// 1) Localization resources path
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-builder.Services.AddControllersWithViews()
-    .AddViewLocalization()
+// 2) MVC + view/data annotations localization
+builder.Services
+    .AddControllersWithViews()
+    .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
 
+// 3) Supported cultures
 var supportedCultures = new[] { "fa", "en" };
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    options.DefaultRequestCulture = new RequestCulture("fa");
-    options.SupportedCultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
-    options.SupportedUICultures = supportedCultures.Select(c => new CultureInfo(c)).ToList();
+    options.SetDefaultCulture("fa");
+    options.AddSupportedCultures(supportedCultures);
+    options.AddSupportedUICultures(supportedCultures);
+
+    // Provider order: Cookie -> QueryString -> Accept-Language
+    options.RequestCultureProviders = new List<IRequestCultureProvider>
+    {
+        new CookieRequestCultureProvider(),
+        new QueryStringRequestCultureProvider(),
+        new AcceptLanguageHeaderRequestCultureProvider()
+    };
 });
 
 // ---------------------------------------------------
@@ -106,11 +120,13 @@ MapperConfig.ConfiguerServices(builder.Services, builder.Configuration);
 // Config Dependency Injections
 Bootstrap.ConfigureService(builder.Services, builder.Configuration);
 
+builder.Services.AddScoped<EmailService>();
+
 var app = builder.Build();
 
-// Middleware
-var locOptions = app.Services.GetService<IOptions<RequestLocalizationOptions>>();
-app.UseRequestLocalization(locOptions.Value);
+// 4) Use localization middleware BEFORE routing
+var locOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+app.UseRequestLocalization(locOptions);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
