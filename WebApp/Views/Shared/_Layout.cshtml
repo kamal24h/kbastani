@@ -8,6 +8,8 @@
 
 @{
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewData["Title"] = culture == "fa" ? "کمال" : "Kamal";
+    var LogoTitle = culture == "fa" ? "کمال" : "Kamal";
     var isRtl = culture == "fa";
 }
 
@@ -16,13 +18,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>@ViewData["Title"] - خانه</title>
-	<script src="~/js/tailwindcss.browser@4.js"></script>
+    <title>@ViewData["Title"]</title>
+	
+    <script src="~/js/tailwindcss.browser@4.js"></script>
 
     <link href="~/css/site.css" rel="stylesheet" />
 
-
-    @* <link href="~/css/new/tailwind.min.css" rel="stylesheet" /> *@
     <script>
         (function () {
             const saved = localStorage.getItem('theme');
@@ -30,9 +31,8 @@
         })();
     </script>
 </head>
-@* <body class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300"> *@
 
- <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header -->
     <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow-sm sticky top-0 z-50">
@@ -41,7 +41,7 @@
             <!-- Logo -->
             <a asp-controller="Home" asp-action="Index"
                class="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                Portfolio
+                @LogoTitle
             </a>
 
             <!-- Desktop nav -->

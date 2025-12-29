@@ -1,0 +1,8 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewData["Title"] = culture == "fa" ? "محلی سازی": "Localization";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This page is for test locaization.")</p>
+<p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This is a localized sentence.") </p>

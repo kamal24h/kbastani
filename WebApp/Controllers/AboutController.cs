@@ -14,7 +14,7 @@ public class AboutController : Controller
     // همه می‌توانند این صفحه را ببینند
     [AllowAnonymous]
     public async Task<IActionResult> Index()
-    {
+    {        
         var about = await _db.Abouts.FirstOrDefaultAsync();
         return View(about);
     }
