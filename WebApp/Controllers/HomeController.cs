@@ -18,24 +18,24 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return RedirectToAction("MyTest");
-        //var vm = new HomeViewModel
-        //{
-        //    About = await _db.Abouts.FirstOrDefaultAsync(),
+        // RedirectToAction("MyTest");
+        var vm = new HomeViewModel
+        {
+            About = await _db.Abouts.FirstOrDefaultAsync(),
 
-        //    LatestPosts = await _db.BlogPosts
-        //        .Where(p => p.IsPublished)
-        //        .OrderByDescending(p => p.PublishedAt)
-        //        .Take(3)
-        //        .ToListAsync(),
+            LatestPosts = await _db.BlogPosts
+                .Where(p => p.IsPublished)
+                .OrderByDescending(p => p.PublishedAt)
+                .Take(3)
+                .ToListAsync(),
 
-        //    LatestProjects = await _db.Projects
-        //        .OrderByDescending(p => p.CreatedAt)
-        //        .Take(3)
-        //        .ToListAsync()
-        //};
+            LatestProjects = await _db.Projects
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(3)
+                .ToListAsync()
+        };
 
-        //return View(vm);
+        return View(vm);
     }
 
     [HttpPost]

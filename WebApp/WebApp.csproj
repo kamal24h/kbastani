@@ -41,7 +41,6 @@
 
 	<ItemGroup>
 	  <Folder Include="wwwroot\css\admin\" />
-	  <Folder Include="wwwroot\images\" />
 	  <Folder Include="wwwroot\uploads\blog\" />
 	  <Folder Include="wwwroot\uploads\profile\" />
 	  <Folder Include="wwwroot\uploads\projects\" />
