@@ -40,16 +40,14 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SetDefaultCulture("fa");
     options.AddSupportedCultures(supportedCultures);
     options.AddSupportedUICultures(supportedCultures);
+    // Provider order: Cookie -> QueryString -> Accept-Language
+    options.RequestCultureProviders = new List<IRequestCultureProvider>
+        {
+            new CookieRequestCultureProvider(),
+            new QueryStringRequestCultureProvider(),
+            new AcceptLanguageHeaderRequestCultureProvider()
+        };
 });
-
-//    // Provider order: Cookie -> QueryString -> Accept-Language
-//    options.RequestCultureProviders = new List<IRequestCultureProvider>
-//    {
-//        new CookieRequestCultureProvider(),
-//        new QueryStringRequestCultureProvider(),
-//        new AcceptLanguageHeaderRequestCultureProvider()
-//    };
-//});
 
 // ---------------------------------------------------
 // Add services For Db Configs

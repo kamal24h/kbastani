@@ -21,7 +21,6 @@
     <title>@ViewData["Title"]</title>
 	
     <script src="~/js/tailwindcss.browser@4.js"></script>
-
     <link href="~/css/site.css" rel="stylesheet" />
 
     <script>
@@ -51,11 +50,11 @@
                     @Localizer["Home"]
                 </a>
 
-                <a asp-controller="About" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
+                <a asp-controller="PublicAbout" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
                     @Localizer["About"]
                 </a>
 
-                <a asp-controller="Resume" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
+                <a asp-controller="PublicResume" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
                     @Localizer["Resume"]
                 </a>
 
@@ -135,7 +134,7 @@
                     </div>
                 </div>
 
-                <a asp-controller="Contact" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
+                <a asp-controller="PublicContact" asp-action="Index" class="hover:text-blue-600 dark:hover:text-blue-400">
                     @Localizer["Contact"]
                 </a>
 
@@ -198,11 +197,11 @@
         <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800 p-4 space-y-3">
             <a asp-controller="Home" asp-action="Index" class="block">@Localizer["Home"]</a>
-            <a asp-controller="About" asp-action="Index" class="block">@Localizer["About"]</a>
-            <a asp-controller="Resume" asp-action="Index" class="block">@Localizer["Resume"]</a>
+            <a asp-controller="PublicAbout" asp-action="Index" class="block">@Localizer["About"]</a>
+            <a asp-controller="PublicResume" asp-action="Index" class="block">@Localizer["Resume"]</a>
             <a asp-controller="Project" asp-action="Index" class="block">@Localizer["Projects"]</a>
             <a asp-controller="Blog" asp-action="Index" class="block">@Localizer["Blog"]</a>
-            <a asp-controller="Contact" asp-action="Index" class="block">@Localizer["Contact"]</a>
+            <a asp-controller="PublicContact" asp-action="Index" class="block">@Localizer["Contact"]</a>
 
             @if (User.IsInRole("Admin"))
             {
