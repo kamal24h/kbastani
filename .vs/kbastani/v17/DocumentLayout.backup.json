@@ -7,8 +7,36 @@
       "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\views\\home\\mytest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\mytest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\resources\\sharedresource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\resources\\sharedresource.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\controllers\\pubiccontactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\pubiccontactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\sharedresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\sharedresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,28 +78,118 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAIAzwJcAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-29T14:47:43.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApp\\appsettings.json",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\appsettings.json",
+              "RelativeToolTip": "WebApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-29T14:47:24.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SharedResource.resx",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Resources\\SharedResource.resx",
+              "RelativeDocumentMoniker": "WebApp\\Resources\\SharedResource.resx",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Resources\\SharedResource.resx",
+              "RelativeToolTip": "WebApp\\Resources\\SharedResource.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-12-29T14:47:15.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebApp\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Controllers\\HomeController.cs",
               "RelativeToolTip": "WebApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAUwCUAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAjwDEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T07:43:46.843Z",
+              "WhenOpened": "2025-12-29T14:30:58.235Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "SharedResource.cs",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\SharedResource.cs",
+              "RelativeDocumentMoniker": "WebApp\\SharedResource.cs",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\SharedResource.cs",
+              "RelativeToolTip": "WebApp\\SharedResource.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T14:19:25.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Program.cs",
+              "RelativeDocumentMoniker": "WebApp\\Program.cs",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Program.cs",
+              "RelativeToolTip": "WebApp\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T13:50:37.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyTest.cshtml",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Views\\Home\\MyTest.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\MyTest.cshtml",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Views\\Home\\MyTest.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Home\\MyTest.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-29T13:49:43.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PubicContactController.cs",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Controllers\\PubicContactController.cs",
+              "RelativeDocumentMoniker": "WebApp\\Controllers\\PubicContactController.cs",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Controllers\\PubicContactController.cs",
+              "RelativeToolTip": "WebApp\\Controllers\\PubicContactController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T14:28:49.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "WebApp\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-29T07:43:33.9Z",
+              "WhenOpened": "2025-12-29T13:49:42.148Z",
               "EditorCaption": ""
             }
           ]

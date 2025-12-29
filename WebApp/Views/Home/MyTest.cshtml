@@ -1,8 +1,15 @@
-﻿@{
-    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-    ViewData["Title"] = culture == "fa" ? "محلی سازی": "Localization";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    // var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    // ViewData["Title"] = culture == "Fa" ? "محلی سازی": "Localization";
+    // var x = Localizer["Education"];
+    // var y = Localizer["Hello"];
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This page is for test locaization.")</p>
-<p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This is a localized sentence.") </p>
+@* <p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This page is for test locaization.")</p>
+<p>@(culture == "fa" ? "این یک متن فارسی با استفاده از محلی کردن زبان است" : "This is a localized sentence.") </p> *@
+
+<h2 class="text-2xl font-semibold mb-4">@Localizer["Education"].Value</h2>

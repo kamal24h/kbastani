@@ -1,6 +1,6 @@
 ﻿namespace WebApp.Helpers
 {
-    public class SharedResource
+    public class SharedResource1
     {
 
     }

@@ -4,38 +4,44 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using WebApp;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly AppDbContext _db;
+    private readonly IStringLocalizer<SharedResource> _localizer;
 
-    public HomeController(ILogger<HomeController> logger, AppDbContext db)
+    public HomeController(ILogger<HomeController> logger,
+        AppDbContext db, IStringLocalizer<SharedResource> localizer)
     {
         _logger = logger;
         _db = db;
+        _localizer = localizer;
     }
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        // RedirectToAction("MyTest");
-        var vm = new HomeViewModel
-        {
-            About = await _db.Abouts.FirstOrDefaultAsync(),
+        ViewData["Title"] = _localizer["Home"];
+        return RedirectToAction("MyTest");
+        //var vm = new HomeViewModel
+        //{
+        //    About = await _db.Abouts.FirstOrDefaultAsync(),
 
-            LatestPosts = await _db.BlogPosts
-                .Where(p => p.IsPublished)
-                .OrderByDescending(p => p.PublishedAt)
-                .Take(3)
-                .ToListAsync(),
+        //    LatestPosts = await _db.BlogPosts
+        //        .Where(p => p.IsPublished)
+        //        .OrderByDescending(p => p.PublishedAt)
+        //        .Take(3)
+        //        .ToListAsync(),
 
-            LatestProjects = await _db.Projects
-                .OrderByDescending(p => p.CreatedAt)
-                .Take(3)
-                .ToListAsync()
-        };
+        //    LatestProjects = await _db.Projects
+        //        .OrderByDescending(p => p.CreatedAt)
+        //        .Take(3)
+        //        .ToListAsync()
+        //};
 
-        return View(vm);
+        //return View(vm);
     }
 
     [HttpPost]
@@ -51,8 +57,9 @@ public class HomeController : Controller
         return LocalRedirect(returnUrl);
     }
 
-    public async Task<IActionResult> MyTest()
+    public IActionResult MyTest()
     {
+        ViewData["Title"] = _localizer["Home"];
         return View();
     }
 

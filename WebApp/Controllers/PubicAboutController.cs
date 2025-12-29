@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-public class AboutController : Controller
+public class PubicAboutController : Controller
 {
     private readonly AppDbContext _db;
-    public AboutController(AppDbContext db)
+    public PubicAboutController(AppDbContext db)
     {
         _db = db;
     }

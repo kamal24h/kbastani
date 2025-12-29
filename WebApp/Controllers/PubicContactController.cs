@@ -7,14 +7,14 @@ using Microsoft.Extensions.Localization;
 
 namespace WebApp.Controllers
 {
-    public class ContactController : Controller
+    public class PubicContactController : Controller
     {
         private readonly EmailService _email;
         private readonly AppDbContext _db;
-        private readonly IStringLocalizer<ContactController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public ContactController(EmailService email, AppDbContext db,
-            IStringLocalizer<ContactController> localizer = null)
+        public PubicContactController(EmailService email, AppDbContext db,
+            IStringLocalizer<SharedResource> localizer)
         {
             _email = email;
             _db = db;

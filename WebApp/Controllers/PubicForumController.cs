@@ -10,10 +10,10 @@ namespace WebApp.Controllers
 {
     // ForumController (نمونه)
     [AllowAnonymous]
-    public class ForumController : Controller
+    public class PubicForumController : Controller
     {
         private readonly AppDbContext _db;
-        public ForumController(AppDbContext db) => _db = db;
+        public PubicForumController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Index()
         {

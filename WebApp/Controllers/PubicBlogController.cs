@@ -8,10 +8,10 @@ using System.Security.Claims;
 namespace WebApp.Controllers
 {
     [AllowAnonymous]
-    public class BlogController : Controller
+    public class PubicBlogController : Controller
     {
         private readonly AppDbContext _db;
-        public BlogController(AppDbContext db) => _db = db;
+        public PubicBlogController(AppDbContext db) => _db = db;
 
         // List of posts
         public async Task<IActionResult> Index(string? category, string? tag, int page = 1)
