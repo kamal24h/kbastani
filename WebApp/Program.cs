@@ -1,13 +1,10 @@
-﻿using System.Globalization;
-using Common.Configuration;
+﻿using Common.Configuration;
 using Common.DependencyInjection;
 using DataAccess;
 using Domain;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using WebApp;
 using WebApp.Services;
@@ -35,18 +32,20 @@ builder.Services
 
 // 3) Supported cultures
 var supportedCultures = new[] { "fa", "en" };
+var supportedUICultures = new[] { "fa", "en" };
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     options.SetDefaultCulture("fa");
     options.AddSupportedCultures(supportedCultures);
-    options.AddSupportedUICultures(supportedCultures);
+    options.AddSupportedUICultures(supportedUICultures);
+
     // Provider order: Cookie -> QueryString -> Accept-Language
-    options.RequestCultureProviders = new List<IRequestCultureProvider>
-        {
+    options.RequestCultureProviders =
+        [
             new CookieRequestCultureProvider(),
             new QueryStringRequestCultureProvider(),
             new AcceptLanguageHeaderRequestCultureProvider()
-        };
+        ];
 });
 
 // ---------------------------------------------------
@@ -133,6 +132,24 @@ var app = builder.Build();
 // 4) Use localization middleware BEFORE routing
 var locOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
 app.UseRequestLocalization(locOptions);
+
+
+//app.UseRequestLocalization(new RequestLocalizationOptions
+//{
+//    DefaultRequestCulture = new RequestCulture(new CultureInfo("fa-IR")),
+//    SupportedCultures = new[]
+//        {
+//            new CultureInfo("en-US"),
+//            new CultureInfo("fa-IR")
+//        },
+//    SupportedUICultures = new[]
+//        {
+//            new CultureInfo("en-US"),
+//            new CultureInfo("fa-IR")
+//        }
+//});
+
+
 
 
 // Configure the HTTP request pipeline.

@@ -4,6 +4,7 @@ using Domain;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Services;
 using Microsoft.Extensions.Localization;
+using WebApp;
 
 namespace WebApp.Controllers
 {

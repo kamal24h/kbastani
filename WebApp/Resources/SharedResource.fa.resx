@@ -189,4 +189,7 @@
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>
   </data>
+  <data name="Senior Software Developer" xml:space="preserve">
+    <value>توسعه دهنده نرم افزار ارشد</value>
+  </data>
 </root>

@@ -21,27 +21,28 @@ public class HomeController : Controller
         _localizer = localizer;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> IndexAsync()
     {
         ViewData["Title"] = _localizer["Home"];
-        return RedirectToAction("MyTest");
-        //var vm = new HomeViewModel
-        //{
-        //    About = await _db.Abouts.FirstOrDefaultAsync(),
 
-        //    LatestPosts = await _db.BlogPosts
-        //        .Where(p => p.IsPublished)
-        //        .OrderByDescending(p => p.PublishedAt)
-        //        .Take(3)
-        //        .ToListAsync(),
+        //return RedirectToAction("MyTest");
+        var vm = new HomeViewModel
+        {
+            About = await _db.Abouts.FirstOrDefaultAsync(),
 
-        //    LatestProjects = await _db.Projects
-        //        .OrderByDescending(p => p.CreatedAt)
-        //        .Take(3)
-        //        .ToListAsync()
-        //};
+            LatestPosts = await _db.BlogPosts
+                .Where(p => p.IsPublished)
+                .OrderByDescending(p => p.PublishedAt)
+                .Take(3)
+                .ToListAsync(),
 
-        //return View(vm);
+            LatestProjects = await _db.Projects
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(3)
+                .ToListAsync()
+        };
+
+        return View(vm);
     }
 
     [HttpPost]
@@ -60,6 +61,7 @@ public class HomeController : Controller
     public IActionResult MyTest()
     {
         ViewData["Title"] = _localizer["Home"];
+        ViewData["Second"] = _localizer["Education"];
         return View();
     }
 

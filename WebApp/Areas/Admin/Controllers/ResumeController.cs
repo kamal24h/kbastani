@@ -7,6 +7,7 @@ using QuestPDF.Fluent;
 using WebApp.Controllers;
 using WebApp.Helpers;
 using WebApp.Pdf;
+using WebApp;
 
 namespace WebApp.Areas.Admin.Controllers
 {

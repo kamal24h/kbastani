@@ -1,4 +1,7 @@
 ﻿@using DataAccess.Vms
+@using Microsoft.AspNetCore.Mvc.Localization
+@using WebApp;
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 @model HomeViewModel
 @{
@@ -25,7 +28,7 @@
         <!-- Hero Text -->
         <div class="space-y-5 md:space-y-6 animate-[fadeIn_0.8s_ease-out]">
             <p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
-                @(culture == "fa" ? "Full Stack Developer" : "Full Stack Developer")
+                @Localizer["Senior Software Developer"]
             </p>
 
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">

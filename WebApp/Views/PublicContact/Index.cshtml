@@ -2,7 +2,7 @@
 @using Domain
 @using Microsoft.AspNetCore.Mvc.Localization
 @model ContactFormViewModel
-@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 <div class="max-w-2xl mx-auto py-10">
     <h1 class="text-3xl font-bold mb-6">@Localizer["Contact Me"]</h1>

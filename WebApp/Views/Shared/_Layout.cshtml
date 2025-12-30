@@ -4,7 +4,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
-@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 @{
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
