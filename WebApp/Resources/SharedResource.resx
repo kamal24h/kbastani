@@ -132,8 +132,8 @@
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
   </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+  <data name="Contact Me" xml:space="preserve">
+    <value>Contact Me</value>
   </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read More</value>
@@ -191,5 +191,11 @@
   </data>
   <data name="Senior Software Developer" xml:space="preserve">
     <value>Senior Software Developer</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Forum" xml:space="preserve">
+    <value>Forum</value>
   </data>
 </root>
