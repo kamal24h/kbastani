@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
@@ -21,7 +22,22 @@ public class PublicAboutController : Controller
     public async Task<IActionResult> Index()
     {        
         var about = await _db.Abouts.FirstOrDefaultAsync();
-        ViewData["Title"] = _localizer["Home"];
+        ViewData["Title"] = _localizer["Contact"];
         return View(about);
+    }
+
+    [HttpPost]
+    [AllowAnonymous]
+    public IActionResult SetLanguage(string culture, string returnUrl = "/")
+    {
+        Response.Cookies.Append(
+            CookieRequestCultureProvider.DefaultCookieName,
+            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+            new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddYears(1),
+                IsEssential = true
+            });
+        return RedirectToAction("Index");
     }
 }

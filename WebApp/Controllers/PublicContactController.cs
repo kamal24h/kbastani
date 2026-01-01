@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using WebApp.Services;
 using Microsoft.Extensions.Localization;
 using WebApp;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 
 namespace WebApp.Controllers
 {
@@ -67,6 +69,22 @@ namespace WebApp.Controllers
 
             TempData["Success"] = "Your message has been sent successfully.";
 
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddYears(1),
+                    IsEssential = true
+                });
             return RedirectToAction("Index");
         }
     }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static CommonUtility.MainMenu;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Localization;
 
 namespace WebApp.Controllers
 {
@@ -35,6 +36,21 @@ namespace WebApp.Controllers
             // پیاده‌سازی ساده برای مثال
             var slug = input.ToLower().Replace(" ", "-");
             return slug; // در عمل: حذف کاراکترهای غیرمجاز و یکتا سازی
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddYears(1),
+                    IsEssential = true
+                });
+            return RedirectToAction("Index");
         }
     }    
 }

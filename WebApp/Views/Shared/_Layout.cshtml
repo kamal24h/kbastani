@@ -148,7 +148,8 @@
                 }
 
                 <!-- Language switch -->
-                <form asp-controller="Home" asp-action="SetLanguage" method="post">
+                @* <form asp-controller="Home" asp-action="SetLanguage" method="post"> *@
+                <form asp-action="SetLanguage" method="post">
                     <select name="culture" onchange="this.form.submit()">
                         <option value="fa" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? "selected" : null)">FA</option>
                         <option value="en" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "selected" : null)">EN</option>

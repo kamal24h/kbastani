@@ -47,15 +47,17 @@ public class HomeController : Controller
 
     [HttpPost]
     [AllowAnonymous]
-    public IActionResult SetLanguage(string culture, string returnUrl = "/") {
+    public IActionResult SetLanguage(string culture, string returnUrl = "/")
+    {
         Response.Cookies.Append(
             CookieRequestCultureProvider.DefaultCookieName,
             CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-            new CookieOptions {
+            new CookieOptions
+            {
                 Expires = DateTimeOffset.UtcNow.AddYears(1),
                 IsEssential = true
             });
-        return LocalRedirect(returnUrl);
+        return RedirectToAction("IndexAsync");
     }
 
     public IActionResult MyTest()

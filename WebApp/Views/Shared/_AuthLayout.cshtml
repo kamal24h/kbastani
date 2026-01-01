@@ -34,12 +34,12 @@
         <div class="text-center mb-6">
             <a asp-controller="Home" asp-action="Index"
                class="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                Portfolio
+                @Localizer["Kamal's Personal Website!"]
             </a>
         </div>
 
         <h1 class="text-2xl font-bold text-center mb-6 text-blue-600 dark:text-blue-400">
-            @ViewData["Title"]
+            @Localizer["Login"]
         </h1>
 
         @RenderBody()

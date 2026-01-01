@@ -198,4 +198,22 @@
   <data name="Forum" xml:space="preserve">
     <value>فروم</value>
   </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>برگشت به خانه</value>
+  </data>
+  <data name="Kamal's Personal Website!" xml:space="preserve">
+    <value>وبسایت شخصی کمال</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود کاربر</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>حساب کاربری ندارید؟</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Localization;
 
 public class PublicResumeController : Controller
 {
@@ -28,5 +29,20 @@ public class PublicResumeController : Controller
         };
         ViewData["Title"] = _localizer["Resume"];
         return View(vm);
+    }
+
+    [HttpPost]
+    [AllowAnonymous]
+    public IActionResult SetLanguage(string culture, string returnUrl = "/")
+    {
+        Response.Cookies.Append(
+            CookieRequestCultureProvider.DefaultCookieName,
+            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+            new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddYears(1),
+                IsEssential = true
+            });
+        return RedirectToAction("Index");
     }
 }

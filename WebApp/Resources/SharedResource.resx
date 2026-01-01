@@ -198,4 +198,22 @@
   <data name="Forum" xml:space="preserve">
     <value>Forum</value>
   </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>BackToHome</value>
+  </data>
+  <data name="Kamal's Personal Website!" xml:space="preserve">
+    <value>Kamal's Personal Website!</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>NoAccount</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
 </root>
