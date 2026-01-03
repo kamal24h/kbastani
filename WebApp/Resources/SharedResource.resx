@@ -297,4 +297,10 @@
   <data name="AdminDashboard" xml:space="preserve">
     <value>Admin Dashboard</value>
   </data>
+  <data name="Admin Panel" xml:space="preserve">
+    <value>Admin Panel</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
 </root>

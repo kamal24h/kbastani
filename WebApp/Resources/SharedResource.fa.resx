@@ -297,4 +297,10 @@
   <data name="AdminDashboard" xml:space="preserve">
     <value>داشبورد ادمین</value>
   </data>
+  <data name="Admin Panel" xml:space="preserve">
+    <value>پنل ادمین</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>مرور وبلاگ</value>
+  </data>
 </root>

@@ -1,5 +1,13 @@
 ﻿@using Domain
+@using Microsoft.AspNetCore.Mvc.Localization
+@using WebApp;
 @model About
+@inject IHtmlLocalizer<SharedResource> Localizer
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
 @{
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
     ViewData["Title"] = culture == "fa" ? "درباره من" : "About Me";

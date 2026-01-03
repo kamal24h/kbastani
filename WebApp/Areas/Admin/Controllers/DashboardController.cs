@@ -11,12 +11,12 @@ namespace WebApp.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+            //var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
 
-            if (culture == "fa")
-                ViewBag.AdminLayout = "_AdminLayout.fa.cshtml";
-            else
-                ViewBag.AdminLayout = "_AdminLayout.en.cshtml";
+            //if (culture == "fa")
+            //    ViewBag.AdminLayout = "_AdminLayout.fa.cshtml";
+            //else
+            //    ViewBag.AdminLayout = "_AdminLayout.en.cshtml";
             return View();
         }
 
