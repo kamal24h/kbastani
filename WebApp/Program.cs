@@ -191,6 +191,7 @@ app.MapControllerRoute(
     defaults: new { controller = "Blog", action = "Search" });
 
 app.MapRazorPages();
+app.MapControllers();
 
 // Seed Initial Data
 var scope = app.Services.CreateScope();

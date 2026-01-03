@@ -6,6 +6,7 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
+    [Route("admin/[controller]/[action]")]
     public class DashboardController : Controller
     {
         public IActionResult Index()

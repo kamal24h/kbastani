@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
+    [Route("admin/[controller]/[action]")]
     public class ManageAboutController : Controller
     {
         private readonly AppDbContext _db;
