@@ -2,6 +2,7 @@
 using DataAccess.Vms;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,12 +11,12 @@ namespace WebApp.Areas.Admin.Controllers
 
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class AboutController : Controller
+    public class ManageAboutController : Controller
     {
         private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
 
-        public AboutController(AppDbContext db, IWebHostEnvironment env)
+        public ManageAboutController(AppDbContext db, IWebHostEnvironment env)
         {
             _db = db;
             _env = env;
@@ -87,6 +88,21 @@ namespace WebApp.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddYears(1),
+                    IsEssential = true
+                });
+            return RedirectToAction("Index");
         }
     }
 

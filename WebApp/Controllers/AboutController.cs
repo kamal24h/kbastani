@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using WebApp;
 
-public class PublicAboutController : Controller
+public class AboutController : Controller
 {
     private readonly AppDbContext _db;
     private readonly IStringLocalizer<SharedResource> _localizer;
 
-    public PublicAboutController(AppDbContext db, IStringLocalizer<SharedResource> localizer)
+    public AboutController(AppDbContext db, IStringLocalizer<SharedResource> localizer)
     {
         _db = db;
         _localizer = localizer;

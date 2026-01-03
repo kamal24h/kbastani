@@ -8,10 +8,10 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class ForumController : Controller
+    public class ManageForumController : Controller
     {
         private readonly AppDbContext _db;
-        public ForumController(AppDbContext db) => _db = db;
+        public ManageForumController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Categories()
         {

@@ -7,11 +7,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class CommentController : Controller
+    public class ManageCommentController : Controller
     {
         private readonly AppDbContext _db;
 
-        public CommentController(AppDbContext db) => _db = db;
+        public ManageCommentController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Index()
         {

@@ -144,8 +144,8 @@
   <data name="DownloadResume" xml:space="preserve">
     <value>دانلود رزومه</value>
   </data>
-  <data name="LatestPosts" xml:space="preserve">
-    <value>آخرین پست‌ها</value>
+  <data name="Programming" xml:space="preserve">
+    <value>برنامه نویسی</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>جستجو</value>
@@ -237,16 +237,64 @@
   <data name="Back to Site" xml:space="preserve">
     <value>برگشت به خانه</value>
   </data>
-  <data name="Manage Resume" xml:space="preserve">
+  <data name="ManageResume" xml:space="preserve">
     <value>مدیریت رزومه</value>
   </data>
-  <data name="Manage About" xml:space="preserve">
+  <data name="ManageAbout" xml:space="preserve">
     <value>مدیریت درباره</value>
   </data>
-  <data name="Blog Categories" xml:space="preserve">
+  <data name="BlogCategories" xml:space="preserve">
     <value>دسته بندی وبلاگ</value>
   </data>
   <data name="Blogs" xml:space="preserve">
     <value>وبلاگ</value>
+  </data>
+  <data name="LatestPosts" xml:space="preserve">
+    <value>آخرین پست ها</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>استخدام</value>
+  </data>
+  <data name="Migration" xml:space="preserve">
+    <value>مهاجرت</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>تگ ها</value>
+  </data>
+  <data name="AdminTools" xml:space="preserve">
+    <value>ابزارهای ادمین</value>
+  </data>
+  <data name="ManagePosts" xml:space="preserve">
+    <value>مدیریت پستها</value>
+  </data>
+  <data name="ManageCategories" xml:space="preserve">
+    <value>گروهبندی پستها</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>مدیریت تگها</value>
+  </data>
+  <data name="ModerateComments" xml:space="preserve">
+    <value>کنترل کامنتها</value>
+  </data>
+  <data name="Showcase" xml:space="preserve">
+    <value>نمونه کارها</value>
+  </data>
+  <data name="All projects" xml:space="preserve">
+    <value>همه پروژه ها</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>وب</value>
+  </data>
+  <data name="Backend" xml:space="preserve">
+    <value>بکند</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>معماری</value>
+  </data>
+  <data name="TechStack" xml:space="preserve">
+    <value>فناوری ها</value>
+  </data>
+  <data name="AdminDashboard" xml:space="preserve">
+    <value>داشبورد ادمین</value>
   </data>
 </root>

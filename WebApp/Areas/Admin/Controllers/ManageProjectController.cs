@@ -9,12 +9,12 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class ProjectController : Controller
+    public class ManageProjectController : Controller
     {
         private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
 
-        public ProjectController(AppDbContext db, IWebHostEnvironment env)
+        public ManageProjectController(AppDbContext db, IWebHostEnvironment env)
         {
             _db = db;
             _env = env;

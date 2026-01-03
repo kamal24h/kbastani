@@ -8,11 +8,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class TagController : Controller
+    public class ManageTagController : Controller
     {
         private readonly AppDbContext _db;
 
-        public TagController(AppDbContext db)
+        public ManageTagController(AppDbContext db)
         {
             _db = db;
         }

@@ -59,15 +59,6 @@ public class HomeController : Controller
             });
         return RedirectToAction("Index");
     }
-
-    public IActionResult MyTest()
-    {
-        ViewData["Title"] = _localizer["Home"];
-        ViewData["Second"] = _localizer["Education"];
-        return View();
-    }
-
-
 }
 
 

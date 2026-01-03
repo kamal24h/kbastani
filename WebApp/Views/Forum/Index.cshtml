@@ -1,5 +1,7 @@
 ﻿@using Domain
 @model IEnumerable<ForumCategory>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 <div class="space-y-6">
     @foreach (var cat in Model)

@@ -8,11 +8,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class ExperienceController : Controller
+    public class ManageExperienceController : Controller
     {
         private readonly AppDbContext _db;
 
-        public ExperienceController(AppDbContext db) => _db = db;
+        public ManageExperienceController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Index()
         {

@@ -9,12 +9,12 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class BlogController : Controller
+    public class ManageBlogController : Controller
     {
         private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
 
-        public BlogController(AppDbContext db, IWebHostEnvironment env)
+        public ManageBlogController(AppDbContext db, IWebHostEnvironment env)
         {
             _db = db;
             _env = env;

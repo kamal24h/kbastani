@@ -11,14 +11,14 @@ using WebApp;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class ResumeController : Controller
+    public class ManageResumeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IStringLocalizer _localizer;
         private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
 
-        public ResumeController(AppDbContext db, ILogger<HomeController> logger,
+        public ManageResumeController(AppDbContext db, ILogger<HomeController> logger,
             IStringLocalizerFactory factory, IWebHostEnvironment env)
         {
             _logger = logger;

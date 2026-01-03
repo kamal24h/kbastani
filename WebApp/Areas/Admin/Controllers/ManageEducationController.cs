@@ -8,11 +8,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class EducationController : Controller
+    public class ManageEducationController : Controller
     {
         private readonly AppDbContext _db;
 
-        public EducationController(AppDbContext db) => _db = db;
+        public ManageEducationController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Index()
         {

@@ -10,13 +10,13 @@ using Microsoft.AspNetCore.Localization;
 
 namespace WebApp.Controllers
 {
-    public class PublicContactController : Controller
+    public class ContactController : Controller
     {
         private readonly EmailService _email;
         private readonly AppDbContext _db;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public PublicContactController(EmailService email, AppDbContext db,
+        public ContactController(EmailService email, AppDbContext db,
             IStringLocalizer<SharedResource> localizer)
         {
             _email = email;

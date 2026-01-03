@@ -40,12 +40,12 @@
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
-                <a asp-controller="PublicResume" asp-action="Index"
+                <a asp-controller="Resume" asp-action="Index"
                    class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
                     @(culture == "fa" ? "مشاهده رزومه" : "View Resume")
                 </a>
 
-                <a asp-controller="PublicContact" asp-action="Index"
+                <a asp-controller="Contact" asp-action="Index"
                    class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-700 px-6 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
                     @(culture == "fa" ? "تماس با من" : "Contact Me")
                 </a>

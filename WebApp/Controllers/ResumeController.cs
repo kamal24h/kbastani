@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Localization;
 
-public class PublicResumeController : Controller
+public class ResumeController : Controller
 {
     private readonly AppDbContext _db;
-    private readonly IStringLocalizer<PublicResumeController> _localizer;
-    public PublicResumeController(AppDbContext db, IStringLocalizer<PublicResumeController> localizer)
+    private readonly IStringLocalizer<ResumeController> _localizer;
+    public ResumeController(AppDbContext db, IStringLocalizer<ResumeController> localizer)
     {
         _db = db;
         _localizer = localizer;

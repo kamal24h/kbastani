@@ -1,10 +1,14 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using WebApp
+@inject IHtmlLocalizer<SharedResource> Localizer
+
+@{
     //Layout = $"~/Areas/Admin/Views/Shared/{ViewBag.AdminLayout}";
     Layout = $"~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     ViewData["Title"] = "داشبورد";
 }
 
-<h1 class="text-3xl font-bold mb-6">داشبورد مدیریت</h1>
+<h1 class="text-3xl font-bold mb-6">@Localizer["AdminDashboard"]</h1>
 
 <!-- Stats -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

@@ -144,8 +144,8 @@
   <data name="DownloadResume" xml:space="preserve">
     <value>Download Resume</value>
   </data>
-  <data name="LatestPosts" xml:space="preserve">
-    <value>Latest Posts</value>
+  <data name="Programming" xml:space="preserve">
+    <value>Programmin</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
@@ -237,16 +237,64 @@
   <data name="Back to Site" xml:space="preserve">
     <value>Back to Site</value>
   </data>
-  <data name="Manage Resume" xml:space="preserve">
+  <data name="ManageResume" xml:space="preserve">
     <value>Manage Resume</value>
   </data>
-  <data name="Manage About" xml:space="preserve">
+  <data name="ManageAbout" xml:space="preserve">
     <value>Manage About</value>
   </data>
-  <data name="Blog Categories" xml:space="preserve">
+  <data name="BlogCategories" xml:space="preserve">
     <value>Blog Categories</value>
   </data>
   <data name="Blogs" xml:space="preserve">
     <value>Blogs</value>
+  </data>
+  <data name="LatestPosts" xml:space="preserve">
+    <value>Latest posts</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>Career</value>
+  </data>
+  <data name="Migration" xml:space="preserve">
+    <value>Migration</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="AdminTools" xml:space="preserve">
+    <value>Admin Tools</value>
+  </data>
+  <data name="ManagePosts" xml:space="preserve">
+    <value>Manage Posts</value>
+  </data>
+  <data name="ManageCategories" xml:space="preserve">
+    <value>Manage Categories</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Manage Tags</value>
+  </data>
+  <data name="ModerateComments" xml:space="preserve">
+    <value>Moderate Comments</value>
+  </data>
+  <data name="Showcase" xml:space="preserve">
+    <value>Showcase</value>
+  </data>
+  <data name="All projects" xml:space="preserve">
+    <value>All projects</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="Backend" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="TechStack" xml:space="preserve">
+    <value>Tech Stack</value>
+  </data>
+  <data name="AdminDashboard" xml:space="preserve">
+    <value>Admin Dashboard</value>
   </data>
 </root>

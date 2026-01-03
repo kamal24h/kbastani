@@ -8,11 +8,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class CategoryController : Controller
+    public class ManageCategoryController : Controller
     {
         private readonly AppDbContext _db;
 
-        public CategoryController(AppDbContext db) => _db = db;
+        public ManageCategoryController(AppDbContext db) => _db = db;
 
         public async Task<IActionResult> Index()
         {
