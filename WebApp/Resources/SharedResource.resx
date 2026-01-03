@@ -234,4 +234,19 @@
   <data name="AboutMe" xml:space="preserve">
     <value>About Me</value>
   </data>
+  <data name="Back to Site" xml:space="preserve">
+    <value>Back to Site</value>
+  </data>
+  <data name="Manage Resume" xml:space="preserve">
+    <value>Manage Resume</value>
+  </data>
+  <data name="Manage About" xml:space="preserve">
+    <value>Manage About</value>
+  </data>
+  <data name="Blog Categories" xml:space="preserve">
+    <value>Blog Categories</value>
+  </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>Blogs</value>
+  </data>
 </root>

@@ -234,4 +234,19 @@
   <data name="AboutMe" xml:space="preserve">
     <value>درباره من</value>
   </data>
+  <data name="Back to Site" xml:space="preserve">
+    <value>برگشت به خانه</value>
+  </data>
+  <data name="Manage Resume" xml:space="preserve">
+    <value>مدیریت رزومه</value>
+  </data>
+  <data name="Manage About" xml:space="preserve">
+    <value>مدیریت درباره</value>
+  </data>
+  <data name="Blog Categories" xml:space="preserve">
+    <value>دسته بندی وبلاگ</value>
+  </data>
+  <data name="Blogs" xml:space="preserve">
+    <value>وبلاگ</value>
+  </data>
 </root>

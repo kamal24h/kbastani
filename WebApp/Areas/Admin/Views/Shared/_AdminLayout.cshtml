@@ -54,7 +54,7 @@
                 <!-- Logout -->
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="inline">
+                    <form asp-area="" asp-controller="Auth" asp-action="Logout" method="post" class="inline">
                         <button type="submit"
                                 class="text-red-600 dark:text-red-400 hover:underline">
                             @Localizer["Logout"]
