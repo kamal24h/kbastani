@@ -168,7 +168,7 @@
                 <!-- Auth -->
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <form asp-controller="Account" asp-action="Logout" method="post">
+                    <form asp-controller="Auth" asp-action="Logout" method="post">
                         <button class="text-red-600 dark:text-red-400 hover:underline">
                             @Localizer["Logout"]
                         </button>
@@ -176,10 +176,10 @@
                 }
                 else
                 {
-                    <a asp-controller="Account" asp-action="Login" class="text-blue-600 dark:text-blue-400 hover:underline">
+                    <a asp-controller="Auth" asp-action="Login" class="text-blue-600 dark:text-blue-400 hover:underline">
                         @Localizer["Login"]
                     </a>
-                    <a asp-controller="Account" asp-action="Register" class="text-green-600 dark:text-green-400 hover:underline">
+                    <a asp-controller="Auth" asp-action="Register" class="text-green-600 dark:text-green-400 hover:underline">
                         @Localizer["Register"]
                     </a>
                 }
@@ -227,14 +227,14 @@
             <div>
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <form asp-controller="Account" asp-action="Logout" method="post">
+                    <form asp-controller="Auth" asp-action="Logout" method="post">
                         <button class="text-red-600">@Localizer["Logout"]</button>
                     </form>
                 }
                 else
                 {
-                    <a asp-controller="Account" asp-action="Login" class="block">@Localizer["Login"]</a>
-                    <a asp-controller="Account" asp-action="Register" class="block">@Localizer["Register"]</a>
+                    <a asp-controller="Auth" asp-action="Login" class="block">@Localizer["Login"]</a>
+                    <a asp-controller="Auth" asp-action="Register" class="block">@Localizer["Register"]</a>
                 }
             </div>
         </div>

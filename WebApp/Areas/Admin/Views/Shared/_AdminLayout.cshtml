@@ -1,14 +1,15 @@
 ﻿@using Domain
 @using Microsoft.AspNetCore.Identity
-@using Microsoft.AspNetCore.Mvc.Localization
 @inject SignInManager<AppUser> SignInManager
-@inject IViewLocalizer Localizer
+@using Microsoft.AspNetCore.Mvc.Localization
+@using WebApp
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - Admin Panel</title>
+    <title>@ViewData["Title"] - @Localizer["AdminPanel"]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script src="~/js/tailwindcss.browser@4.js"></script>
@@ -30,7 +31,7 @@
                    class="text-xl font-bold text-blue-600 dark:text-blue-400 hover:underline">
                     ← @Localizer["Back to Site"]
                 </a>
-                <span class="text-gray-600 dark:text-gray-300 font-semibold">Admin Panel</span>
+                <span class="text-gray-600 dark:text-gray-300 font-semibold">@Localizer["AdminPanel"]</span>
             </div>
 
             <!-- Links -->
@@ -72,7 +73,7 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-10">
         <div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400 text-sm">
-            © @DateTime.Now.Year — Admin Panel
+            © @DateTime.Now.Year — @Localizer["AdminPanel"]
         </div>
     </footer>
 

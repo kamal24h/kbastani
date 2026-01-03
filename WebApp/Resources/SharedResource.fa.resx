@@ -121,7 +121,7 @@
     <value>خانه</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>درباره من</value>
+    <value>درباره</value>
   </data>
   <data name="Resume" xml:space="preserve">
     <value>رزومه</value>
@@ -205,7 +205,7 @@
     <value>وبسایت شخصی کمال</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>ورود کاربر</value>
+    <value>ورود</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
@@ -215,5 +215,23 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>ثبت نام</value>
+  </data>
+  <data name="SendResetLink" xml:space="preserve">
+    <value>ارسال لینک ریست</value>
+  </data>
+  <data name="AdminPanelLogin" xml:space="preserve">
+    <value>ورود به قسمت مدیریت</value>
+  </data>
+  <data name="AlreadyRegistered" xml:space="preserve">
+    <value>شما قبلاً ثبت نام کرده اید.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="AdminPanel" xml:space="preserve">
+    <value>پنل مدیریت</value>
+  </data>
+  <data name="AboutMe" xml:space="preserve">
+    <value>درباره من</value>
   </data>
 </root>

@@ -21,7 +21,7 @@ public class HomeController : Controller
         _localizer = localizer;
     }
 
-    public async Task<IActionResult> IndexAsync()
+    public async Task<IActionResult> Index()
     {
         ViewData["Title"] = _localizer["Home"];
 
@@ -57,7 +57,7 @@ public class HomeController : Controller
                 Expires = DateTimeOffset.UtcNow.AddYears(1),
                 IsEssential = true
             });
-        return RedirectToAction("IndexAsync");
+        return RedirectToAction("Index");
     }
 
     public IActionResult MyTest()

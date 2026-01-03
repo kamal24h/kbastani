@@ -121,7 +121,7 @@
     <value>Home</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>About Me</value>
+    <value>About</value>
   </data>
   <data name="Resume" xml:space="preserve">
     <value>Resume</value>
@@ -215,5 +215,23 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="SendResetLink" xml:space="preserve">
+    <value>Send Reset Link</value>
+  </data>
+  <data name="AdminPanelLogin" xml:space="preserve">
+    <value>Admin Panel Login</value>
+  </data>
+  <data name="AlreadyRegistered" xml:space="preserve">
+    <value>You are already registered!</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="AdminPanel" xml:space="preserve">
+    <value>Admin Panel</value>
+  </data>
+  <data name="AboutMe" xml:space="preserve">
+    <value>About Me</value>
   </data>
 </root>

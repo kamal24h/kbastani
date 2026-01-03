@@ -1,8 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using WebApp
+@inject IHtmlLocalizer<SharedResource> Localizer
+
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - Admin Panel</title>
+    <title>@ViewData["Title"] - @Localizer["AdminPanel"]</title>
 
     <script src="~/js/tailwindcss.browser@4.js"></script>
 	<link href="~/css/site.css" rel="stylesheet" />
