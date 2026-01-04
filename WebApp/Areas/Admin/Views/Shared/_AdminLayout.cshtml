@@ -19,6 +19,7 @@
     <title>@ViewData["Title"] - Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <script src="~/js/tailwindcss.browser@4.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />
 
     <script>
@@ -145,7 +146,7 @@
             <div class="flex items-center gap-4">
 
                 <!-- Language Switch -->
-                <form asp-controller="Home" asp-action="SetLanguage" method="post">
+                <form asp-controller="Dashboard" asp-action="SetLanguage" method="post">
                     <select name="culture" onchange="this.form.submit()"
                             class="border dark:border-gray-700 bg-white dark:bg-gray-800 text-sm rounded px-2 py-1">
                         <option value="fa" selected="@(culture == "fa")">FA</option>
