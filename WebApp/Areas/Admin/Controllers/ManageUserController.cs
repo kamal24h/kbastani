@@ -7,11 +7,11 @@ namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class ManageUserControl : Controller
+    public class ManageUserController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public ManageUserControl(UserManager<AppUser> userManager)
+        public ManageUserController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
