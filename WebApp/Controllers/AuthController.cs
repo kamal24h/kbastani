@@ -51,6 +51,8 @@ public class AuthController : Controller
         var user = new AppUser { UserName = model.Email, Email = model.Email };
         var result = await _userManager.CreateAsync(user, model.Password);
 
+        await _userManager.AddToRoleAsync(user, MainRoles.User);
+
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, false);

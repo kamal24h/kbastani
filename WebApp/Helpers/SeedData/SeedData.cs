@@ -14,7 +14,7 @@ public static class SeedData
         {
             if (!await roleManager.RoleExistsAsync(role))
                 await roleManager.CreateAsync(new AppRole(role));
-        }
+        }       
 
         // ایجاد کاربر ادمین
         string adminEmail = "admin@example.com";
@@ -38,5 +38,17 @@ public static class SeedData
                 await userManager.AddToRoleAsync(adminUser, "Admin");
             }
         }
+    }
+
+    public static async Task SeedRoles(IServiceProvider serviceProvider)
+    {
+        var roleManager = serviceProvider.GetRequiredService<RoleManager<AppRole>>();
+        string[] roles = { MainRoles.Admin, MainRoles.Editor, MainRoles.User };
+        foreach (var role in roles)
+        {
+            if (!await roleManager.RoleExistsAsync(role))
+                await roleManager.CreateAsync(new AppRole(role));
+        }
+        //await SeedRoles(app.Services);
     }
 }

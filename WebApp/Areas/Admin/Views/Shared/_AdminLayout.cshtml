@@ -4,24 +4,22 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using WebApp
 @inject IHtmlLocalizer<SharedResource> Localizer
-@* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers *@
 
 @{
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-    // ViewData["Title"] = culture == "fa" ? "کمال" : "Kamal";
-    // var LogoTitle = culture == "fa" ? "کمال" : "Kamal";
     var isRtl = culture == "fa";
 }
 
 <!DOCTYPE html>
-<html lang="@culture" dir="@(isRtl ? "rtl" : "ltr")">
+<html lang="@culture" dir="@(isRtl ? "rtl" : "ltr")"
+      class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - @Localizer["AdminPanel"]</title>
+    <title>@ViewData["Title"] - Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script src="~/js/tailwindcss.browser@4.js"></script>
-	<link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 
     <script>
         (function () {
@@ -29,80 +27,175 @@
             if (saved === 'dark') document.documentElement.classList.add('dark');
         })();
     </script>
-
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
-    <!-- Admin Navbar -->
-    <header class="bg-white dark:bg-gray-800 shadow">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<body class="flex min-h-screen">
 
-            <!-- Logo / Back to Public -->
-            <div class="flex items-center gap-4">
-                <a asp-area="" asp-controller="Home" asp-action="Index"
-                   class="text-xl font-bold text-blue-400 dark:text-blue-200 hover:underline">
-                    ← @Localizer["Back to Site"]
-                </a>
-                <span class="text-gray-600 dark:text-gray-300 font-semibold">@Localizer["AdminPanel"]</span>
+    <!-- Mobile Toggle Button -->
+    <button id="mobileMenuBtn"
+            class="md:hidden fixed top-4 @(isRtl ? "left-4" : "right-4") z-50
+                   bg-blue-600 text-white p-2 rounded-lg shadow-lg">
+        ☰
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+           class="w-64 bg-white dark:bg-gray-900 border-r dark:border-gray-800 p-4 space-y-4
+                  fixed md:static inset-y-0 @(isRtl ? "right-0" : "left-0")
+                  transform md:translate-x-0 transition-transform duration-300 -translate-x-full md:translate-x-0 z-40">
+
+        <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center">
+            Admin Panel
+        </div>
+
+        <nav class="space-y-2 text-sm">
+
+            <!-- Dashboard -->
+            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>📊</span> داشبورد / Dashboard
+            </a>
+
+            <!-- Blog -->
+            <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
+                <span>📝</span> مدیریت بلاگ / Blog
             </div>
 
-            <!-- Links -->
-            <nav class="flex items-center gap-6 text-sm">
-                <a asp-area="Admin" asp-controller="ManageResume" asp-action="Index"
-                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["ManageResume"]</a>
+            <a asp-area="Admin" asp-controller="Blog" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>📰</span> پست‌ها / Posts
+            </a>
 
-                <a asp-area="Admin" asp-controller="ManageAbout" asp-action="Index"
-                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["ManageAbout"]</a>
+            <a asp-area="Admin" asp-controller="BlogCategory" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>📂</span> دسته‌بندی‌ها / Categories
+            </a>
 
-                <a asp-area="Admin" asp-controller="ManageCategory" asp-action="Index"
-                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["BlogCategories"]</a>
+            <a asp-area="Admin" asp-controller="BlogTag" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>🏷️</span> تگ‌ها / Tags
+            </a>
 
-                <a asp-area="Admin" asp-controller="ManageForum" asp-action="Index"
-                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Forum"]</a>
+            <a asp-area="Admin" asp-controller="Comment" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>💬</span> نظرات / Comments
+            </a>
 
-                <a asp-area="Admin" asp-controller="ManageBlog" asp-action="Index"
-                   class="hover:text-blue-600 dark:hover:text-blue-400">@Localizer["Blogs"]</a>
+            <!-- Forum -->
+            <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
+                <span>💭</span> مدیریت فروم / Forum
+            </div>
 
-                <!-- Home quick access -->
-                
-                <a asp-area ="" asp-controller="Home" asp-action="Index"
-                    class="font-medium text-purple-700 dark:text-purple-400 hover:underline">
-                    @Localizer["Home"]
-                </a>               
+            <a asp-area="Admin" asp-controller="Forum" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>📌</span> موضوعات / Topics
+            </a>
 
-                <!-- Language switch -->
-                <form asp-action="SetLanguage" method="post">
-                    <select name="culture" onchange="this.form.submit()">
-                        <option value="fa" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? "selected" : null)">FA</option>
-                        <option value="en" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "selected" : null)">EN</option>
-                    </select>
-                </form>
-                   
-                <!-- Logout -->
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <form asp-controller="Auth" asp-action="Logout" method="post" class="inline">
-                        <button type="submit"
-                                class="text-red-600 dark:text-red-400 hover:underline">
-                            @Localizer["Logout"]
-                        </button>
-                    </form>
-                }
-            </nav>
-        </div>
-    </header>
+            <a asp-area="Admin" asp-controller="ForumCategory" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>📁</span> دسته‌بندی‌ها / Categories
+            </a>
+
+            <!-- Resume -->
+            <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
+                <span>📄</span> مدیریت رزومه / Resume
+            </div>
+
+            <a asp-area="Admin" asp-controller="ResumeProject" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>🚀</span> پروژه‌ها / Projects
+            </a>
+
+            <a asp-area="Admin" asp-controller="ResumeEducation" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>🎓</span> تحصیلات / Education
+            </a>
+
+            <a asp-area="Admin" asp-controller="ResumeSkill" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>⚙️</span> مهارت‌ها / Skills
+            </a>
+
+            <a asp-area="Admin" asp-controller="ResumeAbout" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>👤</span> درباره من / About Me
+            </a>
+
+            <!-- User Management -->
+            <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
+                <span>🧑‍💼</span> مدیریت کاربران / Users
+            </div>
+
+            <a asp-area="Admin" asp-controller="User" asp-action="Index"
+               class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
+                <span>👥</span> کاربران / Users
+            </a>
+
+        </nav>
+    </aside>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-6">
+    <main class="flex-1 p-6">
+
+        <!-- Topbar -->
+        <div class="flex justify-between items-center mb-6">
+
+            <h1 class="text-xl font-bold">@ViewData["Title"]</h1>
+
+            <div class="flex items-center gap-4">
+
+                <!-- Language Switch -->
+                <form asp-controller="Home" asp-action="SetLanguage" method="post">
+                    <select name="culture" onchange="this.form.submit()"
+                            class="border dark:border-gray-700 bg-white dark:bg-gray-800 text-sm rounded px-2 py-1">
+                        <option value="fa" selected="@(culture == "fa")">FA</option>
+                        <option value="en" selected="@(culture == "en")">EN</option>
+                    </select>
+                </form>
+
+                <!-- Dark Mode Toggle -->
+                <button id="themeToggle"
+                        class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700">
+                    <span id="themeIcon">🌙</span>
+                </button>
+
+                <!-- Logout -->
+                <form asp-area="" asp-controller="Auth" asp-action="Logout" method="post">
+                    <button class="text-red-600 dark:text-red-400 hover:underline">
+                        خروج / Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+
         @RenderBody()
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-10">
-        <div class="max-w-7xl mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400 text-sm">
-            © @DateTime.Now.Year — @Localizer["AdminPanel"]
-        </div>
-    </footer>
+    <script>
+        // Mobile Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+
+        mobileBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Dark Mode Toggle
+        const btn = document.getElementById('themeToggle');
+        const icon = document.getElementById('themeIcon');
+
+        function setIcon() {
+            icon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+        }
+        setIcon();
+
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            setIcon();
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

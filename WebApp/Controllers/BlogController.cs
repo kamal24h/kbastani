@@ -52,6 +52,8 @@ namespace WebApp.Controllers
             return View(post);
         }
 
+
+        //[Authorize(Roles = $"{MainRoles.Admin},{MainRoles.Editor}")]
         [Authorize(Policy = "CanComment"), HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> AddComment(int postId, string body)
         {

@@ -12,6 +12,7 @@ namespace Domain
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? DisplayName { get; set; } = default;
+        public bool IsActive { get; set; } = true;
 
     }
 }

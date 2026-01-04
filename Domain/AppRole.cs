@@ -8,6 +8,10 @@ namespace Domain
     // Custom role class
     public class AppRole : IdentityRole
     {
+        //public const string Admin = "Admin";
+        //public const string Editor = "Editor";
+        //public const string User = "User";
+
         public AppRole() : base()
         {
         }
@@ -18,5 +22,12 @@ namespace Domain
 
         // Add any extra role properties here
         public string? Description { get; set; }
+    }
+
+    public class MainRoles
+    {
+        public const string Admin = "Admin";
+        public const string Editor = "Editor";
+        public const string User = "User";
     }
 }

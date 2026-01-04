@@ -1,0 +1,62 @@
+﻿@using Domain
+@model IEnumerable<AppUser>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="max-w-6xl mx-auto py-8">
+
+    <h1 class="text-2xl font-bold mb-6">User Management</h1>
+
+    <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
+        <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+                <th class="px-4 py-2 text-left">Username</th>
+                <th class="px-4 py-2 text-left">Email</th>
+                <th class="px-4 py-2 text-left">Active</th>
+                <th class="px-4 py-2 text-left">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var u in Model)
+        {
+            <tr class="border-t dark:border-gray-800">
+                <td class="px-4 py-2">@u.UserName</td>
+                <td class="px-4 py-2">@u.Email</td>
+                <td class="px-4 py-2">
+                    @if (u.IsActive)
+                    {
+                        <span class="text-green-600">Active</span>
+                    }
+                    else
+                    {
+                        <span class="text-red-600">Inactive</span>
+                    }
+                </td>
+
+                <td class="px-4 py-2 space-x-2">
+
+                    <a asp-action="ToggleActive" asp-route-id="@u.Id"
+                       class="text-blue-600 hover:underline">
+                        Toggle Active
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@u.Id"
+                       class="text-red-600 hover:underline"
+                       onclick="return confirm('Delete this user?');">
+                        Delete
+                    </a>
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
