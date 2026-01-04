@@ -43,5 +43,3 @@ namespace WebApp.Areas.Admin.Controllers
         }
     }
 }
-
-}
