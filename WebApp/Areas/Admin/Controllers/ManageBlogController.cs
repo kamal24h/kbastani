@@ -2,9 +2,11 @@
 using DataAccess.Vms;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-     
+using WebApp.Helpers;
+
 namespace WebApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -13,24 +15,29 @@ namespace WebApp.Areas.Admin.Controllers
     {
         private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ManageBlogController(AppDbContext db, IWebHostEnvironment env)
+        public ManageBlogController(AppDbContext db, IWebHostEnvironment env, UserManager<AppUser> userManager)
         {
             _db = db;
             _env = env;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
             var posts = await _db.BlogPosts
-                .OrderByDescending(p => p.PublishedAt)
-                .ToListAsync();
-
+                .Include(b => b.Category)
+                .Include(b => b.Author)
+                .Include(b => b.Comments.Where(c => c.IsApproved))
+                .OrderByDescending(b => b.PublishedAt)
+                .ToListAsync(); 
             return View(posts);
         }
 
         public IActionResult Create()
         {
+            ViewBag.Categories = _db.BlogCategories.ToList();
             return View(new BlogPostViewModel());
         }
 
@@ -82,26 +89,91 @@ namespace WebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create1(BlogPost model, IFormFile? thumbnail)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _db.BlogCategories.ToList();
+                return View(model);
+            }
+
+            model.BlogPostGuid = Guid.NewGuid();
+            model.Slug = SlugHelper.GenerateSlug(model.TitleEn);
+
+            if (thumbnail != null)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(thumbnail.FileName)}";
+                var path = Path.Combine("wwwroot/uploads/blog", fileName);
+
+                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+                using var stream = new FileStream(path, FileMode.Create);
+                await thumbnail.CopyToAsync(stream);
+
+                model.ThumbnailPath = fileName;
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            model.AuthorId = user!.Id;
+
+            _db.BlogPosts.Add(model);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(long id)
         {
             var post = await _db.BlogPosts.FindAsync(id);
             if (post == null) return NotFound();
 
-            return View(new BlogPostViewModel
+            ViewBag.Categories = _db.BlogCategories.ToList();
+            return View(post);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(BlogPost model, IFormFile? thumbnail)
+        {
+            if (!ModelState.IsValid)
             {
-                BlogPostId = post.BlogPostId,
-                TitleFa = post.TitleFa,
-                TitleEn = post.TitleEn,
-                SummaryFa = post.SummaryFa,
-                SummaryEn = post.SummaryEn,
-                ContentFa = post.ContentFa,
-                ContentEn = post.ContentEn,
-                IsPublished = post.IsPublished
-            });
+                ViewBag.Categories = _db.BlogCategories.ToList();
+                return View(model);
+            }
+
+            var post = await _db.BlogPosts.FindAsync(model.BlogPostId);
+            if (post == null) return NotFound();
+
+            post.TitleFa = model.TitleFa;
+            post.TitleEn = model.TitleEn;
+            post.SummaryFa = model.SummaryFa;
+            post.SummaryEn = model.SummaryEn;
+            post.ContentFa = model.ContentFa;
+            post.ContentEn = model.ContentEn;
+            post.CategoryId = model.CategoryId;
+            post.IsPublished = model.IsPublished;
+            post.PublishedAt = model.PublishedAt;
+            post.Slug = SlugHelper.GenerateSlug(post.TitleEn);
+
+            if (thumbnail != null)
+            {
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(thumbnail.FileName)}";
+                var path = Path.Combine("wwwroot/uploads/blog", fileName);
+
+                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+                using var stream = new FileStream(path, FileMode.Create);
+                await thumbnail.CopyToAsync(stream);
+
+                post.ThumbnailPath = fileName;
+            }
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(BlogPostViewModel model)
+        public async Task<IActionResult> Edit1(BlogPostViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -196,9 +268,5 @@ namespace WebApp.Areas.Admin.Controllers
 
             return View("Index", posts);
         }
-
-        
-
     }
 }
-

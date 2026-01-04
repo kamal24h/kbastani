@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿using Domain;
+
+namespace Domain
 {
     public class Comment : BaseEntity
     {
@@ -11,5 +13,5 @@
         public string UserId { get; set; } = default!;
         public AppUser User { get; set; } = default!;
     }
-
 }
+

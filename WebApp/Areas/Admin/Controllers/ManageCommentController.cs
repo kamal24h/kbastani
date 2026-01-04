@@ -16,6 +16,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var comments = await _db.Comments
+                .Include(c => c.User)
                 .Include(c => c.Post)
                 .OrderByDescending(c => c.CreatedAt)
                 .ToListAsync();
@@ -24,7 +25,31 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Approve(long id)
+        {
+            var comment = await _db.Comments.FindAsync(id);
+            if (comment == null) return NotFound();
+
+            comment.IsApproved = true;
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Reject(long id)
+        {
+            var comment = await _db.Comments.FindAsync(id);
+            if (comment == null) return NotFound();
+
+            comment.IsApproved = false;
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(long id)
         {
             var comment = await _db.Comments.FindAsync(id);
             if (comment == null) return NotFound();

@@ -303,4 +303,17 @@
   <data name="Browse" xml:space="preserve">
     <value>مرور وبلاگ</value>
   </data>
+
+  <data name="Comments">
+    <value>نظرات</value>
+  </data>
+  <data name="WriteComment">
+    <value>نظر خود را بنویسید...</value>
+  </data>
+  <data name="SubmitComment">
+    <value>ارسال نظر</value>
+  </data>
+  <data name="LoginToComment">
+    <value>برای ارسال نظر باید وارد شوید.</value>
+  </data>
 </root>

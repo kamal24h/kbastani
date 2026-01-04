@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Security.Claims;
 
 namespace WebApp.Controllers
@@ -23,6 +24,12 @@ namespace WebApp.Controllers
                 .Include(p => p.Tags).ThenInclude(t => t.Tag)
                 .OrderByDescending(p => p.PublishedAt);
 
+            //if (categoryId.HasValue)
+            //    query = query.Where(b => b.CategoryId == categoryId);
+
+            //if (!string.IsNullOrWhiteSpace(tag)) 
+            //    query = query.Where(b => b.Tags.Any(t => t.Tag.NameEn == tag || t.Tag.NameFa == tag));
+
             if (!string.IsNullOrEmpty(category))
                 query = (IOrderedQueryable<BlogPost>)query.Where(p => p.Category != null && p.Category.Slug == category);
             if (!string.IsNullOrEmpty(tag))
@@ -33,10 +40,14 @@ namespace WebApp.Controllers
         }
 
         public async Task<IActionResult> Details(string slug)
-        {
+        {            
             var post = await _db.BlogPosts
-                .Include(p => p.Comments).ThenInclude(c => c.User)
-                .FirstOrDefaultAsync(p => p.Slug == slug && p.IsPublished);
+            .Include(b => b.Category)
+            .Include(b => b.Author)
+            .Include(b => b.Comments)
+            .ThenInclude(c => c.User)
+            .FirstOrDefaultAsync(b => b.Slug == slug && b.IsPublished);
+
             if (post == null) return NotFound();
             return View(post);
         }
@@ -61,6 +72,30 @@ namespace WebApp.Controllers
             _db.Comments.Add(comment);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Details), new { slug = post.Slug });
+        }
+
+        [HttpPost]
+        [Authorize] // فقط کاربران لاگین شده
+        public async Task<IActionResult> AddComment(long postId, string body)
+        {
+            if (string.IsNullOrWhiteSpace(body))
+                return BadRequest("Comment cannot be empty");
+            var post = await _db.BlogPosts.FindAsync(postId);
+            if (post == null) return NotFound();
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            
+            var comment = new Comment
+            {
+                PostId = postId,
+                Body = body,
+                UserId = userId,
+                CreatedAt = DateTime.UtcNow,
+                IsApproved = false // 🔥 باید توسط Admin تأیید شود
+            }; 
+            _db.Comments.Add(comment); 
+            await _db.SaveChangesAsync(); 
+            return RedirectToAction("Details", new { slug = post.Slug }); 
         }
 
         public async Task<IActionResult> Search(string q)
@@ -124,3 +159,5 @@ namespace WebApp.Controllers
         }
     }
 }
+
+

@@ -1,4 +1,91 @@
 ﻿@using Domain
+@using Microsoft.AspNetCore.Mvc.Localization
+@model BlogPost
+@inject IHtmlLocalizer<SharedResource> Localizer
+
+@{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    var isFa = culture == "fa";
+}
+
+<div class="max-w-4xl mx-auto py-10">
+
+    <!-- Thumbnail -->
+    @if (!string.IsNullOrEmpty(Model.ThumbnailPath))
+    {
+        <img src="~/uploads/blog/@Model.ThumbnailPath"
+             class="w-full rounded-lg shadow mb-6" />
+    }
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold mb-3">
+        @(isFa ? Model.TitleFa : Model.TitleEn)
+    </h1>
+
+    <!-- Meta -->
+    <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+        @Model.PublishedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+        @if (Model.Category != null)
+        {
+            <span class="mx-2">•</span>
+            <span>@(isFa ? Model.Category.NameFa : Model.Category.NameEn)</span>
+        }
+    </div>
+
+    <!-- Content -->
+    <div class="prose dark:prose-invert max-w-none mb-10">
+        @Html.Raw(isFa ? Model.ContentFa : Model.ContentEn)
+    </div>
+
+    <!-- Comments Section -->
+    <h2 class="text-2xl font-semibold mb-4">@Localizer["Comments"]</h2>
+
+    <!-- List of Comments -->
+    <div class="space-y-4 mb-8">
+        @foreach (var c in Model.Comments.OrderByDescending(x => x.CreatedAt))
+        {
+            <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+                <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <span>@c.User.UserName</span>
+                    <span>@c.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")</span>
+                </div>
+                <p class="text-gray-800 dark:text-gray-200">@c.Body</p>
+            </div>
+        }
+    </div>
+
+    <!-- Add Comment Form -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="AddComment" method="post" class="space-y-4">
+            <input type="hidden" name="postId" value="@Model.BlogPostId" />
+
+            <textarea name="content" rows="4"
+                      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700
+                             bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                      placeholder="@Localizer["WriteComment"]"></textarea>
+
+            <button type="submit"
+                    class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                @Localizer["SubmitComment"]
+            </button>
+        </form>
+    }
+    else
+    {
+        <div class="text-gray-600 dark:text-gray-400">
+            @Localizer["LoginToComment"]
+            <a asp-controller="Auth" asp-action="Login"
+               class="text-blue-600 dark:text-blue-400 hover:underline">
+                @Localizer["Login"]
+            </a>
+        </div>
+    }
+</div>
+
+
+
+@* @using Domain
 @model BlogPost
 
 @{
@@ -14,13 +101,13 @@
 </div>
 
 <h3 class="mt-6 text-lg font-bold">نظرات</h3>
-@* <ul class="space-y-2">
+<ul class="space-y-2">
     @foreach (var c in Model.Comments)
     {
         <li class="bg-gray-100 p-2 rounded">@c.User.UserName: @c.Body</li>
     }
 </ul>
- *@
+
 
 @if (Model.Comments.Any())
 {
@@ -70,13 +157,14 @@ else
 
 
 
-@* @if (User.Identity?.IsAuthenticated ?? false)
+ @if (User.Identity?.IsAuthenticated ?? false)
 {
     <form asp-action="AddComment" method="post" class="mt-4">
         <input type="hidden" name="postId" value="@Model.BlogPostId" />
         <textarea name="body" class="w-full border rounded p-2"></textarea>
         <button type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded">ارسال نظر</button>
     </form>
-} *@
+}
 
 <hr class="my-8" />
+ *@
