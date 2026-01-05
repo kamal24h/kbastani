@@ -34,7 +34,7 @@ namespace WebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(long id)
         {
             var cat = await _db.BlogCategories.FindAsync(id);
             return cat == null ? NotFound() : View(cat);

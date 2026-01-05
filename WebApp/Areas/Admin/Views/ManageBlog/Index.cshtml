@@ -27,28 +27,28 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model)
-        {
-            <tr class="border-t dark:border-gray-800">
-                <td class="px-4 py-2">@item.BlogPostId</td>
-                <td class="px-4 py-2">@item.TitleEn</td>
-                <td class="px-4 py-2">@item.IsPublished</td>
-                <td class="px-4 py-2">@item.Category?.NameEn</td>
-                <td class="px-4 py-2 space-x-2">
-                    <a asp-action="Edit" asp-route-id="@item.BlogPostId"
-                       class="text-blue-600">Edit</a>
+            @foreach (var item in Model)
+            {
+                <tr class="border-t dark:border-gray-800">
+                    <td class="px-4 py-2">@item.BlogPostId</td>
+                    <td class="px-4 py-2">@item.TitleEn</td>
+                    <td class="px-4 py-2">@item.IsPublished</td>
+                    <td class="px-4 py-2">@item.Category?.NameEn</td>
+                    <td class="px-4 py-2 space-x-2">
+                        <a asp-action="Edit" asp-route-id="@item.BlogPostId"
+                           class="text-blue-600">@Localizer["Edit"]</a>
 
-                    <form asp-action="Delete" asp-route-id="@item.BlogPostId"
-                          method="post" class="inline">
-                        <button type="submit"
-                                class="text-red-600"
-                                onclick="return confirm('Delete this post?');">
+                        <form asp-action="Delete" asp-route-id="@item.BlogPostId"
+                              method="post" class="inline">
+                            <button type="submit"
+                                    class="text-red-600"
+                                    onclick="return confirm('Delete this post?');">
                                 @Localizer["Delete"]
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        }
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
