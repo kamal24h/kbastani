@@ -3,6 +3,7 @@ using DataAccess.Vms;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Helpers;
@@ -37,8 +38,11 @@ namespace WebApp.Areas.Admin.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.Categories = _db.BlogCategories.ToList();
-            return View(new BlogPostViewModel());
+            var mod = new BlogPostViewModel();
+            mod.Categories = _db.BlogCategories.ToList();
+            mod.Tags = _db.Tags.ToList();
+            //ViewBag.Categories = _db.BlogCategories.ToList();
+            return View(mod);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -267,6 +271,21 @@ namespace WebApp.Areas.Admin.Controllers
                 .ToListAsync();
 
             return View("Index", posts);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult SetLanguage(string culture, string returnUrl = "/")
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddYears(1),
+                    IsEssential = true
+                });
+            return RedirectToAction("Index");
         }
     }
 }

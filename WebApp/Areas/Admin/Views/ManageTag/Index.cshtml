@@ -7,41 +7,45 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1 class="text-2xl font-bold mb-4">@Localizer["Tags"]</h1>
+<div class="max-w-6xl mx-auto py-8">
 
-<a asp-action="Create"
-   class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">
-    @Localizer["Create"]
-</a>
+    <h1 class="text-2xl font-bold mb-6">@Localizer["Tags"]</h1>
 
-<table class="min-w-full bg-white rounded shadow">
-    <thead>
-        <tr class="border-b">
-            <th class="p-2">ID</th>
-            <th class="p-2">@Localizer["Title"] (FA)</th>
-            <th class="p-2">@Localizer["Title"] (EN)</th>
-            <th class="p-2">Slug</th>
-            <th class="p-2">@Localizer["Actions"]</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var t in Model)
-        {
-            <tr class="border-b">
-                <td class="p-2">@t.TagId</td>
-                <td class="p-2">@t.NameFa</td>
-                <td class="p-2">@t.NameEn</td>
-                <td class="p-2">@t.Slug</td>
-                <td class="p-2 space-x-2">
-                    <a asp-action="Edit" asp-route-id="@t.TagId" class="text-blue-600">
-                        @Localizer["Edit"]
-                    </a>
+    <a asp-action="Create"
+       class="bg-green-600 text-white px-4 py-2 rounded inline-block mb-4">
+        @Localizer["Create"]
+    </a>
 
-                    <form asp-action="Delete" asp-route-id="@t.TagId" method="post" class="inline">
-                        <button class="text-red-600">@Localizer["Delete"]</button>
-                    </form>
-                </td>
+    <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
+        <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+                <th class="px-4 py-2 text-left" ">ID</th>
+                <th class="px-4 py-2 text-left" ">@Localizer["Title"] (FA)</th>
+                <th class="px-4 py-2 text-left" ">@Localizer["Title"] (EN)</th>
+                <th class="px-4 py-2 text-left" ">Slug</th>
+                <th class="px-4 py-2 text-left" ">@Localizer["Actions"]</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+                @foreach (var t in Model)
+                {
+                <tr class="border-t dark:border-gray-800">
+                    <td class="px-4 py-2">@t.TagId</td>
+                    <td class="px-4 py-2">@t.NameFa</td>
+                    <td class="px-4 py-2">@t.NameEn</td>
+                    <td class="px-4 py-2">@t.Slug</td>
+                    <td class="px-4 py-2 space-x-2">
+                        <a asp-action="Edit" asp-route-id="@t.TagId" class="text-blue-600">
+                                @Localizer["Edit"]
+                        </a>
+
+                        <form asp-action="Delete" asp-route-id="@t.TagId" method="post" class="inline">
+                            <button class="text-red-600">@Localizer["Delete"]</button>
+                        </form>
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>
+
+</div>
