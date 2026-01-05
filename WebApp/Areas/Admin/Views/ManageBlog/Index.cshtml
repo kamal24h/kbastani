@@ -1,27 +1,29 @@
 ﻿@using Domain
-
 @model IEnumerable<BlogPost>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> Localizer
+
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.en.cshtml";
 }
 
 <div class="max-w-6xl mx-auto py-8">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-bold">Blog Posts</h1>
+        <h1 class="text-2xl font-bold">@Localizer["BlogPosts"]</h1>
         <a asp-action="Create"
            class="px-4 py-2 bg-blue-600 text-white rounded">
-            New Post
+            @Localizer["NewPost"]
         </a>
     </div>
 
     <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
         <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
-                <th class="px-4 py-2 text-left">Id</th>
-                <th class="px-4 py-2 text-left">Title (En)</th>
-                <th class="px-4 py-2 text-left">Published</th>
-                <th class="px-4 py-2 text-left">Category</th>
-                <th class="px-4 py-2 text-left">Actions</th>
+                <th class="px-4 py-2 text-left">@Localizer["Id"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Title"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Published"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Category"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Actions"]</th>
             </tr>
         </thead>
         <tbody>
@@ -41,7 +43,7 @@
                         <button type="submit"
                                 class="text-red-600"
                                 onclick="return confirm('Delete this post?');">
-                            Delete
+                                @Localizer["Delete"]
                         </button>
                     </form>
                 </td>

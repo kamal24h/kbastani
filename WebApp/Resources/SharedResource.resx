@@ -303,18 +303,88 @@
   <data name="Browse" xml:space="preserve">
     <value>Browse</value>
   </data>
-
-  <data name="Comments">
+  <data name="Comments" xml:space="preserve">
     <value>Comments</value>
   </data>
-  <data name="WriteComment">
+  <data name="WriteComment" xml:space="preserve">
     <value>Write your comment...</value>
   </data>
-  <data name="SubmitComment">
+  <data name="SubmitComment" xml:space="preserve">
     <value>Submit Comment</value>
   </data>
-  <data name="LoginToComment">
+  <data name="LoginToComment" xml:space="preserve">
     <value>You must be logged in to comment.</value>
   </data>
-
+  <data name="ManageUser" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ManageSkill" xml:space="preserve">
+    <value>Manage Skills</value>
+  </data>
+  <data name="ManageExperience" xml:space="preserve">
+    <value>Manage Experiences</value>
+  </data>
+  <data name="ManageEducation" xml:space="preserve">
+    <value>Manage Educations</value>
+  </data>
+  <data name="ManageProject" xml:space="preserve">
+    <value>Manage Projects</value>
+  </data>
+  <data name="ManageForumTopics" xml:space="preserve">
+    <value>Manage Forum Topics</value>
+  </data>
+  <data name="ManageForumCategories" xml:space="preserve">
+    <value>Manage Forum Categories</value>
+  </data>
+  <data name="ManageBlogPosts" xml:space="preserve">
+    <value>Manage Blog Posts</value>
+  </data>
+  <data name="ManageBlogTags" xml:space="preserve">
+    <value>Manage Blog Tags</value>
+  </data>
+  <data name="ManageBlogComments" xml:space="preserve">
+    <value>Manage Blog Comments</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="ToggleActive" xml:space="preserve">
+    <value>Toggle Active</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="BlogPosts" xml:space="preserve">
+    <value>Blog Posts</value>
+  </data>
+  <data name="NewPost" xml:space="preserve">
+    <value>New Post</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value> Publish</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

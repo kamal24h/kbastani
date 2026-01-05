@@ -1,5 +1,7 @@
 ﻿@using DataAccess.Vms
 @using Domain
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> Localizer
 
 @model BlogPostViewModel
 @{
@@ -90,10 +92,10 @@
     <!-- Publish -->
     <div class="bg-white p-4 rounded shadow flex items-center space-x-2">
         <input asp-for="IsPublished" type="checkbox" class="h-4 w-4" />
-        <label asp-for="IsPublished">Publish</label>
+        <label asp-for="IsPublished">@Localizer["Publish"]</label>
     </div>
 
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">@Localizer["Save"]</button>
 
 </form>
 

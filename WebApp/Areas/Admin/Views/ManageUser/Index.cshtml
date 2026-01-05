@@ -1,20 +1,23 @@
 ﻿@using Domain
 @model IEnumerable<AppUser>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> Localizer
+
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="max-w-6xl mx-auto py-8">
 
-    <h1 class="text-2xl font-bold mb-6">User Management</h1>
+    <h1 class="text-2xl font-bold mb-6">@Localizer["ManageUser"]</h1>
 
     <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
         <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
-                <th class="px-4 py-2 text-left">Username</th>
-                <th class="px-4 py-2 text-left">Email</th>
-                <th class="px-4 py-2 text-left">Active</th>
-                <th class="px-4 py-2 text-left">Actions</th>
+                <th class="px-4 py-2 text-left">@Localizer["UserName"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Email"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Active"]</th>
+                <th class="px-4 py-2 text-left">@Localizer["Actions"]</th>
             </tr>
         </thead>
 
@@ -27,11 +30,11 @@
                 <td class="px-4 py-2">
                     @if (u.IsActive)
                     {
-                        <span class="text-green-600">Active</span>
+                        <span class="text-green-600">@Localizer["Active"]</span>
                     }
                     else
                     {
-                        <span class="text-red-600">Inactive</span>
+                        <span class="text-red-600">@Localizer["Inactive"]</span>
                     }
                 </td>
 
@@ -39,13 +42,13 @@
 
                     <a asp-action="ToggleActive" asp-route-id="@u.Id"
                        class="text-blue-600 hover:underline">
-                        Toggle Active
+                            @Localizer["ToggleActive"]
                     </a>
 
                     <a asp-action="Delete" asp-route-id="@u.Id"
                        class="text-red-600 hover:underline"
                        onclick="return confirm('Delete this user?');">
-                        Delete
+                            @Localizer["Delete"]
                     </a>
 
                 </td>

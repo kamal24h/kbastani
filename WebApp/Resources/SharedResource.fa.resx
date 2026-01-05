@@ -303,17 +303,88 @@
   <data name="Browse" xml:space="preserve">
     <value>مرور وبلاگ</value>
   </data>
-
-  <data name="Comments">
+  <data name="Comments" xml:space="preserve">
     <value>نظرات</value>
   </data>
-  <data name="WriteComment">
+  <data name="WriteComment" xml:space="preserve">
     <value>نظر خود را بنویسید...</value>
   </data>
-  <data name="SubmitComment">
+  <data name="SubmitComment" xml:space="preserve">
     <value>ارسال نظر</value>
   </data>
-  <data name="LoginToComment">
+  <data name="LoginToComment" xml:space="preserve">
     <value>برای ارسال نظر باید وارد شوید.</value>
+  </data>
+  <data name="ManageUser" xml:space="preserve">
+    <value>مدیریت کاربران</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="ManageSkill" xml:space="preserve">
+    <value>مدیریت مهارتها</value>
+  </data>
+  <data name="ManageExperience" xml:space="preserve">
+    <value>مدیریت تجربیات</value>
+  </data>
+  <data name="ManageEducation" xml:space="preserve">
+    <value>مدیریت تحصیلات</value>
+  </data>
+  <data name="ManageProject" xml:space="preserve">
+    <value>مدیریت پروژه ها</value>
+  </data>
+  <data name="ManageForumTopics" xml:space="preserve">
+    <value>مدیریت عناویت فروم</value>
+  </data>
+  <data name="ManageForumCategories" xml:space="preserve">
+    <value>مدیریت دسته بندی فروم</value>
+  </data>
+  <data name="ManageBlogPosts" xml:space="preserve">
+    <value>مدیریت پست های وبلاگ</value>
+  </data>
+  <data name="ManageBlogTags" xml:space="preserve">
+    <value>مدیریت تگ های وبلاگ</value>
+  </data>
+  <data name="ManageBlogComments" xml:space="preserve">
+    <value>مدیریت کامنتهای وبلاگ</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>داشبورد</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غیرفعال</value>
+  </data>
+  <data name="ToggleActive" xml:space="preserve">
+    <value>تغییر وضعیت</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>عملیات</value>
+  </data>
+  <data name="BlogPosts" xml:space="preserve">
+    <value>لیست پست های وبلاگ</value>
+  </data>
+  <data name="NewPost" xml:space="preserve">
+    <value>پست جدید</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>شناسه</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>منتشر شده</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>انتشار</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>ذخیره</value>
   </data>
 </root>

@@ -54,7 +54,7 @@
             <!-- Dashboard -->
             <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>📊</span> داشبورد / Dashboard
+                <span>📊</span> @Localizer["Dashboard"]
             </a>
 
             <!-- Blog -->
@@ -64,7 +64,7 @@
 
             <a asp-area="Admin" asp-controller="ManageBlog" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>📰</span> پست‌ها / Posts
+                <span>📰</span> @Localizer["ManageBlogPosts"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageCategory" asp-action="Index"
@@ -74,12 +74,12 @@
 
             <a asp-area="Admin" asp-controller="ManageTag" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>🏷️</span> تگ‌ها / Tags
+                <span>🏷️</span> @Localizer["ManageBlogTags"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageComment" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>💬</span> نظرات / Comments
+                <span>💬</span> @Localizer["ManageBlogComments"]
             </a>
 
             <!-- Forum -->
@@ -89,37 +89,37 @@
 
             <a asp-area="Admin" asp-controller="ManageForum" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>📌</span> موضوعات / Topics
+                <span>📌</span> @Localizer["ManageForumTopics"]
             </a>
 
             <a asp-area="Admin" asp-controller="ForumCategory" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>📁</span> دسته‌بندی‌ها / Categories
+                <span>📁</span> @Localizer["ManageForumCategories"]
             </a>
 
             <!-- Resume -->
             <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
-                <span>📄</span> @Localizer["ManageResume"]
+                <span>📄</span> @Localizer["Resume"]
             </div>
 
             <a asp-area="Admin" asp-controller="ManageProject" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>🚀</span> پروژه‌ها / Projects
+                <span>🚀</span> @Localizer["ManageProject"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageEducation" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>🎓</span> تحصیلات / Education
+                <span>🎓</span> @Localizer["ManageEducation"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageExperience" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>🎓</span> تجربیات / Experience
+                <span>🎓</span> @Localizer["ManageExperience"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageSkill" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>⚙️</span> مهارت‌ها / Skills
+                <span>⚙️</span> @Localizer["ManageSkill"]
             </a>
 
             <a asp-area="Admin" asp-controller="ManageAbout" asp-action="Index"
@@ -129,12 +129,12 @@
 
             <!-- User Management -->
             <div class="font-semibold text-gray-500 dark:text-gray-400 mt-4 mb-1 flex items-center gap-2">
-                <span>🧑‍💼</span> مدیریت کاربران / Users
+                <span>🧑‍💼</span> @Localizer["Users"]
             </div>
 
             <a asp-area="Admin" asp-controller="ManageUser" asp-action="Index"
                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800">
-                <span>👥</span> کاربران / Users
+                <span>👥</span> @Localizer["ManageUser"]
             </a>
 
         </nav>
