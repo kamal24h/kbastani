@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using DataAccess.Dtos;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;

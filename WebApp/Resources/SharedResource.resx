@@ -402,4 +402,13 @@
   <data name="EditPost" xml:space="preserve">
     <value>Edit Post</value>
   </data>
+  <data name="ManageCategory" xml:space="preserve">
+    <value>Manage Category</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNewBlogCategory" xml:space="preserve">
+    <value>Create New Blog Category</value>
+  </data>
 </root>

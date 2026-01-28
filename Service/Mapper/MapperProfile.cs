@@ -49,6 +49,7 @@ namespace Service.Mapper
             #region Dto's Mapping
 
             BlogPostDto.ConfigureMapper(this);
+            BlogCategoryDto.ConfigureMapper(this);
             //TagDto.ConfigureMapper(this);
             UserProfileDto.ConfigureMapper(this);
 

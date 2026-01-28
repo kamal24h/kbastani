@@ -402,4 +402,13 @@
   <data name="EditPost" xml:space="preserve">
     <value>ویرایش پست</value>
   </data>
+  <data name="ManageCategory" xml:space="preserve">
+    <value>مدیریت گروهبندی پستها</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="CreateNewBlogCategory" xml:space="preserve">
+    <value>گروهبندی جدید پست وبلاگ</value>
+  </data>
 </root>
