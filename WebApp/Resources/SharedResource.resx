@@ -414,4 +414,7 @@
   <data name="WorkExperience" xml:space="preserve">
     <value>Work Experience</value>
   </data>
+  <data name="EditAboutMe" xml:space="preserve">
+    <value>Edit About Me</value>
+  </data>
 </root>

@@ -13,14 +13,30 @@
 
 */
 
+@font-face {
+    font-family: 'Vazir';
+    src: url(../fonts/Vazir/Vazir.eot);
+    src: url(../fonts/Vazir/Vazir.eot?#iefix) format("embedded-opentype"), url(../fonts/Vazir/Vazir.woff) format("woff"), url(../fonts/Vazir/Vazir.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+.my-title {
+    font-family: 'Vazir' !important;
+    font-size: x-large;
+    padding-inline: 2px;
+}
+
 html {
     font-size: 14px;
+    font-family: 'Vazir' !important;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        font-family: 'Vazir' !important;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
