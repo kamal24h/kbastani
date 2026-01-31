@@ -27,6 +27,11 @@ namespace DataAccess
             throw new NotImplementedException();
         }
 
+        public Task<bool> DeleteById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Tag>> Get()
         {
             throw new NotImplementedException();

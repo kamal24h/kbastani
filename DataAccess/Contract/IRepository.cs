@@ -16,6 +16,6 @@ public interface ICrudRepository<T> : IRepository<T> where T : class
     Task<T> AddAsync(T entity);
     T Update (T entity);
     T Delete (T entity);
-    bool DeleteBy (int id);
+    Task<bool> DeleteById(long id);
 }
 

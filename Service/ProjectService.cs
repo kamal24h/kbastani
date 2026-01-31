@@ -9,75 +9,44 @@ using Service.Contract;
 
 namespace Service;
 
-public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
-    IBlogPostRepository _blogPostRepository) : IBlogPostService
+public class ProjectService(IMapper mapper, IUnitOfWork unitOfWork,
+    IProjectRepository _projectRepository) : IProjectService
 {
     private readonly IMapper _mapper = mapper;
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private Guid _currentUser = Guid.Parse("4b859c11-79f9-4104-9fe9-276aeaf5f115");
 
-    public async Task<List<BlogPostVm>> Get()
+    public async Task<List<ProjectVm>> Get()
     {
-        var model = await _blogPostRepository.GetListAsync();
-        var modelVm = _mapper.Map<List<BlogPostVm>>(model).ToList();
+        var model = await _projectRepository.GetListAsync();
+        var modelVm = _mapper.Map<List<ProjectVm>>(model).ToList();
         return modelVm;
     }
 
-    //public async Task<List<BlogPostForReportVm>> GetForReport()
-    //{
-    //    var ItemMembers = await _blogPostRepository.Get();
-    //    var res = _mapper.Map<List<BlogPostForReportVm>>(ItemMembers).ToList();
-    //    return res;
-    //}
-
-
-
-    public async Task<List<BlogPostVm>> GetForSearch() 
+    public async Task<List<ProjectVm>> GetForSearch() 
     {
-        var res = await _blogPostRepository.GetListAsync();
-        var resVm = _mapper.Map<List<BlogPostVm>>(res);
+        var res = await _projectRepository.GetListAsync();
+        var resVm = _mapper.Map<List<ProjectVm>>(res);
         return resVm;
     }
 
 
-    public async Task<BlogPostVm> GetByIdAsync(int id)
+    public async Task<ProjectVm> GetByIdAsync(long id)
     {
-        var res = await _blogPostRepository.GetById(id);
-        var resV = _mapper.Map<BlogPostVm>(res);
+        var res = await _projectRepository.GetById(id);
+        var resV = _mapper.Map<ProjectVm>(res);
         return resV;
     }
-    public async Task<BlogPostDto> GetForUpdate(int id)
+    public async Task<ProjectDto> GetForUpdate(long id)
     {
-        var res = await _blogPostRepository.GetById(id);
-        var resV = _mapper.Map<BlogPostDto>(res);
+        var res = await _projectRepository.GetById(id);
+        var resV = _mapper.Map<ProjectDto>(res);
         return resV;
-    }
-
-    //public async Task<ItemShowViewModel> GetProductForShowById(int id)
-    //{
-    //    var model = await GetByIdAsync(id);
-    //    var viewModel = new ItemShowViewModel()
-    //    {
-    //        ItemId = id,
-    //        Name = model.Title,
-    //        Count = (int)model.Balance,
-    //        Price = (int)model.DefaultSellingPrice.GetValueOrDefault(),
-    //        Description = "گروه محصولات: " + model.CategoryTitle + " با عنوان تخصصی :" + model.ProfessionalTitle,
-    //        MainImage = model.MainImage,
-    //        //Images = model.Attachments
-    //    };
-    //    var properties = await _BlogPostPropertiesRepository.GetByItemId(model.ItemId);
-    //    foreach (var i in properties)
-    //    {
-    //        viewModel.Properties.Add(i.CategoryProperty.Title, i.Value);
-    //    }        
-
-    //    return viewModel;
-    //}
+    }    
 
 
-    public async Task<int> AddAsync(BlogPostDto dto)
+    public async Task<long> AddAsync(ProjectDto dto)
     {
         if (!dto.IsValid())
             return 0;
@@ -92,15 +61,15 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
             Console.WriteLine(ex.Message);
         }
         dto.PrepareDto(_currentUser);
-        var entity = _mapper.Map<BlogPost>(dto);
-        await _blogPostRepository.AddAsync(entity);
+        var entity = _mapper.Map<Project>(dto);
+        await _projectRepository.AddAsync(entity);
         //await _docSerialRepository.IncrementSerieByDocumentId((int)SysDocumentTypeEnum.InventoryItems);
         var result = _unitOfWork.SaveChanges();
-        //var vm = _mapper.Map<BlogPostVm>(addedItem);
+        //var vm = _mapper.Map<ProjectVm>(addedItem);
         return result;
     }
 
-    public async Task<int> UpdateAsync(BlogPostDto dto)
+    public async Task<long> UpdateAsync(ProjectDto dto)
     {
         if(!dto.IsValid())
             return 0;
@@ -116,15 +85,15 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
         }
         dto.PrepareDto(_currentUser);
         //return new SingleResponse<int>(0, System.Net.HttpStatusCode.BadRequest);
-        var entity = _mapper.Map<BlogPost>(dto);
-        _blogPostRepository.Update(entity);
+        var entity = _mapper.Map<Project>(dto);
+        _projectRepository.Update(entity);
         var res = await _unitOfWork.SaveChangesAsync();
         return res;
     }
 
     public async Task<bool> DeleteById(long id)
     {
-        var result = await _blogPostRepository.DeleteById(id);
+        var result = await _projectRepository.DeleteById(id);
 
         if (result == false)
             return false;
@@ -133,12 +102,12 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
         return true;
     }
 
-    public Task<List<BlogPostVm>> GetForReport()
+    public Task<List<ProjectVm>> GetForReport()
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, int itemId)
+    public Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, long itemId)
     {
         throw new NotImplementedException();
     }
@@ -167,7 +136,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
     //    if (imageGallery != null)
     //    {
     //        var GalleryImagesFileNewName = "";
-    //        List<BlogPostAttachment> imageGalleries = [];
+    //        List<ProjectAttachment> imageGalleries = [];
 
     //        for (int i = 0; i < imageGallery.Count; i++)
     //        {
@@ -188,7 +157,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
     //                    GalleryImagesFilePath, 50, 100);
 
 
-    //                imageGalleries.Add(new BlogPostAttachment
+    //                imageGalleries.Add(new ProjectAttachment
     //                {
     //                    ItemAttachmentGuid = Guid.NewGuid(),
     //                    ItemId = itemId,

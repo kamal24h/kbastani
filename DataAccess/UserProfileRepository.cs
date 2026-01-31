@@ -66,22 +66,22 @@ public class UserProfileRepository(AppDbContext _dbContext) : IUserProfileReposi
     public UserProfile Delete(UserProfile entity)
     {
         throw new NotImplementedException();
-    }
+    }   
 
-    public bool DeleteBy(int id)
+    public Task<bool> DeleteById(long id)
     {
         throw new NotImplementedException();
     }
 
     #endregion
 
-    
 
-    
 
-    
-    
-    
+
+
+
+
+
     #region Internal
 
     #endregion

@@ -27,7 +27,16 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         var result = await _dbContext.BlogPosts.Where(a => a.BlogPostGuid == id).SingleAsync();
         return result;
     }
-    
+
+    public IQueryable<BlogPost> Where(Expression<Func<BlogPost, bool>> predicate)
+    {
+        throw new NotImplementedException();
+    }
+
+    #endregion
+
+    #region Create
+
     public BlogPost Add(BlogPost entity)
     {
         _dbContext.BlogPosts.Add(entity);
@@ -40,29 +49,30 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         return entity;
     }
 
+    #endregion
+
+    #region Update
+
     public BlogPost Update(BlogPost entity)
     {
         _dbContext.BlogPosts.Update(entity);
         return entity;
     }
 
+    #endregion
+
+    #region Delete
+
     public BlogPost Delete(BlogPost entity)
     {
         throw new NotImplementedException();
     }
 
-    public bool DeleteBy(int id)
+    public Task<bool> DeleteById(long id)
     {
         throw new NotImplementedException();
     }
-
-    public IQueryable<BlogPost> Where(Expression<Func<BlogPost, bool>> predicate)
-    {
-        throw new NotImplementedException();
-    }
-
     
-
     #endregion
 
 

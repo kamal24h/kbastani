@@ -14,11 +14,11 @@ public class Bootstrap
         //Data Access
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IBlogPostRepository, BlogPostRepository>();
-        //services.AddTransient<IResidentRepository, ResidentRepository>();
+        services.AddTransient<IProjectRepository, ProjectRepository>();
 
         //Services
         services.AddTransient<IBlogPostService, BlogPostService>();
-        //services.AddTransient<IResidentService, ResidentService>();
+        services.AddTransient<IProjectService, ProjectService>();
 
 
 
