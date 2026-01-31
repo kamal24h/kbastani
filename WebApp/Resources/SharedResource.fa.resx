@@ -411,4 +411,10 @@
   <data name="CreateNewBlogCategory" xml:space="preserve">
     <value>گروهبندی جدید پست وبلاگ</value>
   </data>
+  <data name="WorkExperience" xml:space="preserve">
+    <value>تجربیات کاری</value>
+  </data>
+  <data name="EditAboutMe" xml:space="preserve">
+    <value>ویرایش اطلاعات درباره من</value>
+  </data>
 </root>

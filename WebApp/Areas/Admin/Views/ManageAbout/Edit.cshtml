@@ -1,16 +1,19 @@
 ﻿@using DataAccess.Vms
+@using Microsoft.AspNetCore.Mvc.Localization
 @model AboutViewModel
+@inject IHtmlLocalizer<SharedResource> Localizer
+
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1 class="text-2xl font-bold mb-6">Edit About Me</h1>
+<h1 class="text-2xl font-bold mb-6">@Localizer["EditAboutMe"]</h1>
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data" class="space-y-6">
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div class="bg-white p-4 rounded shadow">
+        <div class="p-4 rounded shadow">
             <h2 class="font-semibold mb-2">فارسی</h2>
 
             <label>عنوان</label>
@@ -23,7 +26,7 @@
             <input asp-for="LocationFa" class="w-full border p-2 rounded" />
         </div>
 
-        <div class="bg-white p-4 rounded shadow">
+        <div class="p-4 rounded shadow">
             <h2 class="font-semibold mb-2">English</h2>
 
             <label>Title</label>
@@ -38,7 +41,7 @@
 
     </div>
 
-    <div class="bg-white p-4 rounded shadow">
+    <div class="p-4 rounded shadow">
         <label>Email</label>
         <input asp-for="Email" class="w-full border p-2 rounded" />
 
@@ -49,7 +52,7 @@
         <input asp-for="ProfileImage" type="file" class="w-full border p-2 rounded" />
     </div>
 
-    <div class="bg-white p-4 rounded shadow">
+    <div class="p-4 rounded shadow">
         <label>LinkedIn</label>
         <input asp-for="LinkedinUrl" class="w-full border p-2 rounded" />
 
@@ -59,7 +62,7 @@
         <label class="mt-3">Website</label>
         <input asp-for="WebsiteUrl" class="w-full border p-2 rounded" />
     </div>
-
-    <button class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
-
+    <div class="p-4 rounded shadow">
+        <button class="bg-blue-600 text-white px-4 py-1 rounded">@Localizer["Save"]</button>
+    </div>
 </form>

@@ -411,4 +411,10 @@
   <data name="CreateNewBlogCategory" xml:space="preserve">
     <value>Create New Blog Category</value>
   </data>
+  <data name="WorkExperience" xml:space="preserve">
+    <value>Work Experience</value>
+  </data>
+  <data name="EditAboutMe" xml:space="preserve">
+    <value>Edit About Me</value>
+  </data>
 </root>

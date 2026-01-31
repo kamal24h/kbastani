@@ -153,16 +153,7 @@
                         <option value="fa" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa" ? "selected" : null)">FA</option>
                         <option value="en" selected="@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "en" ? "selected" : null)">EN</option>
                     </select>
-                </form>
-
-                @* <!-- Language switch -->
-                <form id="langForm" asp-controller="Home" asp-action="SetLanguage" method="post">
-                    <select name="culture" onchange="document.getElementById('langForm').submit()"
-                            class="border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs rounded px-2 py-1">
-                        <option value="fa" selected="@(culture == "fa" ? "selected" : null)">FA</option>
-                        <option value="en" selected="@(culture == "en" ? "selected" : null)">EN</option>
-                    </select>
-                </form> *@
+                </form>                
 
                 <!-- Auth -->
                 @if (SignInManager.IsSignedIn(User))
