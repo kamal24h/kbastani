@@ -50,14 +50,13 @@ namespace DataAccess
             throw new NotImplementedException();
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(long id)
         {
             var entity = await GetById(id);
             if (entity == null)
                 return false;
             ctx.Remove(entity);
             return true;
-        }
-
+        }        
     }
 }

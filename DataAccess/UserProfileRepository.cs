@@ -57,7 +57,7 @@ public class UserProfileRepository(AppDbContext _dbContext) : IUserProfileReposi
 
     #region Delete
 
-    public Task<bool> DeleteAsync(int id)
+    public Task<bool> DeleteAsync(long id)
     {
         throw new NotImplementedException();
     }

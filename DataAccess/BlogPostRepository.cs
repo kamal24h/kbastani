@@ -49,7 +49,7 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         throw new NotImplementedException();
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public Task<bool> DeleteAsync(long id)
     {
         throw new NotImplementedException();
     }

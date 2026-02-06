@@ -41,13 +41,13 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
     }
 
 
-    public async Task<BlogPostVm> GetByIdAsync(int id)
+    public async Task<BlogPostVm> GetByIdAsync(long id)
     {
         var res = await _blogPostRepository.GetById(id);
         var resV = _mapper.Map<BlogPostVm>(res);
         return resV;
     }
-    public async Task<BlogPostDto> GetForUpdate(int id)
+    public async Task<BlogPostDto> GetForUpdate(long id)
     {
         var res = await _blogPostRepository.GetById(id);
         var resV = _mapper.Map<BlogPostDto>(res);
@@ -77,7 +77,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
     //}
 
 
-    public async Task<int> AddAsync(BlogPostDto dto)
+    public async Task<long> AddAsync(BlogPostDto dto)
     {
         if (!dto.IsValid())
             return 0;
@@ -100,7 +100,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
         return result;
     }
 
-    public async Task<int> UpdateAsync(BlogPostDto dto)
+    public async Task<long> UpdateAsync(BlogPostDto dto)
     {
         if(!dto.IsValid())
             return 0;
@@ -138,10 +138,10 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
         throw new NotImplementedException();
     }
 
-    public Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, int itemId)
+    public Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, long itemId)
     {
         throw new NotImplementedException();
-    }
+    }    
 
     //public async Task<List<ItemGalleryShowViewModel>> GetGalleryImages(int itemId)
     //{

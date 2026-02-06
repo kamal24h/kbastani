@@ -9,10 +9,10 @@ public interface IBlogPostService
     Task<List<BlogPostVm>> Get();
     Task<List<BlogPostVm>> GetForReport();
     Task<List<BlogPostVm>> GetForSearch();
-    Task<BlogPostVm> GetByIdAsync(int ItemId);
-    Task<BlogPostDto> GetForUpdate(int ItemId);
-    Task<int> AddAsync(BlogPostDto dto);
-    Task<int> UpdateAsync(BlogPostDto dto);
-    Task<bool> DeleteById(int id);
-    Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, int itemId);
+    Task<BlogPostVm> GetByIdAsync(long ItemId);
+    Task<BlogPostDto> GetForUpdate(long ItemId);
+    Task<long> AddAsync(BlogPostDto dto);
+    Task<long> UpdateAsync(BlogPostDto dto);
+    Task<bool> DeleteById(long id);
+    Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, long itemId);
 }

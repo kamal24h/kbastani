@@ -20,14 +20,14 @@ public class TagService(IMapper mapper, IUnitOfWork unitOfWork) : ITagService
         return modelVm;
     }
 
-    public async Task<TagVm> GetByIdAsync(int id)
+    public async Task<TagVm> GetByIdAsync(long id)
     {
         var res = await unitOfWork.TagRepository.GetById(id);
         var resV = mapper.Map<TagVm>(res);
         return resV;
     }
     
-    public async Task<int> AddAsync(TagDto dto)
+    public async Task<long> AddAsync(TagDto dto)
     {
         if (!dto.IsValid())
             return 0;        
@@ -39,7 +39,7 @@ public class TagService(IMapper mapper, IUnitOfWork unitOfWork) : ITagService
         return result;
     }
 
-    public async Task<int> UpdateAsync(TagDto dto)
+    public async Task<long> UpdateAsync(TagDto dto)
     {
         if(!dto.IsValid())
             return 0;
@@ -62,7 +62,7 @@ public class TagService(IMapper mapper, IUnitOfWork unitOfWork) : ITagService
         return res;
     }
 
-    public async Task<bool> DeleteById(int id)
+    public async Task<bool> DeleteById(long id)
     {
         var result = await unitOfWork.TagRepository.DeleteAsync(id);
 
@@ -73,7 +73,7 @@ public class TagService(IMapper mapper, IUnitOfWork unitOfWork) : ITagService
         return true;
     }
 
-    public async Task<TagDto> GetForUpdate(int id)
+    public async Task<TagDto> GetForUpdate(long id)
     {
         var res = await unitOfWork.TagRepository.GetById(id);
         var resV = mapper.Map<TagDto>(res);
