@@ -14,7 +14,7 @@ namespace WebApp.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var tags = await tagService.GetAll();
-            return View(tags.OrderBy(t => t.NameEn).ToList());
+            return View(tags);
         }
 
         public IActionResult Create()
@@ -30,7 +30,7 @@ namespace WebApp.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(long id)
         {
             var tag = await tagService.GetByIdAsync(id);
             if (tag == null)
@@ -42,12 +42,12 @@ namespace WebApp.Areas.Admin.Controllers
                 NameFa = tag.NameFa,
                 Slug = tag.Slug,
             };
-            return View(tag);
+            return View(dto);
         }
 
-        [HttpPut]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(TagDto dto)
+        public async Task<IActionResult> Update(TagDto dto)
         {
             await tagService.UpdateAsync(dto);
             return RedirectToAction(nameof(Index));

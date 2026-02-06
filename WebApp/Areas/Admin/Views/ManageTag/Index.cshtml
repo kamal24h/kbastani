@@ -1,5 +1,4 @@
 ﻿@using DataAccess.Vms
-@using Domain
 @using Microsoft.AspNetCore.Mvc.Localization
 @model List<TagVm>
 @inject IHtmlLocalizer<SharedResource> Localizer
@@ -20,30 +19,54 @@
     <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
         <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
-                <th class="px-4 py-2 text-left" ">ID</th>
-                <th class="px-4 py-2 text-left" ">@Localizer["TitleFa"]</th>
-                <th class="px-4 py-2 text-left" ">@Localizer["TitleEn"]</th>
-                <th class="px-4 py-2 text-left" ">@Localizer["Slug"]</th>
-                <th class="px-4 py-2 text-left" ">@Localizer["Actions"]</th>
+                <th class="px-4 py-2 text-center">ID</th>
+                <th class="px-4 py-2 text-center">@Localizer["TitleFa"]</th>
+                <th class="px-4 py-2 text-center">@Localizer["TitleEn"]</th>
+                <th class="px-4 py-2 text-center">@Localizer["Slug"]</th>
+                <th class="px-4 py-2 text-center">@Localizer["Actions"]</th>
             </tr>
         </thead>
         <tbody>
                 @foreach (var t in Model)
                 {
                 <tr class="border-t dark:border-gray-800">
-                    <td class="px-4 py-2">@t.TagId</td>
-                    <td class="px-4 py-2">@t.NameFa</td>
-                    <td class="px-4 py-2">@t.NameEn</td>
-                    <td class="px-4 py-2">@t.Slug</td>
+                    <td class="px-4 py-2 text-center">@t.TagId</td>
+                    <td class="px-4 py-2 text-center">@t.NameFa</td>
+                    <td class="px-4 py-2 text-center">@t.NameEn</td>
+                    <td class="px-4 py-2 text-center">@t.Slug</td>
+
                     <td class="px-4 py-2 space-x-2">
-                        <a asp-action="Edit" asp-route-id="@t.TagId" class="text-blue-600">
+
+                        <a asp-action="Edit" asp-route-id="@t.TagId" method="get"
+                           class="text-blue-600 hover:underline">
                                 @Localizer["Edit"]
                         </a>
 
-                        <form asp-action="Delete" asp-route-id="@t.TagId" method="post" class="inline">
+                        <a asp-action="Delete" asp-route-id="@t.TagId"
+                           class="text-red-600 hover:underline"
+                           onclick="return confirm('Delete this tag?');">
+                                @Localizer["Delete"]
+                        </a>
+
+                    </td>
+
+                    @* <td class="px-4 py-2 space-x-2">
+                        
+                        <a asp-action="Edit" asp-route-id="@t.TagId" method="get" class="text-blue-600">
+                                @Localizer["Edit"]
+                        </a>
+                        
+
+                        <a asp-action="Delete" asp-route-id="@t.TagId"
+                           class="text-red-600 hover:underline"
+                           onclick="return confirm('Delete this user?');">
+                                @Localizer["Delete"]
+                        </a>
+
+                        @* <form asp-action="Delete" asp-route-id="@t.TagId" method="post" class="inline">
                             <button class="text-red-600">@Localizer["Delete"]</button>
                         </form>
-                    </td>
+                    </td> *@
                 </tr>
                 }
         </tbody>
