@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\kbast\\source\\repos\\kbastani\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\views\\manageabout\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\manageabout\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\views\\managetag\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\managetag\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\views\\manageabout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\manageabout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\blogpostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\views\\managetag\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\managetag\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\controllers\\manageaboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\controllers\\manageaboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\views\\managetag\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\managetag\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\views\\resume\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\resume\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\mapper\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\mapper\\mapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\views\\shared\\_layout2.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\shared\\_layout2.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2C110B9D-229E-48C2-9467-FCF954EC8026}|Common\\Common.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\common\\dependencyinjection\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C110B9D-229E-48C2-9467-FCF954EC8026}|Common\\Common.csproj|solutionrelative:common\\dependencyinjection\\bootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\service\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C243A9F-BB47-4032-A69D-4EBD2860C51C}|Service\\Service.csproj|solutionrelative:service\\tagservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\webapp\\areas\\admin\\controllers\\managetagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\controllers\\managetagcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|c:\\users\\kbast\\source\\repos\\kbastani\\dataaccess\\userprofilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\userprofilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,76 +70,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ManageAboutController.cs",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Controllers\\ManageAboutController.cs",
-              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Controllers\\ManageAboutController.cs",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Controllers\\ManageAboutController.cs",
-              "RelativeToolTip": "WebApp\\Areas\\Admin\\Controllers\\ManageAboutController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwCMAAAANAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "BlogPostService.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\BlogPostService.cs",
+              "RelativeDocumentMoniker": "Service\\BlogPostService.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\BlogPostService.cs",
+              "RelativeToolTip": "Service\\BlogPostService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAtwAwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T11:07:09.009Z"
+              "WhenOpened": "2026-02-06T16:27:14.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserProfileRepository.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\UserProfileRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\UserProfileRepository.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\DataAccess\\UserProfileRepository.cs",
+              "RelativeToolTip": "DataAccess\\UserProfileRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T16:19:50.128Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageAbout\\Edit.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageAbout\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageAbout\\Edit.cshtml",
-              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageAbout\\Edit.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADYAAAAkAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Edit.cshtml",
+              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-30T10:03:47.151Z",
+              "WhenOpened": "2026-02-06T16:18:27.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageAbout\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageAbout\\Index.cshtml",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageAbout\\Index.cshtml",
-              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageAbout\\Index.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEIAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-30T10:03:38.278Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Index.cshtml",
+              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-30T09:30:21.826Z"
+              "WhenOpened": "2026-02-06T16:18:18.535Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout2.cshtml",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Shared\\_Layout2.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Shared\\_Layout2.cshtml",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Shared\\_Layout2.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Shared\\_Layout2.cshtml",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAwIYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Create.cshtml",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageTag\\Create.cshtml",
+              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageTag\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-30T09:30:13.699Z"
+              "WhenOpened": "2026-02-06T16:17:55.296Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Resume\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Resume\\Index.cshtml",
-              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Views\\Resume\\Index.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Resume\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-30T08:49:44.703Z"
+              "Title": "MapperProfile.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Mapper\\MapperProfile.cs",
+              "RelativeDocumentMoniker": "Service\\Mapper\\MapperProfile.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\Mapper\\MapperProfile.cs",
+              "RelativeToolTip": "Service\\Mapper\\MapperProfile.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T16:30:09.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Bootstrap.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Common\\DependencyInjection\\Bootstrap.cs",
+              "RelativeDocumentMoniker": "Common\\DependencyInjection\\Bootstrap.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Common\\DependencyInjection\\Bootstrap.cs",
+              "RelativeToolTip": "Common\\DependencyInjection\\Bootstrap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T16:29:10.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TagService.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\TagService.cs",
+              "RelativeDocumentMoniker": "Service\\TagService.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\Service\\TagService.cs",
+              "RelativeToolTip": "Service\\TagService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAMwCAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T16:10:37.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ManageTagController.cs",
+              "DocumentMoniker": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Controllers\\ManageTagController.cs",
+              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Controllers\\ManageTagController.cs",
+              "ToolTip": "C:\\Users\\kbast\\source\\repos\\kbastani\\WebApp\\Areas\\Admin\\Controllers\\ManageTagController.cs",
+              "RelativeToolTip": "WebApp\\Areas\\Admin\\Controllers\\ManageTagController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAA7wDgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T15:11:29.324Z",
+              "EditorCaption": ""
             }
           ]
         }

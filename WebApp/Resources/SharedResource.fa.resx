@@ -259,7 +259,7 @@
     <value>مهاجرت</value>
   </data>
   <data name="Tags" xml:space="preserve">
-    <value>تگ ها</value>
+    <value>برچسب ها</value>
   </data>
   <data name="AdminTools" xml:space="preserve">
     <value>ابزارهای ادمین</value>
@@ -334,7 +334,7 @@
     <value>مدیریت پروژه ها</value>
   </data>
   <data name="ManageForumTopics" xml:space="preserve">
-    <value>مدیریت عناویت فروم</value>
+    <value>مدیریت عناوین فروم</value>
   </data>
   <data name="ManageForumCategories" xml:space="preserve">
     <value>مدیریت دسته بندی فروم</value>
@@ -416,5 +416,14 @@
   </data>
   <data name="EditAboutMe" xml:space="preserve">
     <value>ویرایش اطلاعات درباره من</value>
+  </data>
+  <data name="TagManagement" xml:space="preserve">
+    <value>مدیریت برچسب ها</value>
+  </data>
+  <data name="EditTags" xml:space="preserve">
+    <value>ویرایش برچسب ها</value>
+  </data>
+  <data name="CreateTags" xml:space="preserve">
+    <value>برچسب جدید</value>
   </data>
 </root>

@@ -1,60 +1,63 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using DataAccess.Contract;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess
 {
 
-    public class TagRepository : ITagRepository
-    {
-        public Tag Add(Tag entity)
+    public class TagRepository(AppDbContext ctx) : ITagRepository
+    {        
+        public async Task<Tag> AddAsync(Tag entity)
         {
-            throw new NotImplementedException();
+            await ctx.AddAsync(entity);
+            return entity;
+        }
+        
+        public async Task<List<Tag>> GetAll()
+        {
+            var result = await ctx.Tags.ToListAsync();
+            return result;
         }
 
-        public Task<Tag> AddAsync(Tag entity)
+        public async Task<List<Tag>> GetAsync()
         {
-            throw new NotImplementedException();
+            var result = await ctx.Tags.ToListAsync();
+            return result;
         }
 
-        public Tag Delete(Tag entity)
+        public async Task<Tag> GetByGuid(Guid guid)
         {
-            throw new NotImplementedException();
+            var result = await ctx.Tags.Where(a => a.TagGuid == guid).SingleAsync();
+            return result;
         }
 
-        public bool DeleteBy(int id)
+        public async Task<Tag> GetById(long id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Tag>> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Tag> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Tag> GetByGuid(Guid guid)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Tag> GetById(long id)
-        {
-            throw new NotImplementedException();
+            var result = await ctx.Tags.Where(a => a.TagId == id).SingleAsync();
+            return result;
         }
 
         public Tag Update(Tag entity)
         {
-            throw new NotImplementedException();
+            ctx.Update(entity);
+            return entity;
         }
 
         public IQueryable<Tag> Where(Expression<Func<Tag, bool>> predicate)
         {
             throw new NotImplementedException();
         }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var entity = await GetById(id);
+            if (entity == null)
+                return false;
+            ctx.Remove(entity);
+            return true;
+        }
+
     }
 }

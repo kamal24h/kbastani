@@ -19,7 +19,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
 
     public async Task<List<BlogPostVm>> Get()
     {
-        var model = await _blogPostRepository.GetListAsync();
+        var model = await _blogPostRepository.GetAll();
         var modelVm = _mapper.Map<List<BlogPostVm>>(model).ToList();
         return modelVm;
     }
@@ -35,7 +35,7 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
 
     public async Task<List<BlogPostVm>> GetForSearch() 
     {
-        var res = await _blogPostRepository.GetListAsync();
+        var res = await _blogPostRepository.GetAll();
         var resVm = _mapper.Map<List<BlogPostVm>>(res);
         return resVm;
     }
@@ -122,9 +122,9 @@ public class BlogPostService(IMapper mapper, IUnitOfWork unitOfWork,
         return res;
     }
 
-    public bool DeleteById(int id)
+    public async Task<bool> DeleteById(int id)
     {
-        var result = _blogPostRepository.DeleteBy(id);
+        var result = await _blogPostRepository.DeleteAsync(id);
 
         if (result == false)
             return false;

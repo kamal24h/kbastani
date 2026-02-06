@@ -6,18 +6,13 @@ namespace DataAccess.Vms
     {
         public long TagId { get; set; }
         public Guid TagGuid { get; set; }
-       
-
+        public string NameFa { get; set; }
+        public string NameEn { get; set; }
+        public string Slug { get; set; }
 
         public static void ConfigureMapper(Profile mProfile)
         {
-            mProfile.CreateMap<Tag, TagVm>()
-            //.ForMember(dest => dest.CategoryTitle, opt => opt.MapFrom(src => src.ItemCategory.Title))
-            //.ForMember(dest => dest.BrandTitle, opt => opt.MapFrom(src => src.Brand.Title))
-            //.ForMember(dest => dest.MyMainImage, opt => opt.Ignore())
-            //.ForMember(dest => dest.ImagePaths, opt => opt.Ignore())
-            //.ForMember(d => d.ImagePaths, opt => opt.MapFrom<ShowEstateImageResolver>());
-            ;
+            mProfile.CreateMap<Tag, TagVm>();
         }
     }
 }

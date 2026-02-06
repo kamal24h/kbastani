@@ -13,6 +13,6 @@ public interface IBlogPostService
     Task<BlogPostDto> GetForUpdate(int ItemId);
     Task<int> AddAsync(BlogPostDto dto);
     Task<int> UpdateAsync(BlogPostDto dto);
-    bool DeleteById(int ItemId);
+    Task<bool> DeleteById(int id);
     Task<bool> InsertGalleryImage(List<IFormFile> imageGalleries, int itemId);
 }

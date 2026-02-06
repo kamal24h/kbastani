@@ -10,7 +10,7 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
     
     #region Read
 
-    public async Task<List<BlogPost>> GetListAsync()
+    public async Task<List<BlogPost>> GetAll()
     {
         var result = await _dbContext.BlogPosts.ToListAsync();
         return result;
@@ -27,12 +27,6 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         var result = await _dbContext.BlogPosts.Where(a => a.BlogPostGuid == id).SingleAsync();
         return result;
     }
-    
-    public BlogPost Add(BlogPost entity)
-    {
-        _dbContext.BlogPosts.Add(entity);
-        return entity;
-    }
 
     public async Task<BlogPost> AddAsync(BlogPost entity)
     {
@@ -46,22 +40,17 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         return entity;
     }
 
-    public BlogPost Delete(BlogPost entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool DeleteBy(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public IQueryable<BlogPost> Where(Expression<Func<BlogPost, bool>> predicate)
     {
         throw new NotImplementedException();
     }
 
-    
+    public Task<bool> DeleteAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+
 
     #endregion
 
