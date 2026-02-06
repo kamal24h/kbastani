@@ -426,4 +426,25 @@
   <data name="CreateTags" xml:space="preserve">
     <value>برچسب جدید</value>
   </data>
+  <data name="Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="TitleEn" xml:space="preserve">
+    <value>عنوان انگلیسی</value>
+  </data>
+  <data name="TitleFa" xml:space="preserve">
+    <value>عنوان فارسی</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>آدرس اینترنتی</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>پروژه جدید</value>
+  </data>
+  <data name="EditResumeProject" xml:space="preserve">
+    <value>ویرایش پروژه های رزومه</value>
+  </data>
+  <data name="NewResumeProject" xml:space="preserve">
+    <value>پروژه رزومه جدید</value>
+  </data>
 </root>

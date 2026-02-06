@@ -34,6 +34,10 @@ public class BlogPostRepository(AppDbContext _dbContext) : IBlogPostRepository
         return entity;
     }
 
+    #endregion
+
+    #region Update
+
     public BlogPost Update(BlogPost entity)
     {
         _dbContext.BlogPosts.Update(entity);

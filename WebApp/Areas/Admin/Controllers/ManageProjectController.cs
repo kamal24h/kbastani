@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using Microsoft.AspNetCore.Localization;
+using Service.Contract;
+using Service;
+using DataAccess.Dtos;
+using Azure.Identity;
 
 namespace WebApp.Areas.Admin.Controllers
 {
@@ -12,62 +16,63 @@ namespace WebApp.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class ManageProjectController : Controller
     {
-        private readonly AppDbContext _db;
         private readonly IWebHostEnvironment _env;
+        private readonly IProjectService _projectService;
 
-        public ManageProjectController(AppDbContext db, IWebHostEnvironment env)
+        public ManageProjectController(IWebHostEnvironment env, IProjectService projectService)
         {
-            _db = db;
             _env = env;
+            _projectService = projectService;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _db.Projects.ToListAsync());
+            var projects = await _projectService.Get();
+            return View(projects);
         }
 
-        public IActionResult Create() => View(new ProjectViewModel());
+        public IActionResult Create() => View(new ProjectDto());
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProjectViewModel model)
+        public async Task<IActionResult> Create(ProjectDto model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var project = new Project
-            {
-                TitleFa = model.TitleFa,
-                TitleEn = model.TitleEn,
-                DescriptionFa = model.DescriptionFa,
-                DescriptionEn = model.DescriptionEn,
-                ProjectUrl = model.ProjectUrl,
-                GithubUrl = model.GithubUrl
-            };
+            //var project = new Project
+            //{
+            //    TitleFa = model.TitleFa,
+            //    TitleEn = model.TitleEn,
+            //    DescriptionFa = model.DescriptionFa,
+            //    DescriptionEn = model.DescriptionEn,
+            //    ProjectUrl = model.ProjectUrl,
+            //    GithubUrl = model.GithubUrl
+            //};
 
-            if (model.Image != null)
-            {
-                string fileName = Guid.NewGuid() + Path.GetExtension(model.Image.FileName);
-                string path = Path.Combine(_env.WebRootPath, "uploads/projects", fileName);
+            /// todo: Kamal
 
-                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+            //if (model.ImagePath != null)
+            //{
+            //    string fileName = Guid.NewGuid() + Path.GetExtension(model.ImagePath.FileName);
+            //    string path = Path.Combine(_env.WebRootPath, "uploads/projects", fileName);
 
-                using var stream = new FileStream(path, FileMode.Create);
-                await model.Image.CopyToAsync(stream);
+            //    Directory.CreateDirectory(Path.GetDirectoryName(path)!);
 
-                project.ImagePath = "/uploads/projects/" + fileName;
-            }
+            //    using var stream = new FileStream(path, FileMode.Create);
+            //    await model.Image.CopyToAsync(stream);
 
-            _db.Projects.Add(project);
-            await _db.SaveChangesAsync();
+            //    project.ImagePath = "/uploads/projects/" + fileName;
+            //}
 
+            await _projectService.AddAsync(model);            
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Edit(int id)
         {
-            var project = await _db.Projects.FindAsync(id);
+            var project = await _projectService.GetByIdAsync(id);
             if (project == null) return NotFound();
 
-            return View(new ProjectViewModel
+            return View(new ProjectDto
             {
                 ProjectId = project.ProjectId,
                 TitleFa = project.TitleFa,
@@ -84,7 +89,7 @@ namespace WebApp.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var project = await _db.Projects.FindAsync(model.ProjectId);
+            var project = await _projectService.GetByIdAsync(model.ProjectId);
             if (project == null) return NotFound();
 
             project.TitleFa = model.TitleFa;
@@ -107,21 +112,28 @@ namespace WebApp.Areas.Admin.Controllers
                 project.ImagePath = "/uploads/projects/" + fileName;
             }
 
-            await _db.SaveChangesAsync();
+            //await _db.SaveChangesAsync();
+            await _projectService.UpdateAsync(new ProjectDto
+            {
+                ProjectId = project.ProjectId,
+                TitleFa = project.TitleFa,
+                TitleEn = project.TitleEn,
+                DescriptionFa = project.DescriptionFa,
+                DescriptionEn = project.DescriptionEn,
+                ProjectUrl = project.ProjectUrl,
+                GithubUrl = project.GithubUrl
+            }
+            );
 
             return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(long id)
         {
-            var project = await _db.Projects.FindAsync(id);
-            if (project == null) return NotFound();
-
-            _db.Projects.Remove(project);
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+           if (id == 0) return NotFound();
+           var result = await _projectService.DeleteById(id);          
+           return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]

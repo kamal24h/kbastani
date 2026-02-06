@@ -52,6 +52,8 @@ namespace Service.Mapper
             BlogCategoryDto.ConfigureMapper(this);
             TagDto.ConfigureMapper(this);
             UserProfileDto.ConfigureMapper(this);
+            ProjectDto.ConfigureMapper(this);
+            ProjectTechDto.ConfigureMapper(this);
 
 
             #endregion
@@ -62,7 +64,8 @@ namespace Service.Mapper
             BlogPostVm.ConfigureMapper(this);          
             TagVm.ConfigureMapper(this);          
             UserProfileVm.ConfigureMapper(this);
-
+            ProjectVm.ConfigureMapper(this);
+            ProjectTechVm.ConfigureMapper(this);
             #endregion
         }
 
