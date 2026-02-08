@@ -7,10 +7,15 @@ public class UnitOfWork(AppDbContext _dbContext) : IDisposable, IUnitOfWork
 {       
     #region Repositories
 
+    private ITagRepository? _tagRepository;
+    public ITagRepository TagRepository =>
+        _tagRepository = new TagRepository(_dbContext);
+
+
     private IBlogPostRepository? _blogPostRepository;
     public IBlogPostRepository BlogPostRepository =>
         _blogPostRepository = new BlogPostRepository(_dbContext);
-    
+
     #endregion
 
     #region Interface Implementation

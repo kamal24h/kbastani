@@ -417,6 +417,15 @@
   <data name="EditAboutMe" xml:space="preserve">
     <value>Edit About Me</value>
   </data>
+  <data name="TagManagement" xml:space="preserve">
+    <value>Tag Management</value>
+  </data>
+  <data name="EditTags" xml:space="preserve">
+    <value>Edit Tags</value>
+  </data>
+  <data name="CreateTags" xml:space="preserve">
+    <value>Create Tags</value>
+  </data>
   <data name="Image" xml:space="preserve">
     <value>Image</value>
   </data>

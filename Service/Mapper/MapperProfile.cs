@@ -50,7 +50,7 @@ namespace Service.Mapper
 
             BlogPostDto.ConfigureMapper(this);
             BlogCategoryDto.ConfigureMapper(this);
-            //TagDto.ConfigureMapper(this);
+            TagDto.ConfigureMapper(this);
             UserProfileDto.ConfigureMapper(this);
             ProjectDto.ConfigureMapper(this);
             ProjectTechDto.ConfigureMapper(this);

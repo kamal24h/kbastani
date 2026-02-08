@@ -10,7 +10,7 @@ public class UserProfileRepository(AppDbContext _dbContext) : IUserProfileReposi
     
     #region Read
 
-    public async Task<List<UserProfile>> Get()
+    public async Task<List<UserProfile>> GetAll()
     {
         var result = await _dbContext.UserProfiles.ToListAsync();
         return result;
@@ -36,13 +36,7 @@ public class UserProfileRepository(AppDbContext _dbContext) : IUserProfileReposi
     #endregion
 
     #region Create
-
-    public UserProfile Add(UserProfile entity)
-    {
-        _dbContext.UserProfiles.Add(entity);
-        return entity;
-    }
-
+        
     public async Task<UserProfile> AddAsync(UserProfile entity)
     {
         await _dbContext.UserProfiles.AddAsync(entity);
@@ -63,25 +57,13 @@ public class UserProfileRepository(AppDbContext _dbContext) : IUserProfileReposi
 
     #region Delete
 
-    public UserProfile Delete(UserProfile entity)
-    {
-        throw new NotImplementedException();
-    }   
-
-    public Task<bool> DeleteById(long id)
+    public Task<bool> DeleteAsync(long id)
     {
         throw new NotImplementedException();
     }
 
     #endregion
-
-
-
-
-
-
-
-
+        
     #region Internal
 
     #endregion

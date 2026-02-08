@@ -6,6 +6,7 @@ public interface IUnitOfWork
 {
     #region Repository Announcements
 
+    ITagRepository TagRepository { get; }
     IBlogPostRepository BlogPostRepository { get; }
     //IAccEventDetailRepository AccEventDetailRepository { get; }
     //ISysUserRepository SysUserRepository { get; }

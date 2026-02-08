@@ -19,14 +19,14 @@ public class ProjectService(IMapper mapper, IUnitOfWork unitOfWork,
 
     public async Task<List<ProjectVm>> Get()
     {
-        var model = await _projectRepository.GetListAsync();
+        var model = await _projectRepository.GetAll();
         var modelVm = _mapper.Map<List<ProjectVm>>(model).ToList();
         return modelVm;
     }
 
     public async Task<List<ProjectVm>> GetForSearch() 
     {
-        var res = await _projectRepository.GetListAsync();
+        var res = await _projectRepository.GetAll();
         var resVm = _mapper.Map<List<ProjectVm>>(res);
         return resVm;
     }
@@ -93,7 +93,7 @@ public class ProjectService(IMapper mapper, IUnitOfWork unitOfWork,
 
     public async Task<bool> DeleteById(long id)
     {
-        var result = await _projectRepository.DeleteById(id);
+        var result = await _projectRepository.DeleteAsync(id);
 
         if (result == false)
             return false;

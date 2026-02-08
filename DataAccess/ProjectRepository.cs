@@ -10,7 +10,7 @@ public class ProjectRepository(AppDbContext _dbContext) : IProjectRepository
     
     #region Read
 
-    public async Task<List<Project>> GetListAsync()
+    public async Task<List<Project>> GetAll()
     {
         var result = await _dbContext.Projects.Include(p => p.Techs).ToListAsync();
         return result;
@@ -28,12 +28,6 @@ public class ProjectRepository(AppDbContext _dbContext) : IProjectRepository
         return result;
     }
     
-    public Project Add(Project entity)
-    {
-        _dbContext.Projects.Add(entity);
-        return entity;
-    }
-
     public async Task<Project> AddAsync(Project entity)
     {
         await _dbContext.Projects.AddAsync(entity);
@@ -51,7 +45,7 @@ public class ProjectRepository(AppDbContext _dbContext) : IProjectRepository
         throw new NotImplementedException();
     }
 
-    public Task<bool> DeleteById(long id)
+    public Task<bool> DeleteAsync(long id)
     {
         throw new NotImplementedException();
     }
@@ -60,8 +54,6 @@ public class ProjectRepository(AppDbContext _dbContext) : IProjectRepository
     {
         throw new NotImplementedException();
     }
-
-    
 
     #endregion
 
