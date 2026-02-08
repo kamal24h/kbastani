@@ -25,5 +25,6 @@ namespace Domain
         public ForumCategory Category { get; set; } = default!;
 
         public ICollection<ForumReply> Replies { get; set; } = [];
+        public ICollection<TopicVote> Votes { get; set; } = [];
     }
 }

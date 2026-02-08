@@ -1,0 +1,60 @@
+﻿@using Domain
+@model IEnumerable<ForumReply>
+
+<div class="max-w-6xl mx-auto py-8">
+
+    <h1 class="text-2xl font-bold mb-6">Moderate Replies</h1>
+
+    <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
+        <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+                <th class="px-4 py-2">User</th>
+                <th class="px-4 py-2">Content</th>
+                <th class="px-4 py-2">Topic</th>
+                <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr class="border-t dark:border-gray-800">
+                    <td class="px-4 py-2">@r.User.UserName</td>
+                    <td class="px-4 py-2">@r.Content</td>
+                    <td class="px-4 py-2">@r.Topic.Title</td>
+
+                    <td class="px-4 py-2">
+                        @if (r.IsApproved)
+                        {
+                            <span class="text-green-600">Approved</span>
+                        }
+                        else
+                        {
+                            <span class="text-yellow-600">Pending</span>
+                        }
+                    </td>
+
+                    <td class="px-4 py-2 space-x-2">
+
+                        <form asp-action="ApproveReply" asp-route-id="@r.ForumReplyId" method="post" class="inline">
+                            <button class="text-green-600 hover:underline">Approve</button>
+                        </form>
+
+                        <form asp-action="RejectReply" asp-route-id="@r.ForumReplyId" method="post" class="inline">
+                            <button class="text-yellow-600 hover:underline">Reject</button>
+                        </form>
+
+                        <form asp-action="DeleteReply" asp-route-id="@r.ForumReplyId" method="post" class="inline">
+                            <button class="text-red-600 hover:underline"
+                                    onclick="return confirm('Delete this reply and all its children?');">
+                                Delete
+                            </button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

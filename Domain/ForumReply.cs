@@ -23,6 +23,8 @@ namespace Domain
         public long? ParentId { get; set; }
         public ForumReply? Parent { get; set; }
         public ICollection<ForumReply> Children { get; set; } = [];
+        public ICollection<ReplyVote> Votes { get; set; } = [];
+
     }
 
 }

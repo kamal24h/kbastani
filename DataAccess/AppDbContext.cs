@@ -26,6 +26,8 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     public DbSet<ForumThread> ForumThreads { get; set; }
     public DbSet<ForumTopic> ForumTopics { get; set; }
     public DbSet<ForumReply> ForumReplies { get; set; }
+    public DbSet<TopicVote> TopicVotes { get; set; }
+    public DbSet<ReplyVote> ReplyVotes { get; set; }
     //Resume
     public DbSet<Skill> Skills { get; set; }
     public DbSet<Tag> Tags { get; set; }

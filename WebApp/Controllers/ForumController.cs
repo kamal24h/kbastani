@@ -134,6 +134,91 @@ namespace WebApp.Controllers
             return RedirectToAction("Topic", new { slug = topic!.Slug });
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> VoteTopic(long topicId, int value)
+        {
+            if (value != 1 && value != -1)
+                return BadRequest("Invalid vote");
+
+            var userId = User.GetUserId();
+
+            var existing = await _db.TopicVotes
+                .FirstOrDefaultAsync(v => v.TopicId == topicId && v.UserId == userId);
+
+            if (existing == null)
+            {
+                _db.TopicVotes.Add(new TopicVote
+                {
+                    TopicId = topicId,
+                    UserId = userId,
+                    Value = value
+                });
+            }
+            else
+            {
+                if (existing.Value == value)
+                {
+                    // Remove vote (toggle off)
+                    _db.TopicVotes.Remove(existing);
+                }
+                else
+                {
+                    // Change vote
+                    existing.Value = value;
+                }
+            }
+
+            await _db.SaveChangesAsync();
+
+            var topic = await _db.ForumTopics.FindAsync(topicId);
+            return RedirectToAction("Topic", new { slug = topic!.Slug });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> VoteReply(long replyId, int value)
+        {
+            if (value != 1 && value != -1)
+                return BadRequest("Invalid vote");
+
+            var userId = User.GetUserId();
+
+            var existing = await _db.ReplyVotes
+                .FirstOrDefaultAsync(v => v.ReplyId == replyId && v.UserId == userId);
+
+            if (existing == null)
+            {
+                _db.ReplyVotes.Add(new ReplyVote
+                {
+                    ReplyId = replyId,
+                    UserId = userId,
+                    Value = value
+                });
+            }
+            else
+            {
+                if (existing.Value == value)
+                {
+                    _db.ReplyVotes.Remove(existing);
+                }
+                else
+                {
+                    existing.Value = value;
+                }
+            }
+
+            await _db.SaveChangesAsync();
+
+            var reply = await _db.ForumReplies
+                .Include(r => r.Topic)
+                .FirstOrDefaultAsync(r => r.Id == replyId);
+
+            return RedirectToAction("Topic", new { slug = reply!.Topic.Slug });
+        }
+
+
+
     }
 
 
