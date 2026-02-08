@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\Mine\\kbastani\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\views\\forum\\topic.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\forum\\topic.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\forumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|d:\\mine\\kbastani\\domain\\replyvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\replyvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\areas\\admin\\views\\manageforum\\topics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\manageforum\\topics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D62E8082-09A5-4EF0-8431-5BF9153B2869}|DataAccess\\DataAccess.csproj|d:\\mine\\kbastani\\dataaccess\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\forumtopic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|d:\\mine\\kbastani\\domain\\replyvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\replyvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|d:\\mine\\kbastani\\domain\\topicvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E1E2295-B5E8-4655-ACBE-A441A720F4E3}|Domain\\Domain.csproj|solutionrelative:domain\\topicvote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\areas\\admin\\views\\manageforum\\replies.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\manageforum\\replies.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\areas\\admin\\views\\manageforum\\topics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|solutionrelative:webapp\\areas\\admin\\views\\manageforum\\topics.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAE38387-7DB8-4FE7-A1C3-988A4F85AB8C}|WebApp\\WebApp.csproj|d:\\mine\\kbastani\\webapp\\areas\\admin\\controllers\\manageforumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,24 +58,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "Topic.cshtml",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Views\\Forum\\Topic.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Forum\\Topic.cshtml",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Views\\Forum\\Topic.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Forum\\Topic.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-08T05:27:33.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ReplyVote.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\ReplyVote.cs",
               "RelativeDocumentMoniker": "Domain\\ReplyVote.cs",
               "ToolTip": "D:\\Mine\\kbastani\\Domain\\ReplyVote.cs",
               "RelativeToolTip": "Domain\\ReplyVote.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-08T05:20:46.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "TopicVote.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\TopicVote.cs",
               "RelativeDocumentMoniker": "Domain\\TopicVote.cs",
@@ -84,20 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Replies.cshtml",
-              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
-              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
-              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-08T05:16:40.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ForumController.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Controllers\\ForumController.cs",
               "RelativeDocumentMoniker": "WebApp\\Controllers\\ForumController.cs",
@@ -110,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ForumPost.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\ForumPost.cs",
               "RelativeDocumentMoniker": "Domain\\ForumPost.cs",
@@ -123,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ForumReply.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\ForumReply.cs",
               "RelativeDocumentMoniker": "Domain\\ForumReply.cs",
@@ -136,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ForumTopic.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\ForumTopic.cs",
               "RelativeDocumentMoniker": "Domain\\ForumTopic.cs",
@@ -149,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\DataAccess\\AppDbContext.cs",
               "RelativeDocumentMoniker": "DataAccess\\AppDbContext.cs",
@@ -162,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Topics.cshtml",
               "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageForum\\Topics.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageForum\\Topics.cshtml",
@@ -175,7 +179,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
+              "Title": "Replies.cshtml",
+              "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
+              "ToolTip": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
+              "RelativeToolTip": "WebApp\\Areas\\Admin\\Views\\ManageForum\\Replies.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-08T05:16:40.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ForumCategory.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\Domain\\ForumCategory.cs",
               "RelativeDocumentMoniker": "Domain\\ForumCategory.cs",
@@ -216,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ManageForumController.cs",
               "DocumentMoniker": "D:\\Mine\\kbastani\\WebApp\\Areas\\Admin\\Controllers\\ManageForumController.cs",
               "RelativeDocumentMoniker": "WebApp\\Areas\\Admin\\Controllers\\ManageForumController.cs",
