@@ -3,6 +3,35 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IHtmlLocalizer<SharedResource> Localizer
 
+<div class="max-w-5xl mx-auto py-10">
+
+    <h1 class="text-3xl font-bold mb-6">Forum / فروم</h1>
+
+    <div class="grid md:grid-cols-2 gap-6">
+        @foreach (var cat in Model)
+        {
+            <a asp-action="Category" asp-route-slug="@cat.Slug"
+               class="block bg-white dark:bg-gray-900 p-6 rounded-lg shadow border dark:border-gray-800">
+
+                <h2 class="text-xl font-semibold mb-2">
+                    @(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "fa"
+                        ? cat.NameFa : cat.NameEn)
+                </h2>
+
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                    @cat.Topics.Count تاپیک
+                </p>
+            </a>
+        }
+    </div>
+</div>
+
+
+
+@* @using Domain
+@model IEnumerable<ForumCategory>
+
+
 <div class="space-y-6">
     @foreach (var cat in Model)
     {
@@ -22,4 +51,4 @@
             </ul>
         </div>
     }
-</div>
+</div> *@

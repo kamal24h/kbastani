@@ -1,0 +1,109 @@
+﻿@using Domain
+@model ForumTopic
+
+@helper 
+
+    RenderReplies(IEnumerable<ForumReply> replies, int level)
+    {
+    foreach (var r in replies.OrderBy(x => x.CreatedAt))
+    {
+        <div class="ml-@(level * 20) p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700 mb-3">
+
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                @r.User.UserName — @r.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+            </div>
+
+            <p class="mb-3">@r.Content</p>
+
+            <!-- Reply button -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button onclick="document.getElementById('replyForm-@r.Id').classList.toggle('hidden')"
+                        class="text-blue-600 dark:text-blue-400 text-sm">
+                    پاسخ / Reply
+                </button>
+
+                <form id="replyForm-@r.Id" asp-action="Reply" method="post"
+                      class="hidden mt-3 space-y-2">
+                    <input type="hidden" name="topicId" value="@r.TopicId" />
+                    <input type="hidden" name="parentId" value="@r.Id" />
+
+                    <textarea name="content" rows="3"
+                              class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700
+                                     bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                              placeholder="پاسخ خود را بنویسید..."></textarea>
+
+                    <button type="submit"
+                            class="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded">
+                        ارسال پاسخ
+                    </button>
+                </form>
+            }
+
+        </div>
+
+        if (r.Children.Any())
+        {
+            @RenderReplies(r.Children, level + 1)
+        }
+    }
+}
+
+<div class="max-w-4xl mx-auto py-10">
+
+    <h1 class="text-3xl font-bold mb-4">@Model.Title</h1>
+
+    
+
+    <div class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+        توسط @Model.User.UserName — @Model.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+    </div>
+
+    <div class="prose dark:prose-invert max-w-none mb-10">
+        @Html.Raw(Model.Content)
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">پاسخ‌ها / Replies</h2>
+
+    <div class="space-y-4 mb-8">
+        @foreach (var r in Model.Replies.OrderBy(x => x.CreatedAt))
+        {
+            <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    @r.User.UserName — @r.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+                </div>
+                <p>@r.Content</p>
+            </div>
+        }
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4">پاسخ‌ها / Replies</h2>
+    @RenderReplies(Model.Replies.Where(r => r.ParentId == null), 0)
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="Reply" method="post" class="space-y-4">
+            <input type="hidden" name="topicId" value="@Model.ForumTopicId" />
+
+            <textarea name="content" rows="4"
+                      class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700
+                             bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                      placeholder="پاسخ خود را بنویسید..."></textarea>
+
+            <button type="submit"
+                    class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                ارسال پاسخ / Submit Reply
+            </button>
+        </form>
+    }
+    else
+    {
+        <div class="text-gray-600 dark:text-gray-400">
+            برای پاسخ دادن باید وارد شوید.
+            <a asp-controller="Auth" asp-action="Login"
+               class="text-blue-600 dark:text-blue-400 hover:underline">
+                ورود
+            </a>
+        </div>
+    }
+</div>

@@ -14,13 +14,19 @@ public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
     //private readonly IHttpContextAccessor _httpContextAccessor;
 
     /* Define a DbSet for each entity of the application */
+    
+    //Blog
     public DbSet<BlogCategory> BlogCategories { get; set; }
     public DbSet<BlogPost> BlogPosts { get; set; }
     public DbSet<BlogPostTag> BlogPostTags { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    //Forum
     public DbSet<ForumCategory> ForumCategories { get; set; }
     public DbSet<ForumPost> ForumPosts { get; set; }
     public DbSet<ForumThread> ForumThreads { get; set; }
+    public DbSet<ForumTopic> ForumTopics { get; set; }
+    public DbSet<ForumReply> ForumReplies { get; set; }
+    //Resume
     public DbSet<Skill> Skills { get; set; }
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Project> Projects { get; set; }
