@@ -1,0 +1,378 @@
+﻿@using Domain
+
+@model ForumTopic
+
+@{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    var isFa = culture == "fa";
+}
+
+@helper RenderReplies(IEnumerable<ForumReply> replies, int level)
+{
+    foreach (var r in replies.OrderBy(x => x.CreatedAt))
+    {
+        <div class="mt-3 ml-@(level * 20) p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+
+            <div class="flex items-center justify-between mb-2 text-xs text-gray-500 dark:text-gray-400">
+                <span>@r.User.UserName</span>
+                <span>@r.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")</span>
+            </div>
+
+            <div class="flex items-start gap-3 mb-2">
+                <!-- Reply Voting -->
+                <div class="flex flex-col items-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form asp-action="VoteReply" method="post">
+                            <input type="hidden" name="replyId" value="@r.Id" />
+                            <input type="hidden" name="value" value="1" />
+                            <button type="submit"
+                                    class="text-green-600 dark:text-green-400 text-lg leading-none">
+                                ▲
+                            </button>
+                        </form>
+                    }
+
+                    <span class="text-sm font-semibold">
+                        @(r.Votes?.Sum(v => v.Value) ?? 0)
+                    </span>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form asp-action="VoteReply" method="post">
+                            <input type="hidden" name="replyId" value="@r.Id" />
+                            <input type="hidden" name="value" value="-1" />
+                            <button type="submit"
+                                    class="text-red-600 dark:text-red-400 text-lg leading-none">
+                                ▼
+                            </button>
+                        </form>
+                    }
+                </div>
+
+                <div class="flex-1">
+                    <p class="text-sm mb-3">@r.Content</p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <button type="button"
+                                onclick="document.getElementById('replyForm-@r.Id').classList.toggle('hidden')"
+                                class="text-blue-600 dark:text-blue-400 text-xs">
+                            @(isFa ? "پاسخ" : "Reply")
+                        </button>
+
+                        <form id="replyForm-@r.Id"
+                              asp-action="Reply"
+                              method="post"
+                              class="hidden mt-3 space-y-2">
+                            <input type="hidden" name="topicId" value="@r.TopicId" />
+                            <input type="hidden" name="parentId" value="@r.Id" />
+
+                            <textarea name="content" rows="3"
+                                      class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700
+                                             bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
+                                      placeholder="@(isFa ? "پاسخ خود را بنویسید..." : "Write your reply...")"></textarea>
+
+                            <button type="submit"
+                                    class="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs">
+                                @(isFa ? "ارسال پاسخ" : "Submit reply")
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+
+        if (r.Children != null && r.Children.Any())
+        {
+            @RenderReplies(r.Children, level + 1)
+        }
+    }
+}
+
+<div class="max-w-4xl mx-auto py-10">
+
+    <!-- Topic header -->
+    <div class="mb-6 border-b border-gray-200 dark:border-gray-800 pb-4">
+        <h1 class="text-2xl md:text-3xl font-bold mb-2">@Model.Title</h1>
+
+        <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+            <span>@Model.User.UserName</span>
+            <span>• @Model.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")</span>
+
+            @if (Model.IsPinned)
+            {
+                <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-[11px]">
+                    @(isFa ? "پین شده" : "Pinned")
+                </span>
+            }
+
+            @if (Model.IsLocked)
+            {
+                <span class="px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300 text-[11px]">
+                    @(isFa ? "قفل شده" : "Locked")
+                </span>
+            }
+        </div>
+    </div>
+
+    <!-- Topic voting + content -->
+    <div class="flex gap-4 mb-10">
+
+        <!-- Topic voting -->
+        <div class="flex flex-col items-center pt-1">
+            @if (User.Identity.IsAuthenticated && Model.IsApproved)
+            {
+                <form asp-action="VoteTopic" method="post">
+                    <input type="hidden" name="topicId" value="@Model.Id" />
+                    <input type="hidden" name="value" value="1" />
+                    <button type="submit"
+                            class="text-green-600 dark:text-green-400 text-2xl leading-none">
+                        ▲
+                    </button>
+                </form>
+            }
+
+            <span class="text-lg font-bold my-1">
+                @(Model.Votes?.Sum(v => v.Value) ?? 0)
+            </span>
+
+            @if (User.Identity.IsAuthenticated && Model.IsApproved)
+            {
+                <form asp-action="VoteTopic" method="post">
+                    <input type="hidden" name="topicId" value="@Model.Id" />
+                    <input type="hidden" name="value" value="-1" />
+                    <button type="submit"
+                            class="text-red-600 dark:text-red-400 text-2xl leading-none">
+                        ▼
+                    </button>
+                </form>
+            }
+        </div>
+
+        <!-- Topic content -->
+        <div class="flex-1">
+            <div class="prose dark:prose-invert max-w-none text-sm md:text-base">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+    </div>
+
+    <!-- Replies -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">
+            @(isFa ? "پاسخ‌ها" : "Replies")
+        </h2>
+
+        @if (Model.Replies != null && Model.Replies.Any(r => r.ParentId == null))
+        {
+            @RenderReplies(Model.Replies.Where(r => r.ParentId == null), 0)
+        }
+        else
+        {
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                @(isFa ? "هنوز پاسخی ثبت نشده است." : "No replies yet.")
+            </p>
+        }
+    </div>
+
+    <!-- Add new root reply -->
+    <div class="mt-8 border-t border-gray-200 dark:border-gray-800 pt-6">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (Model.IsLocked)
+            {
+                <div class="text-sm text-red-500 dark:text-red-400">
+                    @(isFa ? "این تاپیک قفل شده است و امکان ارسال پاسخ وجود ندارد." :
+                             "This topic is locked. You cannot reply.")
+                </div>
+            }
+            else
+            {
+                <h3 class="text-lg font-semibold mb-3">
+                    @(isFa ? "ارسال پاسخ جدید" : "Add a new reply")
+                </h3>
+
+                <form asp-action="Reply" method="post" class="space-y-4">
+                    <input type="hidden" name="topicId" value="@Model.Id" />
+                    <input type="hidden" name="parentId" value="" />
+
+                    <textarea name="content" rows="4"
+                              class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700
+                                     bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none text-sm"
+                              placeholder="@(isFa ? "پاسخ خود را بنویسید..." : "Write your reply...")"></textarea>
+
+                    <button type="submit"
+                            class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm">
+                        @(isFa ? "ارسال پاسخ" : "Submit reply")
+                    </button>
+                </form>
+            }
+        }
+        else
+        {
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+                @(isFa ? "برای ارسال پاسخ باید وارد شوید." : "You must be logged in to reply.")
+                <a asp-controller="Auth" asp-action="Login"
+                   class="text-blue-600 dark:text-blue-400 hover:underline">
+                    @(isFa ? "ورود" : "Login")
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+
+@* @using Domain
+@model ForumTopic
+
+@helper
+
+    RenderReplies(IEnumerable<ForumReply>
+    replies, int level)
+    {
+    foreach (var r in replies.OrderBy(x => x.CreatedAt))
+    {
+    <div class="ml-@(level * 20) p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700 mb-3">
+
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+            @r.User.UserName — @r.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+        </div>
+
+        <p class="mb-3">@r.Content</p>
+
+        <!-- Reply button -->
+        @if (User.Identity.IsAuthenticated)
+        {
+            <button onclick="document.getElementById('replyForm-@r.Id').classList.toggle('hidden')"
+                    class="text-blue-600 dark:text-blue-400 text-sm">
+                پاسخ / Reply
+            </button>
+
+            <form id="replyForm-@r.Id" asp-action="Reply" method="post"
+                  class="hidden mt-3 space-y-2">
+                <input type="hidden" name="topicId" value="@r.TopicId" />
+                <input type="hidden" name="parentId" value="@r.TopicId" />
+
+                <textarea name="content" rows="3"
+                          class="w-full p-2 rounded-lg border border-gray-300 dark:border-gray-700
+                                     bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                          placeholder="پاسخ خود را بنویسید..."></textarea>
+
+                <button type="submit"
+                        class="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded">
+                    ارسال پاسخ
+                </button>
+
+                <div class="flex items-center gap-3 mb-2">
+                    <form asp-action="VoteReply" method="post">
+                        <input type="hidden" name="replyId" value="@r.Id" />
+                        <input type="hidden" name="value" value="1" />
+                        <button class="text-green-600 dark:text-green-400 text-lg">▲</button>
+                    </form>
+                    <span class="font-semibold">
+                        @(r.Votes.Sum(v => v.Value))
+                    </span>
+                    <form asp-action="VoteReply" method="post">
+                        <input type="hidden" name="replyId" value="@r.Id" />
+                        <input type="hidden" name="value" value="-1" />
+                        <button class="text-red-600 dark:text-red-400 text-lg">▼</button>
+                    </form>
+                </div>
+
+            </form>
+
+            
+        }
+
+    </div>
+
+    if (r.Children.Any())
+    {
+    @RenderReplies(r.Children, level + 1)
+    }
+    }
+    }
+
+    <div class="max-w-4xl mx-auto py-10">
+
+        <h1 class="text-3xl font-bold mb-4">@Model.Title</h1>
+
+
+
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            توسط @Model.User.UserName — @Model.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+        </div>
+
+        <div class="prose dark:prose-invert max-w-none mb-10">
+            @Html.Raw(Model.Content)
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4">پاسخ‌ها / Replies</h2>
+
+        <div class="space-y-4 mb-8">
+            @foreach (var r in Model.Replies.OrderBy(x => x.CreatedAt))
+            {
+                <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                        @r.User.UserName — @r.CreatedAt.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
+                    </div>
+                    <p>@r.Content</p>
+                </div>
+            }
+        </div>
+
+        <h2 class="text-2xl font-semibold mb-4">پاسخ‌ها / Replies</h2>
+        @RenderReplies(Model.Replies.Where(r => r.ParentId == null), 0)
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form asp-action="Reply" method="post" class="space-y-4">
+                <input type="hidden" name="topicId" value="@Model.ForumTopicId" />
+
+                <textarea name="content" rows="4"
+                          class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-700
+                             bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none"
+                          placeholder="پاسخ خود را بنویسید..."></textarea>
+
+                <button type="submit"
+                        class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                    ارسال پاسخ / Submit Reply
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+
+                    <form asp-action="VoteTopic" method="post">
+                        <input type="hidden" name="topicId" value="@Model.ForumTopicId" />
+                        <input type="hidden" name="value" value="1" />
+                        <button class="text-green-600 dark:text-green-400 text-2xl">▲</button>
+                    </form>
+
+                    <span class="text-xl font-bold">
+                        @(Model.Votes.Sum(v => v.Value))
+                    </span>
+
+                    <form asp-action="VoteTopic" method="post">
+                        <input type="hidden" name="topicId" value="@Model.ForumTopicId" />
+                        <input type="hidden" name="value" value="-1" />
+                        <button class="text-red-600 dark:text-red-400 text-2xl">▼</button>
+                    </form>
+
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="text-gray-600 dark:text-gray-400">
+                برای پاسخ دادن باید وارد شوید.
+                <a asp-controller="Auth" asp-action="Login"
+                   class="text-blue-600 dark:text-blue-400 hover:underline">
+                    ورود
+                </a>
+            </div>
+        }
+    </div>
+
+
+    
+
+ *@

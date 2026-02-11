@@ -1,0 +1,71 @@
+﻿@using Domain
+@model IEnumerable<ForumTopic>
+
+<div class="max-w-6xl mx-auto py-8">
+
+    <h1 class="text-2xl font-bold mb-6">Moderate Topics</h1>
+
+    <table class="min-w-full bg-white dark:bg-gray-900 border dark:border-gray-800">
+        <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+                <th class="px-4 py-2">Title</th>
+                <th class="px-4 py-2">User</th>
+                <th class="px-4 py-2">Category</th>
+                <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr class="border-t dark:border-gray-800">
+                    <td class="px-4 py-2">@t.Title</td>
+                    <td class="px-4 py-2">@t.User.UserName</td>
+                    <td class="px-4 py-2">@t.Category.NameEn</td>
+
+                    <td class="px-4 py-2">
+                        @if (t.IsApproved)
+                        {
+                            <span class="text-green-600">Approved</span>
+                        }
+                        else
+                        {
+                            <span class="text-yellow-600">Pending</span>
+                        }
+
+                        @if (t.IsLocked)
+                        {
+                            <span class="text-red-600 ml-2">Locked</span>
+                        }
+
+                        @if (t.IsPinned)
+                        {
+                            <span class="text-blue-600 ml-2">Pinned</span>
+                        }
+                    </td>
+
+                    <td class="px-4 py-2 space-x-2">
+
+                        <form asp-action="ApproveTopic" asp-route-id="@t.ForumTopicId" method="post" class="inline">
+                            <button class="text-green-600 hover:underline">Approve</button>
+                        </form>
+
+                        <form asp-action="RejectTopic" asp-route-id="@t.ForumTopicId" method="post" class="inline">
+                            <button class="text-yellow-600 hover:underline">Reject</button>
+                        </form>
+
+                        <form asp-action="LockTopic" asp-route-id="@t.ForumTopicId" method="post" class="inline">
+                            <button class="text-red-600 hover:underline">Lock/Unlock</button>
+                        </form>
+
+                        <form asp-action="PinTopic" asp-route-id="@t.ForumTopicId" method="post" class="inline">
+                            <button class="text-blue-600 hover:underline">Pin/Unpin</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -11,7 +11,7 @@
         public long CategoryId { get; set; }
         public ForumCategory Category { get; set; } = default!;
         public bool IsLocked { get; set; }
-        public ICollection<ForumPost> Posts { get; set; } = new List<ForumPost>();
+        public ICollection<ForumPost> Posts { get; set; } = [];
     }
 
 }

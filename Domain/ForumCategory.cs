@@ -8,6 +8,7 @@
         public string NameEn { get; set; } = default!;
         public string Slug { get; set; } = default!;
         public ICollection<ForumThread> Threads { get; set; } = new List<ForumThread>();
+        public ICollection<ForumTopic> Topics { get; set; } = new List<ForumTopic>();
     }
 
 }
