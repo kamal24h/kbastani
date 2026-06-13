@@ -78,7 +78,7 @@ namespace WebApp.Controllers
         {
             if (!ModelState.IsValid) return View(model);
             
-            model.UserId = User.GetUserId();
+            //model.UserId = User.GetUserId();
             model.Slug = SlugHelper.GenerateSlug(model.Title);
 
             _db.ForumTopics.Add(model);
@@ -98,7 +98,7 @@ namespace WebApp.Controllers
             {
                 TopicId = topicId,
                 Content = content,
-                UserId = User.GetUserId(),
+                //UserId = User.GetUserId(),
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -121,7 +121,7 @@ namespace WebApp.Controllers
             {
                 TopicId = topicId,
                 Content = content,
-                UserId = User.GetUserId(),
+                //UserId = User.GetUserId(),
                 ParentId = parentId,
                 CreatedAt = DateTime.UtcNow
             };
@@ -141,17 +141,18 @@ namespace WebApp.Controllers
             if (value != 1 && value != -1)
                 return BadRequest("Invalid vote");
 
-            var userId = User.GetUserId();
+            //var userId = User.GetUserId();
 
             var existing = await _db.TopicVotes
-                .FirstOrDefaultAsync(v => v.TopicId == topicId && v.UserId == userId);
+                .FirstOrDefaultAsync(v => v.TopicId == topicId);
+                //.FirstOrDefaultAsync(v => v.TopicId == topicId && v.UserId == userId);
 
             if (existing == null)
             {
                 _db.TopicVotes.Add(new TopicVote
                 {
                     TopicId = topicId,
-                    UserId = userId,
+                    //UserId = userId,
                     Value = value
                 });
             }
@@ -182,37 +183,37 @@ namespace WebApp.Controllers
             if (value != 1 && value != -1)
                 return BadRequest("Invalid vote");
 
-            var userId = User.GetUserId();
+            //var userId = User.GetUserId();
 
-            var existing = await _db.ReplyVotes
-                .FirstOrDefaultAsync(v => v.ReplyId == replyId && v.UserId == userId);
+            //var existing = await _db.ReplyVotes
+            //    .FirstOrDefaultAsync(v => v.ReplyId == replyId && v.UserId == userId);
 
-            if (existing == null)
-            {
-                _db.ReplyVotes.Add(new ReplyVote
-                {
-                    ReplyId = replyId,
-                    UserId = userId,
-                    Value = value
-                });
-            }
-            else
-            {
-                if (existing.Value == value)
-                {
-                    _db.ReplyVotes.Remove(existing);
-                }
-                else
-                {
-                    existing.Value = value;
-                }
-            }
+            //if (existing == null)
+            //{
+            //    _db.ReplyVotes.Add(new ReplyVote
+            //    {
+            //        ReplyId = replyId,
+            //        UserId = userId,
+            //        Value = value
+            //    });
+            //}
+            //else
+            //{
+            //    if (existing.Value == value)
+            //    {
+            //        _db.ReplyVotes.Remove(existing);
+            //    }
+            //    else
+            //    {
+            //        existing.Value = value;
+            //    }
+            //}
 
             await _db.SaveChangesAsync();
 
             var reply = await _db.ForumReplies
                 .Include(r => r.Topic)
-                .FirstOrDefaultAsync(r => r.Id == replyId);
+                .FirstOrDefaultAsync(r => r.ForumReplyId == replyId);
 
             return RedirectToAction("Topic", new { slug = reply!.Topic.Slug });
         }

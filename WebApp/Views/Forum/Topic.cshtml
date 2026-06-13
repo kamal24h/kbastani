@@ -6,7 +6,7 @@
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
     var isFa = culture == "fa";
 }
-
+@* 
 @helper RenderReplies(IEnumerable<ForumReply> replies, int level)
 {
     foreach (var r in replies.OrderBy(x => x.CreatedAt))
@@ -148,9 +148,9 @@
                     </button>
                 </form>
             }
-        </div>
+       </div> *@
 
-        <!-- Topic content -->
+   @*      <!-- Topic content -->
         <div class="flex-1">
             <div class="prose dark:prose-invert max-w-none text-sm md:text-base">
                 @Html.Raw(Model.Content)
@@ -220,7 +220,7 @@
             </div>
         }
     </div>
-</div>
+</div> *@
 
 
 @* @using Domain

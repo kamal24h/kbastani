@@ -118,7 +118,7 @@ namespace Portfolio.Areas.Admin.Controllers
         {
             var reply = await _db.ForumReplies
                 .Include(r => r.Children)
-                .FirstOrDefaultAsync(r => r.Id == id);
+                .FirstOrDefaultAsync(r => r.ForumReplyId == id);
 
             if (reply == null) return NotFound();
 
